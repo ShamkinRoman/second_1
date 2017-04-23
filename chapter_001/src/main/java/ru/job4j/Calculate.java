@@ -6,7 +6,7 @@ package ru.job4j;
 */
 public class Calculate{
 	/**
-	Метод для первой программы которая выводит Hello world
+	*Метод для первой программы которая выводит Hello world
 	*/
 	public static void main (String[] arg){
 		System.out.println("Hello world");
