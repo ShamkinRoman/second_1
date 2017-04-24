@@ -9,6 +9,6 @@ public class Calculate{
 	*Метод для первой программы которая выводит Hello world
 	*/
 	public static void main (String[] arg){
-		System.out.println("Hello world");
+		System.out.println("Hello World");
 	}
 }
