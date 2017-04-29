@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 /**
  *Test Point.
  *@author Shamkin Roman.
- *@since 26.04.2017.
+ *@since 30.04.2017.
  */
 public class PointTest {
 	/**
@@ -22,7 +22,7 @@ public class PointTest {
 	public void whenX2A3B1thenY7() {
 		//Создаем объект Point с координатами х = 2 у = 7.
 		Point line = new Point(2, 7);
-		//создаем переменную для результата о
+		//создаем переменную для результата
 		//принадлежности точки прякой с коэффициентами а = 3 b = 1.
 		boolean result = line.is(3, 1);
 		//создаем переменную для сравнения и заданным значение TRUE

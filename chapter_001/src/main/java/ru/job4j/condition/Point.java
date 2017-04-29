@@ -40,10 +40,10 @@ public class Point {
 	 *Метод определяющий, принадлежит точка прямой или нет.
 	 * Уравнение прямой y=a*x+b
 	 *@param a - коэффициент а
-	 *@param b - коэффициент а
+	 *@param b - коэффициент b
 	 @return возвращает ИСТИНА или ЛОЖЬ
 	 */
 	public boolean is(int a, int b) {
-		return (a * getX() + b) == getY() ? true : false;
+		return (a * this.x + b) == this.y;
 	}
 }
