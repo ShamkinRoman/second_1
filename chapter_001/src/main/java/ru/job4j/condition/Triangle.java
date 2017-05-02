@@ -4,14 +4,13 @@ package ru.job4j.condition;
  *@author Shamkin Roman.
  *@since 01.05.2017.
  */
- //Объявлем класс Triangle
 public class Triangle {
-	/** a Объявляем объект класса Point. */
-	private Point a;
-	/** b Объявляем объект класса Point. */
-	private Point b;
-	/** c Объявляем объект класса Point. */
-	 private Point c;
+	/**Точка a. */
+		private Point a;
+	/**Точка b. */
+		private Point b;
+	/**Точка c. */
+		private Point c;
 	/**Объявляем метод Triangle, в качестве параметров передаем ему точки а, b, c.
 	 *@param a - точка а
 	 *@param b - точка b
@@ -30,60 +29,43 @@ public class Triangle {
 	public  Triangle(Point a, Point b) {
 		this.a = a;
 		this.b = b;
-		//присваеваем точке "с" пустое значение.
 		this.c = null;
 	}
-	/**
-	 * Метод для area() вычисления площади.
-	 *@return зависит от того, сколько точек передали.
+	/** Метод для определения длины стороны.
+	 *@param a - точка а
+	 *@param b - точка b
+	 *@return длина стороны
+	*/
+	public double dlina(Point a, Point b) {
+		double dlinaX, dlinaY, dlina;
+		dlinaX = Math.abs((a.getX() - b.getX()));
+		dlinaY = Math.abs((a.getY() - b.getY()));
+		dlina = Math.pow((Math.pow(dlinaX, 2) + Math.pow(dlinaY, 2)), 0.5);
+		return dlina;
+	}
+	/**Вычисление площади.
+	 *@return вычисленная площадь
 	 */
 	public double area() {
-		//проверяем, если передано две точки, возвращаем -1
 		if (this.c == null) {
-			//@return -1 - отрицательное значение.
+			//@return -1 - отрицательное значение. т.к переданы две стороны
 			return -1;
 			}
-		/**Переменные для вычисления длины стороны AB
-		 *dlinaAx длина по координате Х
-		 *dlinaAy длина по координате Y
-		 *dlinaA длина стороны AB
-		 *Math.pow() возведение в степень
-		 */
-		double dlinaAx, dlinaAy, dlinaA;
-		dlinaAx = Math.abs((this.a.getX() - this.b.getX()));
-		dlinaAy = Math.abs((this.a.getY() - this.b.getY()));
-		dlinaA = Math.pow((Math.pow(dlinaAx, 2) + Math.pow(dlinaAy, 2)), 0.5);
-		/**Переменные для вычисления длины стороны BC
-		 *dlinaBx длина по координате Х
-		 *dlinaBy длина по координате Y
-		 *dlinaB длина стороны BC
-		 *Math.pow() возведение в степень
-		 */
-		double dlinaBx, dlinaBy, dlinaB;
-		dlinaBx = Math.abs((this.c.getX() - this.b.getX()));
-		dlinaBy = Math.abs((this.c.getY() - this.b.getY()));
-		dlinaB = Math.pow((Math.pow(dlinaBx, 2) + Math.pow(dlinaBy, 2)), 0.5);
-		/**Переменные для вычисления длины стороны АC
-		 *dlinaCx длина по координате Х
-		 *dlinaCy длина по координате Y
-		 *dlinaC длина стороны AC
-		 *Math.pow() возведение в степень
-		 */
-		double dlinaCx, dlinaCy, dlinaC;
-		dlinaCx = Math.abs((this.a.getX() - this.c.getX()));
-		dlinaCy = Math.abs((this.a.getY() - this.c.getY()));
-		dlinaC = Math.pow((Math.pow(dlinaCx, 2) + Math.pow(dlinaCy, 2)), 0.5);
+		/** Вычисляем стороны ab, bc, ac */
+		double ab, ac, bc;
+		 ab = dlina(a, b);
+		 bc = dlina(b, c);
+		 ac = dlina(a, c);
 		/**
 		 *p полупериметр
 		 *square площадь
 		 */
 		double p, square;
 		//p=(A+B+C)/2
-		p = (dlinaA + dlinaB + dlinaC) / 2;
+		p = (ab + bc + ac) / 2;
 		//Площадь вычисляется по формуле Герона.
 		//S=sqrt(p*(p-a)*(p-b)*(p-c))
-		//Math.pow() возведение в степень
-		square = Math.pow((p * (p - dlinaA) * (p - dlinaB) * (p - dlinaC)), 0.5);
+		square = Math.pow((p * (p - ab) * (p - ac) * (p - bc)), 0.5);
 		//@return S - площадь.
 		return square;
 	}
