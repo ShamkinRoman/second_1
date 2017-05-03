@@ -37,10 +37,9 @@ public class Triangle {
 	 *@return длина стороны
 	*/
 	public double dlina(Point a, Point b) {
-		double dlinaX, dlinaY, dlina;
-		dlinaX = Math.abs((a.getX() - b.getX()));
-		dlinaY = Math.abs((a.getY() - b.getY()));
-		dlina = Math.pow((Math.pow(dlinaX, 2) + Math.pow(dlinaY, 2)), 0.5);
+		double dlinaX = Math.abs((a.getX() - b.getX()));
+		double dlinaY = Math.abs((a.getY() - b.getY()));
+		double dlina = Math.pow((Math.pow(dlinaX, 2) + Math.pow(dlinaY, 2)), 0.5);
 		return dlina;
 	}
 	/**Вычисление площади.
