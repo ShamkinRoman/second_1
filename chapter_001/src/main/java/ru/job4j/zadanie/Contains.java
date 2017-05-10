@@ -18,7 +18,7 @@ public class Contains {
 		/**Преобразование строк в массив символов.*/
 		char[] originChar = origin.toCharArray();
 		char[] subChar = sub.toCharArray();
-		/*переменная для результата. */
+		/**переменная для результата. */
 		boolean match = false;
 		for (int i = 0; i < (lengthOrigin - lengthSub + 1); i++) {
 			if (originChar[i] == subChar[0]) {
