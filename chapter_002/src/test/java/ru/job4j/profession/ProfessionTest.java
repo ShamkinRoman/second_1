@@ -34,7 +34,7 @@ public class ProfessionTest {
         Doctor doctor = new Doctor("Доктор", "Саша", 22);
         Teacher teacher = new Teacher("Учитель", "Маша", 33);
         String result = teacher.teachDoctor(doctor);
-        String expected = "Учитель Маша учит Доктор Саша, занятие составило 55 минут. Имя ребенка Полина";
+        String expected = "Учитель Маша учит Доктор Саша, занятие составило 55 минут. Полина имя ребенка.";
         assertThat(result, is(expected));
     }
 }

@@ -5,11 +5,11 @@ package ru.job4j.profession;
  */
 public class Profession {
     /**Переменные класса.*/
-    public String profa;
+    private String profa;
 	/**Переменные класса.*/
-    public String name;
+    private String name;
 	/**Переменные класса.*/
-    public int age;
+    private int age;
     /**Конструктор класса.*/
     public Profession() {
 

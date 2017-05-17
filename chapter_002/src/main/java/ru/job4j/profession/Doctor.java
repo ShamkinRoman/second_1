@@ -4,15 +4,13 @@ package ru.job4j.profession;
  */
 public class Doctor extends Profession {
 	/**Внутренне поле nameChild, заранее заданное.*/
-        String nameChild = "Полина";
+       private String nameChild = "Полина";
 	/**Конструктор класса Teacher.
 	 *@param profa profa
 	 *@param name name
 	 *@param age age*/
     public Doctor(String profa, String name, int age) {
-        this.profa = profa;
-        this.name = name;
-        this.age = age;
+        super(profa, name, age);
         this.nameChild = nameChild;
     }
 	/**Метод обращение к внутреннему полю nameChild.
@@ -26,16 +24,18 @@ public class Doctor extends Profession {
      * @param profession profession
      * @return result*/
     public String healProfession(Profession profession) {
-        int hour = this.age + profession.getAge();
-        String result = (this.profa + " " + this.name + " лечит " + profession.getProfa() + " " + profession.getName() + ", стоимость лечения составляет " + hour + " рублей.");
+        int hour = getAge() + profession.getAge();
+        //String result = (getProfa() + " " + getName() + " лечит " + profession.getProfa() + " " + profession.getName() + ", стоимость лечения составляет " + hour + " рублей.");
+		String result = String.format("%1$1s %2$1s лечит %3$1s %4$1s, стоимость лечения составляет %5$1s рублей.", getProfa(), getName(), profession.getProfa(), profession.getName(), hour);
         return result;
     }
     /**Входящий класс Doctor.
      * @param engineer engineer
      * @return result*/
     public String healEngineer(Engineer engineer) {
-        int hour = this.age + engineer.getAge();
-        String result = (this.profa + " " + this.name + " лечит " + engineer.getProfa() + " " + engineer.getName() + ", стоимость лечения составляет " + hour + " рублей. Адрес " + engineer.getAdress());
+        int hour = getAge() + engineer.getAge();
+        //String result = (getProfa() + " " + getName() + " лечит " + engineer.getProfa() + " " + engineer.getName() + ", стоимость лечения составляет " + hour + " рублей. Адрес " + engineer.getAdress());
+        String result = String.format("%1$1s %2$1s лечит %3$1s %4$1s, стоимость лечения составляет %5$1s рублей. %6$1s адрес проживания.", getProfa(), getName(), engineer.getProfa(), engineer.getName(), hour, engineer.getAdress());
         return result;
     }
 }
