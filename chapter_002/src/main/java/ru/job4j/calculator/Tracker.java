@@ -78,7 +78,11 @@ public class Tracker {
 			}
 		}
 		Item[] result = new Item[d];
-		System.arraycopy(temp, 0, result, 0, d);
+		if (d != 0) {
+			System.arraycopy(temp, 0, result, 0, d);
+		} else {
+			result = null;
+		}
 		return result;
 	}
 	/**Метод поиска по имени.
