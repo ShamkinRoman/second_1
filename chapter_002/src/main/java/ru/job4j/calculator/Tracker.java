@@ -1,28 +1,31 @@
 package ru.job4j.calculator;
+
+import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Created by Администратор on 23.05.2017.
  */
 public class Tracker {
-	/**Переменные класса.*/
+	/**Объявлем Tracker.*/
 	private Item[] items = new Item[100];
-	/**Переменные класса.*/
+	/**Счетчик заявок.*/
 	private int position = 0;
-	/**Переменные класса.*/
+	/**Генератор для generateId.*/
 	private static final Random RN = new Random();
-	/**Метод добавления Item.
+	/**Добавление заявок.
 	 *@param item item
-	 *@return item
+	 *@return  item
 	 */
 	public Item add(Item item) {
 		item.setId(generateId());
 		this.items[position++] = item;
+		//System.out.println("Осталось "+ (100-this.position)+" свободных мест для заявок");
 		return item;
 	}
-	/**Метод поиска по id.
+	/**Поиск заявок по Id.
 	 *@param id id
-	 *@return item
+	 *@return  item
 	 */
 	protected Item findById(String id) {
 		Item result = null;
@@ -34,28 +37,34 @@ public class Tracker {
 		}
 		return result;
 	}
-	/**Метод генерации id.
-	 **@return id как строку
+	/**Генератор id.
+	 *@return id
 	 */
 	String generateId() {
 		return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+
 	}
-	/**Мой собственный методод для тестов.
-	 *@param item Item
-	 **@return id как строку
+	/**Редактирование заявок.
+	 *@param item item
+	 *@param id   id
 	 */
-	public String returnId(Item item) {
-		return item.getId();
+	public void update(String id, Item item) {
+		Item temp = new Item();
+		temp = findById(id);
+		if (temp != null) {
+			int r = 0;
+			for (int i = 0; i <= this.position; i++) {
+				if (items[i].equals(temp)) {
+					r = i;
+					break;
+				}
+			}
+			this.items[r] = item;
+			this.items[r].setId(generateId());
+		}
 	}
-	/**Метод update.
-	 * @param item Item
-	 */
-	public void update(Item item) {
-		Item ll = new Item();
-		ll = findById(item.getId());
-	}
-	/**Метод delete.
-	 * @param item Item
+	/**Удаление заявок.
+	 *@param item item
 	 */
 	public void delete(Item item) {
 		for (int i = 0; i < this.position; i++) {
@@ -64,9 +73,15 @@ public class Tracker {
 				break;
 			}
 		}
+		for (int i = 0; i < this.position - 1; i++) {
+			if (this.items[i] == null) {
+				items[i] = items[i + 1];
+			}
+		}
+		this.position--;
 	}
-	/**Метод поиска.
-	 *@return result
+	/**Поиск всех заявок.
+	 *@return  item[]
 	 */
 	public Item[] findAll() {
 		Item[] temp = new Item[this.position];
@@ -77,33 +92,21 @@ public class Tracker {
 				d++;
 			}
 		}
-		Item[] result = new Item[d];
-		if (d != 0) {
-			System.arraycopy(temp, 0, result, 0, d);
-		} else {
-			result = null;
-		}
-		return result;
+		return Arrays.copyOf(temp, d);
 	}
-	/**Метод поиска по имени.
-	 * @param key - name
-	 *@return result
+	/**Поиск заявок по имени.
+	 *@param key key
+	 *@return  item[]
 	 */
 	public Item[] findByName(String key) {
 		Item[] temp = new Item[this.position];
 		int d = 0;
-		for (int i = 0; i <= this.position; i++) {
-			if ((this.items[i] != null) && (this.items[i].getName().equals(key))) {
+		for (int i = 0; i < this.position; i++) {
+			if (this.items[i].getName().equals(key)) {
 				temp[d] = this.items[i];
 				d++;
 			}
 		}
-		Item[] result = new Item[d];
-		if (d != 0) {
-			System.arraycopy(temp, 0, result, 0, d);
-		} else {
-			result = null;
-		}
-		return result;
+		return Arrays.copyOf(temp, d);
 	}
 }

@@ -57,8 +57,7 @@ public class CalculatorTest {
         tracker.add(item);
         tracker.add(item1);
         tracker.delete(item);
-        Item item2 = new Item();
-        item2 = null;
+        Item[] item2 = new Item[0];
         assertThat(tracker.findByName("test1"), is(item2));
     }
     /**
