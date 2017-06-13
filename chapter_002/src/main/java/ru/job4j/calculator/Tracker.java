@@ -46,21 +46,13 @@ public class Tracker {
 	}
 	/**Редактирование заявок.
 	 *@param item item
-	 *@param id   id
 	 */
-	public void update(String id, Item item) {
-		Item temp = new Item();
-		temp = findById(id);
-		if (temp != null) {
-			int r = 0;
-			for (int i = 0; i <= this.position; i++) {
-				if (items[i].equals(temp)) {
-					r = i;
-					break;
-				}
+	public void update(Item item) {
+		for (int i = 0; i < this.position; i++) {
+			if (this.items[i].getId().equals(item.getId())) {
+				this.items[i] = item;
+				break;
 			}
-			this.items[r] = item;
-			this.items[r].setId(generateId());
 		}
 	}
 	/**Удаление заявок.
