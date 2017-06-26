@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
- * Created by Up on 18.06.2017.
+ * Created by Up on 18.06.2017..
  */
 public class PaintTest {
     /**
