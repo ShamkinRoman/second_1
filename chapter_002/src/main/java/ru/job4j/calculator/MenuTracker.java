@@ -1,19 +1,23 @@
 package ru.job4j.calculator;
+
 /**
  * Внешний класс Редактирование заявки.
- *
  */
 class EditItem implements UserAction {
     /**
      * Возврат значения ключа(меню).
+     *
      * @return key
      */
     public int key() {
         return 3;
     }
-    /**.
+
+    /**
+     * .
      * Метод исполнения
-     * @param input input
+     *
+     * @param input   input
      * @param tracker tracer
      */
     public void execute(Input input, Tracker tracker) {
@@ -30,8 +34,10 @@ class EditItem implements UserAction {
         }
     }
 
-    /**.
+    /**
+     * .
      * Информация для чего создан класс.
+     *
      * @return return
      */
     public String info() {
@@ -39,20 +45,25 @@ class EditItem implements UserAction {
     }
 }
 
-/**.
+/**
+ * .
  * Внешний класс для Удаления заявки.
  */
 class DeleteItem implements UserAction {
     /**
      * Возврат значения ключа(меню).
+     *
      * @return key
      */
     public int key() {
         return 4;
     }
-    /**.
+
+    /**
+     * .
      * Метод исполнения
-     * @param input input
+     *
+     * @param input   input
      * @param tracker tracer
      */
     public void execute(Input input, Tracker tracker) {
@@ -65,35 +76,47 @@ class DeleteItem implements UserAction {
         }
 
     }
-    /**.
+
+    /**
+     * .
      * Информация для чего создан класс.
+     *
      * @return return
      */
     public String info() {
         return String.format("%s. %s", this.key(), "Удалить заявку.");
     }
 }
+
 /**
  * Внешний класс для Выход из программы, ничего не делает, только выводит надпись.
  */
 class ExitItem implements UserAction {
-    /**.
+    /**
+     * .
      * Возврат значения ключа(меню).
+     *
      * @return key
      */
     public int key() {
         return 7;
     }
-    /**.
+
+    /**
+     * .
      * Метод исполнения
-     * @param input input
+     *
+     * @param input   input
      * @param tracker tracer
      */
     public void execute(Input input, Tracker tracker) {
         System.out.println("Выходим из программы.");
     }
-    /**.
+
+    /**
+     * .
      * Информация для чего создан класс.
+     *
      * @return return
      */
     public String info() {
@@ -101,20 +124,29 @@ class ExitItem implements UserAction {
     }
 }
 
-/**.
+/**
+ * .
  * Created by Up on 26.06.2017.
  */
 public class MenuTracker {
-    /**Создание трекера.*/
+    /**
+     * Создание трекера.
+     */
     private Tracker tracker;
-    /**Создание ввода от пользователя.*/
+    /**
+     * Создание ввода от пользователя.
+     */
     private Input input;
-    /**Создание меню.*/
+    /**
+     * Создание меню.
+     */
     private UserAction[] userAction = new UserAction[7];
 
-    /**.
+    /**
+     * .
      * Дефолтный конструктор.
-     * @param input input
+     *
+     * @param input   input
      * @param tracker tracer
      */
     public MenuTracker(Input input, Tracker tracker) {
@@ -122,7 +154,8 @@ public class MenuTracker {
         this.tracker = tracker;
     }
 
-    /**.
+    /**
+     * .
      * Вывод значений Меню на экран.
      */
     public void show() {
@@ -133,7 +166,8 @@ public class MenuTracker {
         }
     }
 
-    /**.
+    /**
+     * .
      * Создание меню.
      */
     public void fillaction() {
@@ -147,58 +181,84 @@ public class MenuTracker {
         this.userAction[6] = new ExitItem();
     }
 
-    /**.
+    /**
+     * .
      * Выбор меню.
+     *
      * @param key key
      */
     public void select(int key) {
         this.userAction[(--key)].execute(this.input, tracker);
     }
 
-    /**.
+    /**
+     * .
      * Внутренний класс Добавление заявки.
      */
     private class AddItem implements UserAction {
         /**
          * Возврат значения ключа(меню).
+         *
          * @return key
          */
         public int key() {
             return 1;
         }
-        /**.
+
+        /**
+         * .
          * Метод исполнения
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracer
          */
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Name: ");
             String description = input.ask("Description: ");
-            Long create = Long.parseLong(input.ask("Create in Long format: "));
-            tracker.add(new Item(name, description, create));
+            boolean invalid = true;
+            Long value = null;
+            do {
+                try {
+                    value = Long.parseLong(input.ask("Введите число:"));
+                    invalid = false;
+                } catch (NumberFormatException lala) {
+                    System.out.println("Введите число, а не буквы!!!");
+                }
+            } while (invalid);
+            tracker.add(new Item(name, description, value));
         }
-        /**.
+
+        /**
+         * .
          * Информация для чего создан класс.
+         *
          * @return return
          */
         public String info() {
             return String.format("%s. %s", this.key(), "Добавить новую заявку.");
         }
     }
-    /**.
+
+    /**
+     * .
      * Внутренний класс Поиск завки по Id.
      */
     private class FindById implements UserAction {
-        /**.
+        /**
+         * .
          * Возврат значения ключа(меню).
+         *
          * @return key
          */
         public int key() {
             return 5;
         }
-        /**.
+
+        /**
+         * .
          * Метод исполнения
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracer
          */
         public void execute(Input input, Tracker tracker) {
@@ -212,28 +272,38 @@ public class MenuTracker {
             }
 
         }
-        /**.
+
+        /**
+         * .
          * Информация для чего создан класс.
+         *
          * @return return
          */
         public String info() {
             return String.format("%s. %s", this.key(), "Найти заявку по Id.");
         }
     }
-    /**.
+
+    /**
+     * .
      * Внутренний статический класс Показать все заявки.
      */
     private static class ShowItem implements UserAction {
-        /**.
+        /**
+         * .
          * Возврат значения ключа(меню).
+         *
          * @return key
          */
         public int key() {
             return 2;
         }
-        /**.
+
+        /**
+         * .
          * Метод исполнения.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracer
          */
         public void execute(Input input, Tracker tracker) {
@@ -250,28 +320,34 @@ public class MenuTracker {
             }
 
         }
+
         /**
          * Информация для чего создан класс.
+         *
          * @return return
          */
         public String info() {
             return String.format("%s. %s", this.key(), "Показать все заявки.");
         }
     }
+
     /**
      * Внутренний статический класс Поиск заявок по имени.
      */
     private static class FindByName implements UserAction {
         /**
          * Возврат значения ключа(меню).
+         *
          * @return key
          */
         public int key() {
             return 6;
         }
+
         /**
          * Метод исполнения.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracer
          */
         public void execute(Input input, Tracker tracker) {
@@ -290,8 +366,10 @@ public class MenuTracker {
             }
 
         }
+
         /**
          * Информация для чего создан класс.
+         *
          * @return return
          */
         public String info() {

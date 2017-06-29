@@ -11,6 +11,8 @@ public class StartUI {
      */
     private Input input;
 
+   /**Диапазон значений меню, для проверки на корректность ввода.*/
+    private int[] ranges = new int[]{1, 2, 3, 4, 5, 6, 7};
     /**
      * Конструктор.
      *
@@ -26,6 +28,7 @@ public class StartUI {
      */
     public StartUI() {
     }
+
     /**
      * Старт меню.
      */
@@ -37,9 +40,10 @@ public class StartUI {
         int key;
         do {
             menuTracker.show();
-            key = Integer.valueOf(this.input.ask("Ваш выбор: "));
+            key = Integer.valueOf(this.input.ask("Ваш выбор: ", ranges));
+            //menuTracker.select(input.ask("Select: ", ranges));
             menuTracker.select(key);
-        } while (key != 7);
+        } while (7 != key);
     }
 
     /**
@@ -48,7 +52,7 @@ public class StartUI {
      * @param args args
      */
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         new StartUI(input).init();
     }
 }

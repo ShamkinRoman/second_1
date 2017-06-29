@@ -21,4 +21,15 @@ public class StunInput implements Input {
     public String ask(String question) {
         return answers[position++];
     }
+
+    /**
+     *
+     * @param question question.
+     * @param range range
+     * @return return
+     */
+    public int ask(String question, int[] range) {
+        return -1;
+    }
+
 }
