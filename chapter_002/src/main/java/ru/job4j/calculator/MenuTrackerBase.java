@@ -12,24 +12,19 @@ class AddItem extends BaseAction {
 
     /**
      * Конструктор.
+     *
      * @param name имя
-     * @param key ключ
+     * @param key  ключ
      */
     AddItem(String name, int key) {
         super("Добавить заявку.", 1);
     }
 
-    /**
-     *
-     * @return return
-     */
-    int key() {
-        return 1;
-    }
 
     /**
      * Блок выполнения.
-     * @param input input
+     *
+     * @param input   input
      * @param tracker tracker
      */
     void execute(Input input, Tracker tracker) {
@@ -68,7 +63,8 @@ public class MenuTrackerBase {
 
     /**
      * Конструктор.
-     * @param input ff
+     *
+     * @param input   ff
      * @param tracker ff
      */
     public MenuTrackerBase(Input input, Tracker tracker) {
@@ -103,6 +99,7 @@ public class MenuTrackerBase {
 
     /**
      * Выполняем действие по ключу.
+     *
      * @param key ключ
      */
     public void select(int key) {
@@ -115,24 +112,19 @@ public class MenuTrackerBase {
     private class ShowItem extends BaseAction {
         /**
          * конструктор.
+         *
          * @param name имя
-         * @param key ключ
+         * @param key  ключ
          */
-         ShowItem(String name, int key) {
+        ShowItem(String name, int key) {
             super("Показать все заявки", 2);
         }
 
-        /**
-         * Бляа бла.
-         * @return ретурн
-         */
-        int key() {
-            return 2;
-        }
 
         /**
          * Блок выполнения.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracker
          */
         void execute(Input input, Tracker tracker) {
@@ -156,24 +148,19 @@ public class MenuTrackerBase {
     private class EditItem extends BaseAction {
         /**
          * Конструктор.
+         *
          * @param name имя
-         * @param key ключ
+         * @param key  ключ
          */
-         EditItem(String name, int key) {
+        EditItem(String name, int key) {
             super("Редактирование заявки", 3);
         }
 
-        /**
-         * .
-         * @return ретурн
-         */
-        int key() {
-            return 3;
-        }
 
         /**
          * Блок выполнения.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracker
          */
         void execute(Input input, Tracker tracker) {
@@ -206,25 +193,19 @@ public class MenuTrackerBase {
     private class DeleteItem extends BaseAction {
         /**
          * Конструктор.
+         *
          * @param name имя
-         * @param key ключ
+         * @param key  ключ
          */
-         DeleteItem(String name, int key) {
+        DeleteItem(String name, int key) {
             super("Удаление заявки", 4);
         }
 
-        /**
-         * .
-         * @return ретурн
-         */
-
-        int key() {
-            return 4;
-        }
 
         /**
          * Выполнение.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracker
          */
         void execute(Input input, Tracker tracker) {
@@ -244,24 +225,19 @@ public class MenuTrackerBase {
     private class FindById extends BaseAction {
         /**
          * Конструктор.
+         *
          * @param name имя
-         * @param key ключ
+         * @param key  ключ
          */
-         FindById(String name, int key) {
+        FindById(String name, int key) {
             super("Поиск заявки по Id", 5);
         }
 
-        /**
-         * .
-         * @return аа
-         */
-        int key() {
-            return 5;
-        }
 
         /**
          * Выполнение.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracker
          */
         void execute(Input input, Tracker tracker) {
@@ -282,24 +258,19 @@ public class MenuTrackerBase {
     private class FindByName extends BaseAction {
         /**
          * Конструктор.
+         *
          * @param name имя
-         * @param key ключ.
+         * @param key  ключ.
          */
-         FindByName(String name, int key) {
+        FindByName(String name, int key) {
             super("Поиск заявок по имени", 6);
         }
 
-        /**
-         * .
-         * @return аа
-         */
-        int key() {
-            return 6;
-        }
 
         /**
          * Выполнение.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracker
          */
         void execute(Input input, Tracker tracker) {
@@ -326,24 +297,19 @@ public class MenuTrackerBase {
 
         /**
          * Конструктор.
+         *
          * @param name имя
-         * @param key ключ
+         * @param key  ключ
          */
-         ExitItem(String name, int key) {
+        ExitItem(String name, int key) {
             super("Выход", 7);
         }
 
-        /**
-         * .
-         * @return аа
-         */
-        int key() {
-            return 7;
-        }
 
         /**
          * Выполнение.
-         * @param input input
+         *
+         * @param input   input
          * @param tracker tracker
          */
         void execute(Input input, Tracker tracker) {

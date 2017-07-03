@@ -45,7 +45,6 @@ public class StartUI {
             menuTracker.select(key);
         } while (7 != key);
     }
-
     /**
      * main он и в Африке main, как есть.
      *

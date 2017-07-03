@@ -15,8 +15,9 @@ public abstract class BaseAction {
 
     /**
      * Конструктор класса.
+     *
      * @param name имя.
-     * @param key ключ
+     * @param key  ключ
      */
     public BaseAction(String name, int key) {
         this.name = name;
@@ -26,19 +27,25 @@ public abstract class BaseAction {
 
     /**
      * Реализация ключ.
+     *
      * @return номер в меню.
      */
-    abstract int key();
+    int key() {
+        return this.key;
+    }
 
     /**
      * Реализация выполнения.
-     * @param input input
+     *
+     * @param input   input
      * @param tracker tracker
      */
+
     abstract void execute(Input input, Tracker tracker);
 
     /**
      * Info.
+     *
      * @return return
      */
     public String info() {
