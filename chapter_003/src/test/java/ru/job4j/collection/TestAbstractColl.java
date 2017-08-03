@@ -3,15 +3,19 @@ package ru.job4j.collection;
 import org.junit.Test;
 
 /**
- * Created by Администратор on 01.08.2017.
+ * Определение времени на создание и удаление из коллекции.
  */
 public class TestAbstractColl {
-
+    /**
+     * Тестирование коллекций.
+     */
     @Test
     public void whenArray() {
         ListMassiv test = new ListMassiv();
-        test.arrList(100000);
-        test.linkList(100000);
-        test.woodList(100000);
+        /** amount количество элементов.*/
+        int amount = 100000;
+        test.arrList(amount);
+        test.linkList(amount);
+        test.woodList(amount);
     }
 }
