@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * Написать программу преобразования List в Map. [#10093].
+ * Написать программу преобразования List в Map. [#10093]..
  */
 public class UserConvert {
     /**

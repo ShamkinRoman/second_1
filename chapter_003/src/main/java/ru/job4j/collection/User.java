@@ -1,11 +1,20 @@
 package ru.job4j.collection;
 
 /**
- * класс User с полями id, name, city.
+ * класс User с полями id, name, city..
  */
 public class User {
+    /**
+     * Id пользователя.
+     */
     public Integer id;
+    /**
+     * Имя пользователя.
+     */
     public String name;
+    /**
+     * Город в котором живет пользователь.
+     */
     public String city;
 
     /**
