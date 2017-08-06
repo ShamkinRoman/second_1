@@ -1,33 +1,46 @@
 package ru.job4j.collection;
 
+
 import org.junit.Test;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Up on 05.08.2017.
- */
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
+/**
+ * Тест для проверки метода process в Классе UserConvert.
+ */
 public class TestUserConvert {
     /**
-     * Тест для проверки класса UserConvert..
-     * Создаем коллекцию, в нее добавляем три User.
-     * После проверяем результат.
+     * Проверка метода process.
      */
     @Test
-    public void whenUserSomeBody() {
-        UserConvert userConvert = new UserConvert();
-        User user = new User(1, "Vova", "Moscow");
-        List<User> list = new ArrayList<>();
-        list.add(user);
-        list.add(new User(2, "Pasha", "Eka"));
-        list.add(new User(3, "Slava", "Tomsk"));
+    public void whenUser() {
+        List<User> proverka = new ArrayList<>();
+        User user1 = new User(1, "Вова", "Благовещенск");
+        User user2 = new User(2, "Олег", "Хабаровск");
+        User user3 = new User(3, "Слава", "Севастополь");
 
-        HashMap<Integer, User> proverka = userConvert.process(list);
-        for (Integer id : proverka.keySet()) {
-            System.out.println(String.format(" id   %s     name %s   city %s", id, proverka.get(id).name, proverka.get(id).city));
-        }
+        proverka.add(user1);
+        proverka.add(user2);
+        proverka.add(user3);
+
+        UserConvert userConvert = new UserConvert();
+
+        HashMap<Integer, User> hashMap = userConvert.process(proverka);
+
+
+        assertThat(hashMap.get(1), is(user1));
+
+        assertThat(hashMap.get(2), is(user2));
+
+        assertThat(hashMap.get(3), is(user3));
+
     }
+
+
 }

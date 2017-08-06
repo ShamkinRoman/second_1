@@ -7,19 +7,47 @@ public class User {
     /**
      * Id пользователя.
      */
-    public Integer id;
+    private Integer id;
     /**
      * Имя пользователя.
      */
-    public String name;
+    private String name;
     /**
      * Город в котором живет пользователь.
      */
-    public String city;
+    private String city;
+
+    /**
+     * Геттер Id.
+     *
+     * @return id
+     */
+    public Integer getId() {
+        return this.id;
+    }
+
+    /**
+     * Геттер Name.
+     *
+     * @return name
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Геттер City.
+     *
+     * @return city
+     */
+    public String getCity() {
+        return this.city;
+    }
 
     /**
      * Конструктор класса User.
-     * @param id уникальный номер.
+     *
+     * @param id   уникальный номер.
      * @param name имя.
      * @param city город.
      */
