@@ -33,19 +33,14 @@ public class SortUser {
     public List<User> sortNameLength(List<User> list) {
         list.sort(
                 new Comparator<User>() {
+
                     @Override
+
                     public int compare(User o1, User o2) {
-                        int lengthOne = o1.getName().length();
-                        int lengthTwo = o2.getName().length();
-                        int result;
-                        if (lengthOne > lengthTwo) {
-                            result = 1;
-                        } else if (lengthOne < lengthTwo) {
-                            result = -1;
-                        } else {
-                            result = 0;
-                        }
-                        return result;
+
+                        int result = Integer.compare(o1.getName().length(), o2.getName().length());
+
+                        return result != 0 ? result : 0;
                     }
                 }
         );
@@ -64,25 +59,12 @@ public class SortUser {
                 new Comparator<User>() {
                     @Override
                     public int compare(User o1, User o2) {
-                        int lengthOne = o1.getName().length();
-                        int lengthTwo = o2.getName().length();
-                        int ageOne = o1.getAge();
-                        int ageTwo = o2.getAge();
-                        int result;
 
-                        if (lengthOne > lengthTwo) {
-                            result = 1;
-                        } else if (lengthOne < lengthTwo) {
-                            result = -1;
-                        } else if (ageOne > ageTwo) {
-                            result = 1;
-                        } else if (ageOne < ageTwo) {
-                            result = -1;
-                        } else {
-                            result = 0;
-                        }
+                        int result = Integer.compare(o1.getName().length(), o2.getName().length());
 
-                        return result;
+                        int result1 = result == 0 ? Integer.compare(o1.getAge(), o2.getAge()) : result;
+
+                        return result1;
                     }
                 }
         );
