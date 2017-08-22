@@ -20,7 +20,7 @@ public class DoubleMassiv implements Iterator {
      */
     private int x = 0;
     /**
-     * значение столбца массива
+     * значение столбца массива.
      */
     private int y = -1;
     /**
@@ -69,6 +69,12 @@ public class DoubleMassiv implements Iterator {
         this.position++;
         return this.value[this.x][this.y];
     }
+
+    /**
+     * Метод для определения количества элементов в массиве.
+     * @param array входящий массив.
+     * @return количество элементов в массиве.
+     */
 
     public int arrayLength(int[][] array) {
 

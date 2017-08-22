@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Created by Up on 08.08.2017.
+ * Created by Up on 23.08.2017.
  */
 public class DoubleMassivTest {
 
