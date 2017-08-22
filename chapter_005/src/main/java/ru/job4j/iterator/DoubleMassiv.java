@@ -10,11 +10,23 @@ public class DoubleMassiv implements Iterator {
     /**
      * Массив для итератора, принимающий значения входящего массива.
      */
-    private final int[][] value;
+    private int[][] value;
     /**
      * Счетчик итераций, значение -1, для реализации первой итерации метода next().
      */
-    private int position = -1;
+    private int position = 0;
+    /**
+     * значение строки массива.
+     */
+    private int x = 0;
+    /**
+     * значение столбца массива
+     */
+    private int y = -1;
+    /**
+     * число элементов в массиве.
+     */
+    private int arrayLong;
 
     /**
      * Конструктор класса.
@@ -23,6 +35,7 @@ public class DoubleMassiv implements Iterator {
      */
     public DoubleMassiv(final int[][] check) {
         this.value = check;
+        this.arrayLong = arrayLength(check);
     }
 
 
@@ -35,7 +48,9 @@ public class DoubleMassiv implements Iterator {
     public boolean hasNext() {
 
         // Отнимаем 2, для приведения длины массива (двухмерный) и счет идет от 0.
-        return position <= (value[0].length + value.length - 2) ? true : false;
+
+
+        return this.position <= this.arrayLong ? true : false;
     }
 
     /**
@@ -45,10 +60,25 @@ public class DoubleMassiv implements Iterator {
      */
     @Override
     public Object next() {
+        if (this.y >= this.value[this.x].length - 1) {
+            this.x++;
+            this.y = 0;
+        } else {
+            this.y++;
+        }
+        this.position++;
+        return this.value[this.x][this.y];
+    }
 
-        position++;
+    public int arrayLength(int[][] array) {
 
-        return value[position / value[0].length][position % value[0].length];
+        int lenghtArray = 0;
+
+        for (int[] arrayValue : array) {
+
+            lenghtArray += arrayValue.length - 1;
+        }
+        return lenghtArray;
     }
 
 }

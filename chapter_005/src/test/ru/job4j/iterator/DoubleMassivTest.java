@@ -17,13 +17,18 @@ public class DoubleMassivTest {
     @Test
     public void whenCheckNext() {
 
-        DoubleMassiv it = new DoubleMassiv(new int[][]{{1, 2}, {3, 4}});
+        DoubleMassiv it = new DoubleMassiv(new int[][]{{1, 2}, {3, 4, 5}, {6, 7, 8, 9}});
 
         //Пробегаемся по элементам массива.
         assertThat(it.next(), is(1));
         assertThat(it.next(), is(2));
         assertThat(it.next(), is(3));
         assertThat(it.next(), is(4));
+        assertThat(it.next(), is(5));
+        assertThat(it.next(), is(6));
+        assertThat(it.next(), is(7));
+        assertThat(it.next(), is(8));
+        assertThat(it.next(), is(9));
     }
 
     /**
@@ -31,7 +36,7 @@ public class DoubleMassivTest {
      */
     @Test
     public void whenCheckHasNext() {
-        DoubleMassiv it = new DoubleMassiv(new int[][]{{1, 2}, {3, 4}});
+        DoubleMassiv it = new DoubleMassiv(new int[][]{{1, 2}, {3, 4, 5}, {6, 7, 8, 9}});
 
         //Проверяем есть ли следующее значение.
         assertThat(it.hasNext(), is(true));
@@ -47,8 +52,14 @@ public class DoubleMassivTest {
 
         assertThat(it.hasNext(), is(true));
         it.next(); //Значение 4.
+        it.next(); //Значение 5.
+        it.next(); //Значение 6.
+        it.next(); //Значение 7.
+        it.next(); //Значение 8.
+        it.next(); //Значение 9.
 
-        //Пятого элемента нет в массиве, поэтому результат должен быть false.
+
+        //Десятого элемента нет в массиве, поэтому результат должен быть false.
         assertThat(it.hasNext(), is(false));
 
 
