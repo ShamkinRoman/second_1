@@ -18,7 +18,7 @@ public class TestEvenlt {
     @Test
     public void whenadd() {
 
-        int[] audit = {4, 2, 1, 1, 8, 5};
+        int[] audit = {4, 2, 1, 1, 8, 5, 6};
 
         Iterator it = new Evenlt(audit);
 
@@ -32,7 +32,11 @@ public class TestEvenlt {
         assertThat(it.hasNext(), is(true));
         assertThat(it.next(), is(8));
 
+        assertThat(it.hasNext(), is(true));
+        assertThat(it.next(), is(6));
+
         assertThat(it.hasNext(), is(false));
+
 
     }
 }
