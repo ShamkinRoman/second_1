@@ -1,8 +1,7 @@
 package ru.job4j.iterator;
 
-import java.util.ArrayList;
+
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Создать итератор возвращающий только простые числа.
@@ -10,12 +9,12 @@ import java.util.List;
  */
 public class Primelt implements Iterator {
     /**
-     * Массив для хранения простых чисел.
+     * Массив для анализа простых чисел.
      */
     private int[] simple;
 
     /**
-     * Счетчик итераций для метода hasNext().
+     * Номер позиции в анализируемом массиве.
      */
     private int position = 0;
 
@@ -27,7 +26,7 @@ public class Primelt implements Iterator {
 
     public Primelt(int[] nums) {
 
-        this.simple = sortNum(nums);
+        this.simple = nums;
 
     }
 
@@ -38,7 +37,7 @@ public class Primelt implements Iterator {
      */
     @Override
     public boolean hasNext() {
-        return position < this.simple.length ? true : false;
+        return check();
     }
 
     /**
@@ -49,46 +48,35 @@ public class Primelt implements Iterator {
     @Override
     public Object next() {
 
-        return this.simple[position++];
+        return simple[position++];
     }
 
-
     /**
-     * Метод для выборки простых чисел из массива.
+     * Метод для определения простых чисел.
      *
-     * @param number входящий массив.
-     * @return массив с простыми числами.
+     * @return позиция простого числа в массиве.
      */
 
-    public int[] sortNum(int[] number) {
+    public boolean check() {
 
-        List<Integer> list = new ArrayList<>();
+        //Массив с элементарными числами.
+        int[] prime = {2, 3, 5, 7};
+        int match = 0;
+        boolean result = false;
 
-        //Масси с простыми делителями.
-        int[] num = {2, 3, 5, 7};
-
-        int matches = 0;
-
-        for (int value : number) {
-            matches = 0;
-
-            for (int delet : num) {
-                if (value % delet == 0 & value != delet) {
-                    matches++;
-
+        while (position < simple.length) {
+            match = 0;
+            for (int value : prime) {
+                if (simple[position] % value == 0 & simple[position] != value) {
+                    match++;
                 }
             }
 
-            if (matches == 0) {
-                list.add(value);
+            if (match == 0) {
+                result = true;
+                break;
             }
-        }
-
-
-        int[] result = new int[list.size()];
-
-        for (int i = 0; i < list.size(); i++) {
-            result[i] = list.get(i);
+            position++;
         }
 
         return result;
