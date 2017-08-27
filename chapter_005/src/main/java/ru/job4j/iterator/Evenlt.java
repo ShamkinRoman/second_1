@@ -8,7 +8,6 @@ package ru.job4j.iterator;
 import java.util.Iterator;
 
 
-
 /**
  * Создать итератор возвращающий только четные цифры.
  * Итератор должен принимать список произвольных чисел.
@@ -25,16 +24,6 @@ public class Evenlt implements Iterator {
     private int position = 0;
 
     /**
-     * Общее число четных элементов в массиве.
-     */
-    private int count = 0;
-
-    /**
-     * количество выбранных четных элементов.
-     */
-    private int iteration = 0;
-
-    /**
      * Конструктор принимающий массив чисел и производит определения количества четных чисел.
      *
      * @param numbers входящий массив.
@@ -42,7 +31,6 @@ public class Evenlt implements Iterator {
     public Evenlt(final int[] numbers) {
 
         this.events = numbers;
-        this.count = lengthEven(numbers);
 
     }
 
@@ -56,7 +44,8 @@ public class Evenlt implements Iterator {
 
     @Override
     public boolean hasNext() {
-        return this.iteration < this.count ? true : false;
+
+        return check();
 
     }
 
@@ -68,34 +57,25 @@ public class Evenlt implements Iterator {
     @Override
     public Object next() {
 
-        int result = -999;
+        return events[position++];
+    }
 
-        for (; this.position < this.events.length; position++) {
 
-            if (this.events[this.position] % 2 == 0) {
-                result = this.events[this.position];
-                this.iteration++; //номер от общего числа четных чисел.
-                this.position++;  //увеличение позиции в массиве.
+    /**
+     * Метод лля проверки четного числа в массиве.
+     *
+     * @return позиция четного числа в массиве.
+     */
+    public boolean check() {
+
+        boolean result = false;
+
+        for (; position < this.events.length; position++) {
+            if (events[position] % 2 == 0) {
+                result = true;
                 break;
             }
         }
         return result;
-    }
-
-    /**
-     * Метод для определения количества четных чисел из входящего массива.
-     *
-     * @param numbers входящий массив.
-     * @return количество четных чисел в массиве.
-     */
-
-    public int lengthEven(int[] numbers) {
-        int count = 0;
-        for (int value : numbers) {
-            if (value % 2 == 0) {
-                count++;
-            }
-        }
-        return count;
     }
 }
