@@ -55,4 +55,24 @@ public class TestConverter {
 
     }
 
+    /**
+     * Тест для проверки пустого итератора.
+     */
+    @Test
+    public void whenEmptyListIterator() {
+
+        Converter converter = new Converter();
+
+        List<Integer> list1 = Arrays.asList();
+        Iterator<Integer> it1 = list1.iterator();
+
+
+        //Обсложненный итератор.
+        Iterator<Iterator<Integer>> iteratorIterator = Arrays.asList(it1).iterator();
+
+        Iterator<Integer> audit = converter.convert(iteratorIterator);
+
+        assertThat(audit.hasNext(), is(false));
+
+    }
 }

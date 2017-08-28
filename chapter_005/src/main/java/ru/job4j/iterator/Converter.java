@@ -1,10 +1,6 @@
 package ru.job4j.iterator;
 
-import java.util.ArrayList;
-
 import java.util.Iterator;
-import java.util.List;
-
 
 /**
  * Реализовать класс с методом Iterator<Integer> convert(Iterator<Iterator<Integer>> it).
@@ -24,9 +20,9 @@ public class Converter {
 
 
             /**
-             * Результирующий одномерный итератор, полученный путем преобразования многомерного.
+             * Итератор для итератора.
              */
-            private Iterator<Integer> result = oneVolume();
+            private Iterator<Integer> result = it.next();
 
             /**
              * Метод hasNext().
@@ -34,46 +30,34 @@ public class Converter {
              */
             @Override
             public boolean hasNext() {
-                return result.hasNext();
+
+                return (it.hasNext() || result.hasNext());
             }
 
             /**
-             * Переписанный метод next(). Возвращает следующий элемент.
+             * Переписанный метод next(). Возвращает элемент.
              *
-             * @return возвращаемый элемент массива.
+             * @return возвращаемый элемент итератора.
              */
             @Override
             public Integer next() {
-                return result.next();
-            }
 
-            /**
-             * Метод для преобразования многомерного итератора, в одномерный.
-             * @return одномерный итератор.
-             */
+                Integer value = null;
 
-            public Iterator<Integer> oneVolume() {
+                if (result.hasNext()) {
 
-                Iterator<Integer> iter;
+                    value = result.next();
 
-                List<Integer> list = new ArrayList<>();
+                } else if (it.hasNext()) {
 
-
-                // it обсложненный итератор по условию задачи, входящий параметр.
-                while (it.hasNext()) {
-                    iter = it.next();
-
-                    for (; iter.hasNext();) {
-                        Integer value = iter.next();
-                        list.add(value);
-                    }
-
+                    result = it.next();
+                    value = result.next();
                 }
-                return list.iterator();
+
+                return value;
             }
-
-
         };
+
     }
 
 }
