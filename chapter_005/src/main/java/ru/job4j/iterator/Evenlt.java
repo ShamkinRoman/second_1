@@ -6,6 +6,7 @@ package ru.job4j.iterator;
 
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 /**
@@ -57,7 +58,7 @@ public class Evenlt implements Iterator {
     @Override
     public Object next() {
 
-        return events[position++];
+        return check() == true ? events[position++] : new NoSuchElementException();
     }
 
 

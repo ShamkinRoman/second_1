@@ -2,6 +2,7 @@ package ru.job4j.iterator;
 
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Создать итератор возвращающий только простые числа.
@@ -48,7 +49,8 @@ public class Primelt implements Iterator {
     @Override
     public Object next() {
 
-        return simple[position++];
+        return check() == true ? this.simple[position++] : new NoSuchElementException();
+
     }
 
     /**
