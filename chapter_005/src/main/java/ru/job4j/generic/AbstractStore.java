@@ -3,57 +3,51 @@ package ru.job4j.generic;
 import java.util.NoSuchElementException;
 
 /**
- * Класс для хранения Role.
+ * Обобщенный класс для хранения дженерика.
  *
- * @param <Role> дженерик указанный явным образом.
- *               Данный класс служит для прототипа класса AbstractStore, на котором будут введены методы,
- *               общие для всех наследуемых классов и дженериков указаных в общем виде.
+ * @param <E> дженерик.
  */
 
-public class RoleStore<Role extends Base> implements Store<Role> {
+public class AbstractStore<E extends Base> implements Store<E> {
 
     /**
      * Начальный массив класса.
      */
+    private SimpleArray<E> abstractStore;
 
-    private SimpleArray<Role> simpleArray;
     /**
      * Размер начального массива по умолчанию.
      */
-
     private final int defaultSize = 10;
 
     /**
      * Конструктор класса с размером по умолчанию.
      */
-    public RoleStore() {
-        this.simpleArray = new SimpleArray<>(defaultSize);
+    public AbstractStore() {
+
+        this.abstractStore = new SimpleArray<>(defaultSize);
 
     }
 
     /**
      * Метод добавления.
      *
-     * @param role Role.
+     * @param e дженерик.
      */
-
-    public void add(Role role) {
-
-        simpleArray.add(role);
-
+    public void add(E e) {
+        abstractStore.add(e);
     }
 
     /**
      * Метод обновления значения в массиве.
      *
-     * @param id   уникальный номер.
-     * @param role Role.
+     * @param id уникальный номер.
+     * @param e  дженерик.
      */
+    public void update(String id, E e) {
 
-    public void update(String id, Role role) {
-
-        simpleArray.update(findById(id), role);
-        role.setId(id);
+        abstractStore.update(findById(id), e);
+        e.setId(id);
 
     }
 
@@ -65,7 +59,7 @@ public class RoleStore<Role extends Base> implements Store<Role> {
 
     public void delete(String id) {
 
-        simpleArray.delete(findById(id));
+        abstractStore.delete(findById(id));
 
     }
 
@@ -75,27 +69,25 @@ public class RoleStore<Role extends Base> implements Store<Role> {
      * @param id уникальный номер.
      * @return значение дженерика.
      */
+    public E get(String id) {
 
-    public Role get(String id) {
-
-        return simpleArray.get(findById(id));
+        return abstractStore.get(findById(id));
 
     }
 
     /**
-     * Метод для поиса в массиве по уникальному номеру.
+     * Метод для поиска в массиве по уникальному номеру.
      *
      * @param id уникальный номер.
      * @return значение дженерика.
      */
-
     public Integer findById(String id) {
 
         Integer result = null;
 
         for (int i = 0; i < defaultSize; i++) {
 
-            if (simpleArray.get(i) != null && (simpleArray.get(i).getId().equals(id))) {
+            if (abstractStore.get(i) != null && (abstractStore.get(i).getId().equals(id))) {
                 result = i;
                 break;
             } else if (i == defaultSize - 1) {
