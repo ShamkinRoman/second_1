@@ -49,7 +49,7 @@ public class Primelt implements Iterator {
     @Override
     public Object next() {
 
-        return check() == true ? this.simple[position++] : new NoSuchElementException();
+        return check()  ? this.simple[position++] : new NoSuchElementException();
 
     }
 
