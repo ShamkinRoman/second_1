@@ -39,7 +39,7 @@ public class DoubleMassiv implements Iterator {
     /**
      * Переписанный метод для двумерного массива.
      *
-     * @return true если есть элементы впереди каретки, false если нет.
+     * @return true если есть элементы впереди каретки, false если нет..
      */
     @Override
     public boolean hasNext() {
