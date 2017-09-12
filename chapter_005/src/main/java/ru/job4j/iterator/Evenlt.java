@@ -58,7 +58,7 @@ public class Evenlt implements Iterator {
     @Override
     public Object next() {
 
-        return check() == true ? events[position++] : new NoSuchElementException();
+        return check() ? events[position++] : new NoSuchElementException();
     }
 
 
