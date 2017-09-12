@@ -11,18 +11,15 @@ public class DoubleMassiv implements Iterator {
      * Массив для итератора, принимающий значения входящего массива.
      */
     private int[][] value;
-    /**
-     * Счетчик итераций, значение -1, для реализации первой итерации метода next().
-     */
-    private int position = 0;
+
     /**
      * значение строки массива.
      */
-    private int x = 0;
+    private int row = 0;
     /**
      * значение столбца массива.
      */
-    private int y = -1;
+    private int column = -1;
     /**
      * число элементов в массиве.
      */
@@ -34,10 +31,10 @@ public class DoubleMassiv implements Iterator {
      * @param check входящий массив.
      */
     public DoubleMassiv(final int[][] check) {
-        this.value = check;
-        this.arrayLong = arrayLength(check);
-    }
 
+        this.value = check;
+
+    }
 
     /**
      * Переписанный метод для двумерного массива.
@@ -46,11 +43,7 @@ public class DoubleMassiv implements Iterator {
      */
     @Override
     public boolean hasNext() {
-
-        // Отнимаем 2, для приведения длины массива (двухмерный) и счет идет от 0.
-
-
-        return this.position <= this.arrayLong ? true : false;
+        return value.length - 1 > row || value[row].length - 1 > column;
     }
 
     /**
@@ -60,31 +53,14 @@ public class DoubleMassiv implements Iterator {
      */
     @Override
     public Object next() {
-        if (this.y >= this.value[this.x].length - 1) {
-            this.x++;
-            this.y = 0;
-        } else {
-            this.y++;
+
+        if (this.column >= this.value[this.row].length - 1) {
+            this.row++;
+            this.column = 0;
+        } else if (row < value.length) {
+            this.column++;
         }
-        this.position++;
-        return this.value[this.x][this.y];
+
+        return this.value[this.row][this.column];
     }
-
-    /**
-     * Метод для определения количества элементов в массиве.
-     * @param array входящий массив.
-     * @return количество элементов в массиве.
-     */
-
-    public int arrayLength(int[][] array) {
-
-        int lenghtArray = 0;
-
-        for (int[] arrayValue : array) {
-
-            lenghtArray += arrayValue.length - 1;
-        }
-        return lenghtArray;
-    }
-
 }
