@@ -1,5 +1,6 @@
 package ru.job4j.list;
 //Я вернулся..
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -36,7 +37,7 @@ public class MyLinkedList<E> implements SimpleContainer<E> {
          * @param next    Следующий элемент.
          * @param last    Предыдущий элемент.
          */
-         Record(E element, Record<E> next, Record<E> last) {
+        Record(E element, Record<E> next, Record<E> last) {
             this.element = element;
             this.next = next;
             this.last = last;
@@ -132,6 +133,23 @@ public class MyLinkedList<E> implements SimpleContainer<E> {
     @Override
     public E get(int index) {
         return find(index).element;
+    }
+
+    /**
+     * Метод remove элемента из списка.
+     *
+     * @param index индекс удаляемого элемента.
+     */
+    public void remove(int index) {
+        checkIndex(index);
+        Record<E> entryToDelete = find(index);
+        if (entryToDelete.last != null) {
+            entryToDelete.last.next = entryToDelete.next;
+        }
+        if (entryToDelete.next != null) {
+            entryToDelete.next.last = entryToDelete.last;
+        }
+        size--;
     }
 
     /**
