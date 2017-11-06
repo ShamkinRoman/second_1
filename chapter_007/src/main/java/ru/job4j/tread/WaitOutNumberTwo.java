@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 2. Сделать ожидание вывода. [#1017].
  */
-public class WaitOut {
+public class WaitOutNumberTwo {
     /**
      * Класс для проверки пробелов и слов.
      */
@@ -109,33 +109,20 @@ public class WaitOut {
      */
     public static void main(String[] args) {
 
+
+
+
         long currentTime = System.currentTimeMillis();
 
         System.out.println("Программа для вычисления количества пробелов и слов в строке.");
         System.out.println(String.format("Время начало выполнения программы %s", (new Date()).toString()));
 
         String auditString = "первое второе   третье четвертое"; //5 пробелов.
-
         Cheker checkSpace = new Cheker(auditString, 0);
         Cheker checkWord = new Cheker(auditString, 1);
-
         checkSpace.start();
         checkWord.start();
 
-        try {
-            checkSpace.join(12);
-            if (checkSpace.isAlive()) {
-                checkSpace.interrupt();
-            }
-
-            checkWord.join(12);
-            if (checkWord.isAlive()) {
-                checkWord.interrupt();
-            }
-            checkWord.interrupt();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         try {
             checkSpace.join();
@@ -143,7 +130,6 @@ public class WaitOut {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
         System.out.println(String.format("Время окончания выполнения программы %s", (new Date()).toString()));
         System.out.println(String.format("Время выполнения программы - %,d ms", System.currentTimeMillis() - currentTime));
