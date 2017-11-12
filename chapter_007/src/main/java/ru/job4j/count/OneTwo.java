@@ -17,7 +17,7 @@ public class OneTwo {
         /**
          * Значение счетчика.
          */
-        @GuardedBy("Increment")
+        @GuardedBy("this")
         private int val;
 
         /**
