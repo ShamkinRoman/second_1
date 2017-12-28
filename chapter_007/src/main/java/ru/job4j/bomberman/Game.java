@@ -31,6 +31,7 @@ public class Game {
         Integer[] startPosition = {2, 2}; //стартовая позиция фигуры(героя).
 
         Thread hero = new Thread(new BlankHero(startPosition, board));
+        startPosition = new Integer[]{2, 1};
         Thread heroTwo = new Thread(new BlankHero(startPosition, board));
 
         heroTwo.setName("two");

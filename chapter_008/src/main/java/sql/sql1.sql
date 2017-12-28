@@ -1,13 +1,10 @@
 
---для смены кодировки, в командной строке набрать
--- chcp 1251
-
 drop database if exists shamkinroman;
 
 create database shamkinroman;
 \c shamkinroman;
 
---не работают эти команды, кто знает почему?
+--РЅРµ СЂР°Р±РѕС‚Р°СЋС‚ СЌС‚Рё РєРѕРјР°РЅРґС‹, РєС‚Рѕ Р·РЅР°РµС‚ РїРѕС‡РµРјСѓ?
 --drop table if exists users;
 --drop table if exists roles;
 --drop table if exists rules;
@@ -18,7 +15,7 @@ create database shamkinroman;
 
 
 ----------------------------------
---создать таблицу пользователей.--
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.--
 ----------------------------------
 create table users (
 	id serial primary key,
@@ -29,7 +26,7 @@ create table users (
 
 
 --------------------------
---создать таблицу ролей.--
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ СЂРѕР»РµР№.--
 --------------------------
 create table roles (
 	id serial primary key,
@@ -38,7 +35,7 @@ create table roles (
 --------------------------
 
 --------------------------------
---создать таблицу права ролей.--
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ РїСЂР°РІР° СЂРѕР»РµР№.--
 --------------------------------
 create table rules(
 	id serial primary key,
@@ -49,7 +46,7 @@ create table rules(
 
 
 ---------------------------
---создать таблицу заявки.--
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ Р·Р°СЏРІРєРё.--
 ---------------------------
 create table item (
 	id serial primary key,
@@ -59,7 +56,7 @@ create table item (
 
 
 --------------------------------
---создать таблицу комментарии.--
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ РєРѕРјРјРµРЅС‚Р°СЂРёРё.--
 --------------------------------
 create table commets (
 	id serial primary key,
@@ -68,8 +65,8 @@ create table commets (
 	);
 
 -------------------------------------
---создать таблицу Файлы к заявке.----
---(я так это понял, может и не прав--
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ Р¤Р°Р№Р»С‹ Рє Р·Р°СЏРІРєРµ.----
+--(СЏ С‚Р°Рє СЌС‚Рѕ РїРѕРЅСЏР», РјРѕР¶РµС‚ Рё РЅРµ РїСЂР°РІ--
 -------------------------------------
 create table attachs (
     id serial primary key,
@@ -78,53 +75,53 @@ create table attachs (
     );
 
 -------------------------------------
---создать таблицу Категория Заявки---
+--СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ РљР°С‚РµРіРѕСЂРёСЏ Р—Р°СЏРІРєРё---
 -------------------------------------
 create table category (
     id serial primary key,
     id_item integer references item(id),
-    condition boolean--True открыта, False закрыта.
+    condition boolean--True РѕС‚РєСЂС‹С‚Р°, False Р·Р°РєСЂС‹С‚Р°.
     );
 
---заполняем таблицу users
-insert into users(surname, name) values ('Шамкин','Роман');
-insert into users(surname, name) values ('Петров','Николай');
-insert into users(surname, name) values ('Волков','Александр');
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ users
+insert into users(surname, name) values ('Shamkin','Roman');
+insert into users(surname, name) values ('Petrov','Nikolay');
+insert into users(surname, name) values ('Volkov','Alexander');
 
---заполняем таблицу roles
-insert into roles(roles) values ('Администратор');
-insert into roles(roles) values ('Пользователь');
-insert into roles(roles) values ('Гость');
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ roles
+insert into roles(roles) values ('Administrator');
+insert into roles(roles) values ('User');
+insert into roles(roles) values ('Guest');
 
---заполняем таблицу rules
-insert into rules(char_roles, prava) values ('Администратор', 'Удаление');
-insert into rules(char_roles, prava) values ('Администратор', 'Запись');
-insert into rules(char_roles, prava) values ('Администратор', 'Чтение');
-insert into rules(char_roles, prava) values ('Пользователь', 'Запись');
-insert into rules(char_roles, prava) values ('Пользователь', 'Чтение');
-insert into rules(char_roles, prava) values ('Гость', 'Чтение');
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ rules
+insert into rules(char_roles, prava) values ('Administrator', 'Delete');
+insert into rules(char_roles, prava) values ('Administrator', 'Record');
+insert into rules(char_roles, prava) values ('Administrator', 'Read');
+insert into rules(char_roles, prava) values ('User', 'Recors');
+insert into rules(char_roles, prava) values ('User', 'Read');
+insert into rules(char_roles, prava) values ('Guest', 'Read');
 
---заполняем таблицу item
-insert into item(id_users, description_item) values (1, 'Заявка №1');
-insert into item(id_users, description_item) values (2, 'Заявка №2');
-insert into item(id_users, description_item) values (3, 'Заявка №3');
-insert into item(id_users, description_item) values (1, 'Заявка  №4');
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ item
+insert into item(id_users, description_item) values (1, 'Item #1');
+insert into item(id_users, description_item) values (2, 'Item #2');
+insert into item(id_users, description_item) values (3, 'Item #3');
+insert into item(id_users, description_item) values (1, 'Item #4');
 
---заполняем таблицу commets
-insert into commets(id_item, description_coment) values (1, 'Текст заявки №1');
-insert into commets(id_item, description_coment) values (2, 'Текст заявки №2');
-insert into commets(id_item, description_coment) values (3, 'Текст заявки №3');
-insert into commets(id_item, description_coment) values (4, 'Текст заявки №4');
-insert into commets(id_item, description_coment) values (4, 'Текст заявки №4_1');
-insert into commets(id_item, description_coment) values (4, 'Текст заявки №4_2');
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ commets
+insert into commets(id_item, description_coment) values (1, 'Text for item #1');
+insert into commets(id_item, description_coment) values (2, 'Text for item #2');
+insert into commets(id_item, description_coment) values (3, 'Text for item  #3');
+insert into commets(id_item, description_coment) values (4, 'Text for item #4');
+insert into commets(id_item, description_coment) values (4, 'Text for item #4 continue 1');
+insert into commets(id_item, description_coment) values (4, 'Text for item #4 continue 2');
 
---заполняем таблицу attachs
-insert into attachs(id_item, files) values (1, 'Здессь должен быть файл к заявке  №1');
-insert into attachs(id_item, files) values (1, 'Здессь должен быть еще файл к заявке  №1');
-insert into attachs(id_item, files) values (2, 'Здессь должен быть файл к заявке  №2');
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ attachs
+insert into attachs(id_item, files) values (1, 'Here file for item #1');
+insert into attachs(id_item, files) values (1, 'More file for item  #1');
+insert into attachs(id_item, files) values (2, 'Here file for item  #2');
 
 
---заполняем таблицу category
+--Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ category
 insert into category(id_item, condition) values (1, FALSE);
 insert into category(id_item, condition) values (2, TRUE);
 insert into category(id_item, condition) values (3, FALSE);
