@@ -4,18 +4,6 @@ drop database if exists shamkinroman;
 create database shamkinroman;
 \c shamkinroman;
 
-
-----------------------
---create table USER.--
-----------------------
-create table users (
-	id serial primary key,
-	surname character varying (300),
-	name character varying (300)
-	);
-----------------------------------
-
-
 ----------------------
 --create table ROLE.--
 ----------------------
@@ -23,7 +11,18 @@ create table roles (
 	id serial primary key,
 	roles character varying (400) unique
 	);
---------------------------
+
+
+----------------------
+--create table USER.--
+----------------------
+create table users (
+	id serial primary key,
+	surname character varying (300),
+	name character varying (300),
+	role integer references roles(id)
+	);
+
 
 ----------------------
 --create table RULE.--
@@ -33,7 +32,6 @@ create table rules(
 	char_roles character varying (400) references roles(roles),
 	prava character varying (400)
 	);
----------------------------------
 
 
 ----------------------
@@ -55,6 +53,7 @@ create table commets (
 	description_coment text
 	);
 
+
 ------------------------
 --create table ATTACH.--
 ------------------------
@@ -63,6 +62,7 @@ create table attachs (
     id_item integer references item(id),
     files text
     );
+
 
 --------------------------
 --create table CATEGORY.--
@@ -73,15 +73,17 @@ create table category (
     condition boolean--True открыта, False закрыта.
     );
 
---fill table users
-insert into users(surname, name) values ('Shamkin','Roman');
-insert into users(surname, name) values ('Petrov','Nikolay');
-insert into users(surname, name) values ('Volkov','Alexander');
 
 --fill table roles
 insert into roles(roles) values ('Administrator');
 insert into roles(roles) values ('User');
 insert into roles(roles) values ('Guest');
+
+--fill table users
+insert into users(surname, name) values ('Shamkin','Roman');
+insert into users(surname, name) values ('Petrov','Nikolay');
+insert into users(surname, name) values ('Volkov','Alexander');
+
 
 --fill table rules
 insert into rules(char_roles, prava) values ('Administrator', 'Delete');
