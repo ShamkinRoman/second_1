@@ -3,7 +3,7 @@ drop database if exists shamkinroman1;
 create database shamkinroman1;
 \c shamkinroman1;
 
----------------------
+----------------------
 --create table TYPE--
 ---------------------
 create table type(

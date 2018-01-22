@@ -1,6 +1,6 @@
 \c shamkinroman1;
 
---  1. get all products which include TYPE CHEESE
+---  1. get all products which include TYPE CHEESE
 select * from product as pro
     where pro.type_id=(select id from type where name='cheese');
 
