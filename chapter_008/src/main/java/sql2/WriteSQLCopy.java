@@ -1,26 +1,30 @@
-package sql;
+package sql2;
 
 import java.sql.*;
 
-public class moreSQL {
+public class WriteSQLCopy {
+
+
     private Connection connection;
 
-    public static void main(String[] args) {
+    public WriteSQLCopy(Connection connection) {
+        this.connection = connection;
+    }
 
+    public void setCreateTable() {
+        this.createTable();
+    }
 
-        moreSQL moreSQL = new moreSQL();
+    public void setOpenTable() {
+        this.open();
+    }
 
-        long startTime = System.currentTimeMillis();
+    public void setCloseTable() {
+        this.close();
+    }
 
-        moreSQL.open();
-        moreSQL.createTable();
-        moreSQL.insert();
-        //  moreSQL.print();
-
-        moreSQL.close();
-
-        System.out.println(String.format("Время выполнения составляет %s", (System.currentTimeMillis() - startTime) / 1000));
-
+    public void setInsertTable() {
+        this.insert();
     }
 
     private void createTable() {
@@ -30,7 +34,6 @@ public class moreSQL {
             statement = connection.createStatement();
             statement.execute("create table if not exists TEST (id integer primary key AUTOINCREMENT, numer integer)");
             statement.execute("delete from TEST");
-
 
 
         } catch (SQLException e) {
@@ -55,29 +58,12 @@ public class moreSQL {
         }
     }
 
-    private void print() {
-        Statement statement = null;
-        try {
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from TEST");
-
-            while (resultSet.next()) {
-                System.out.println(String.format(" %s    %s", resultSet.getInt("id"), resultSet.getInt("numer")));
-            }
-            resultSet.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     private void insert() {
         PreparedStatement statement = null;
 
         try {
-            for (int i = 0; i < 2_010; i++) {
+            for (int i = 1; i < 1_000_001; i++) {
 
 
                 statement = connection.prepareStatement("insert into TEST (numer) values (?)");
@@ -92,15 +78,12 @@ public class moreSQL {
 
     private void open() {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:d://sqlite//newData.db");
-            connection.setAutoCommit(false);
 
+            connection.setAutoCommit(false);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-
-
 }
