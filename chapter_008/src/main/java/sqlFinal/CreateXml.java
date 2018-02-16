@@ -1,22 +1,29 @@
-package sql2;
+package sqlFinal;
+
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.output.XMLOutputter;
+import sql2.WriteSQLCopy;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
-
 public class CreateXml {
-    public static void main(String[] args) {
+
+    private String con;
+
+    public CreateXml(String con) {
+        this.con = con;
+    }
+
+    public void start() {
 
         long time = System.currentTimeMillis();
 
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:d://sqlite//newData.db");
+            connection = DriverManager.getConnection(con);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -62,7 +69,7 @@ public class CreateXml {
 
             XMLOutputter xmlOutput = new XMLOutputter();
             try {
-                xmlOutput.output(doc, new FileWriter("d:\\TEST03.xml"));
+                xmlOutput.output(doc, new FileWriter("1.xml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -71,6 +78,6 @@ public class CreateXml {
         }
         writeSQLCopy.setCloseTable();
 
-        System.out.println((System.currentTimeMillis() - time) / 1000);
+        System.out.println(String.format(" Time create -- 1.xlm -- file  is %s", (System.currentTimeMillis() - time) / 1000));
     }
 }

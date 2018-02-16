@@ -38,7 +38,7 @@ public class convertXML {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(String.format("%s было потрачено на конвертирование.",(System.currentTimeMillis() - time) / 1000));
+        System.out.println(String.format("%s было потрачено на конвертирование.", (System.currentTimeMillis() - time) / 1000));
 
     }
 

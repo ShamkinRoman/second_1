@@ -35,6 +35,6 @@ public class calcSummaXML {
         }
 
         System.out.println(handler.getSumma());
-        System.out.println(String.format("%s было потрачено на вычисление суммы.",(System.currentTimeMillis() - time) / 1000));
+        System.out.println(String.format("%s было потрачено на вычисление суммы.", (System.currentTimeMillis() - time) / 1000));
     }
 }

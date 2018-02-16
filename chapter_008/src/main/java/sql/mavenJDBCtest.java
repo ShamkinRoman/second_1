@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.Properties;
 
 public class mavenJDBCtest {
-   private static final Logger log = LoggerFactory.getLogger(mavenJDBCtest.class);
+    private static final Logger log = LoggerFactory.getLogger(mavenJDBCtest.class);
 
     public static void main(String[] args) {
         System.out.println("axaxa-xa");
@@ -18,7 +18,7 @@ public class mavenJDBCtest {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement st =conn.prepareStatement("insert into body (name) values (?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement st = conn.prepareStatement("insert into body (name) values (?)", Statement.RETURN_GENERATED_KEYS);
             st.setString(1, "new cargo 3");
             st.executeUpdate();
 
@@ -34,11 +34,11 @@ public class mavenJDBCtest {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (conn!=null) {
+            if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                   log.error(e.getMessage(), e);
+                    log.error(e.getMessage(), e);
                 }
             }
         }

@@ -21,9 +21,9 @@ public class HandlerCalc extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        element=qName;
+        element = qName;
         if (element.equals("entry")) {
-            summa+= Long.parseLong(attributes.getValue(0));
+            summa += Long.parseLong(attributes.getValue(0));
         }
 
 
@@ -31,10 +31,10 @@ public class HandlerCalc extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        element="";
+        element = "";
     }
 
-    public Long getSumma(){
+    public Long getSumma() {
         return summa;
     }
 }

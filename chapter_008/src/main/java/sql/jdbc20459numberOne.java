@@ -12,7 +12,7 @@ public class jdbc20459numberOne {
         jdbc20459numberOne prog = new jdbc20459numberOne();
         prog.open();
         prog.createTable();
-     //   prog.insert();
+        //   prog.insert();
         prog.autoInsert();
         prog.checkTable();
         prog.close();
@@ -25,7 +25,7 @@ public class jdbc20459numberOne {
             rezult = co.createStatement();
             try {
                 ResultSet rez = rezult.executeQuery("select count(*) from test");
-                while(rez.next()) {
+                while (rez.next()) {
                     System.out.println(String.format("Число записей равно %s", rez.getInt(1)));
 
                 }
@@ -44,9 +44,8 @@ public class jdbc20459numberOne {
     private void autoInsert() {
 
 
-
         try {
-            PreparedStatement res =null;
+            PreparedStatement res = null;
 
             for (int i = 0; i < 6; i++) {
 
@@ -71,7 +70,6 @@ public class jdbc20459numberOne {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 
 
     }
@@ -102,7 +100,7 @@ public class jdbc20459numberOne {
             Statement rezult = co.createStatement();
             ResultSet rez = rezult.executeQuery("select count(*) from users");
 
-            while(rez.next()) {
+            while (rez.next()) {
                 System.out.println(String.format("Число записей равно %s", rez.getInt(1)));
 
             }
@@ -115,7 +113,6 @@ public class jdbc20459numberOne {
     }
 
 
-
     private void close() {
         try {
             co.close();
@@ -123,7 +120,6 @@ public class jdbc20459numberOne {
             e.printStackTrace();
         }
     }
-
 
 
     private void open() {

@@ -29,12 +29,12 @@ public class Handler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-       element = "";
+        element = "";
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        super.characters(ch, start,  length);
+        super.characters(ch, start, length);
         String fieldValue = "";
 
 
@@ -42,7 +42,7 @@ public class Handler extends DefaultHandler {
 
 
             for (int i = 0; i < length; i++) {
-                fieldValue += ch[start+i];
+                fieldValue += ch[start + i];
 
             }
             arrayList.add(fieldValue);
