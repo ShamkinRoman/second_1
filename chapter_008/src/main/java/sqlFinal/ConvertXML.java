@@ -10,17 +10,18 @@ import java.util.HashMap;
 
 public class ConvertXML {
 
-    private HashMap<String,String> map;
-    private final String convertFileName="2.xml";
+    private HashMap<String, String> map;
+    private final String convertFileName;
 
     public ConvertXML(HashMap<String, String> map) {
         this.map = map;
+        convertFileName = map.get("pathFile") + "2.xml";
     }
 
     public void start() {
 
         long time = System.currentTimeMillis();
-        map.put("convertFileName",convertFileName);
+        map.put("convertFileName", convertFileName);
 
 
         ParseSax parse = new ParseSax(map);

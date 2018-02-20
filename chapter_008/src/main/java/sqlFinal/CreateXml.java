@@ -11,21 +11,23 @@ import java.util.HashMap;
 
 public class CreateXml {
 
-    private String con1;
-    private Connection con;
-    private HashMap<String,String> map;
-    private final String saveFileName="1.xml";
 
-    public CreateXml(Connection con, HashMap<String,String> map) {
+    private Connection con;
+    private HashMap<String, String> map;
+    private String saveFileName;
+
+    public CreateXml(Connection con, HashMap<String, String> map) {
         this.con = con;
-        this.map=map;
+        this.map = map;
+//        System.out.println(String.format("Путь равен %s", map.get("numer")));
+        saveFileName = new String (map.get("pathFile") + "1.xml");
     }
 
     public void start() {
 
         long time = System.currentTimeMillis();
 
-        Writesqlcopy writeSQLCopy = new Writesqlcopy(con,map);
+        Writesqlcopy writeSQLCopy = new Writesqlcopy(con, map);
 
         writeSQLCopy.setOpenTable();
         writeSQLCopy.setCreateTable();
@@ -66,7 +68,7 @@ public class CreateXml {
             XMLOutputter xmlOutput = new XMLOutputter();
             try {
                 xmlOutput.output(doc, new FileWriter(saveFileName));
-                map.put("saveFileName",saveFileName);
+                map.put("saveFileName", saveFileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -75,6 +77,6 @@ public class CreateXml {
         }
         writeSQLCopy.setCloseTable();
 
-        System.out.println(String.format(" Time create -- %s -- file  is %s seconds",saveFileName, (System.currentTimeMillis() - time) / 1000));
+        System.out.println(String.format(" Time create -- %s -- file  is %s seconds", saveFileName, (System.currentTimeMillis() - time) / 1000));
     }
 }

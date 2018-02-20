@@ -5,21 +5,24 @@ import java.util.HashMap;
 
 public class ArgsValid {
 
-    private HashMap<String, String> map = new HashMap<>(2);
+    private HashMap<String, String> map;
     private final String defaultNumber = "11";
     private final String defaultPath = "";
+    private final String configFileName="config.cfg";
 
     private String[] args;
 
 
-    public ArgsValid() {
+    public ArgsValid(HashMap<String, String> map) {
+        this.map=map;
         map.put("pathFile", defaultPath);
         map.put("numer", defaultNumber);
         System.out.println("You can not indetifity congig.cfg and N. --> Не указан файл config.sys и N");
         System.out.println(String.format("I set database path is %s  and N = %s   -->  Выбран путь до БД %s  и N = %s", new File(map.get("pathFile")).getAbsoluteFile(), map.get("numer"), new File(map.get("pathFile")).getAbsoluteFile(), map.get("numer")));
     }
 
-    public ArgsValid(String[] args) {
+    public ArgsValid(String[] args, HashMap<String, String> map) {
+        this.map=map;
         this.args = args;
         start();
     }
@@ -31,8 +34,9 @@ public class ArgsValid {
     }
 
     private void checkPathFile() {
+
         for (String value : args) {
-            if (value.equals("config.cfg")) {
+            if (value.equals(configFileName)) {
                 map.put("pathFile", value);
                 break;
             }

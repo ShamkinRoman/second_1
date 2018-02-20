@@ -12,7 +12,10 @@ import java.util.Scanner;
 
 public class StartFile {
 
+
+
     public static void main(String[] args) {
+         HashMap<String, String> map = new HashMap<>(2);
         long time = System.currentTimeMillis();
 
         boolean flag = false;
@@ -25,17 +28,20 @@ public class StartFile {
 
         }
 
-        HashMap<String, String> map;
+
 
         if (flag) {
-            ArgsValid argsValid = new ArgsValid(args);
-            map = argsValid.getMap();
+             new ArgsValid(args, map);
+
         } else {
-            ArgsValid argsValid = new ArgsValid();
-            map = argsValid.getMap();
+             new ArgsValid(map);
+
         }
 
         String database = null;
+
+        System.out.println(String.format("Путь равен %s", map.get("pathFile")));
+
         if (new File(map.get("pathFile")).exists()) {
             File conf = new File(map.get("pathFile"));
 
@@ -63,6 +69,7 @@ public class StartFile {
             database=map.get("pathFile");
         }
 
+        map.put("pathFile",database);
         String dataB = "jdbc:sqlite:" + database + "newData.db";
 
         String answer = new File(map.get("pathFile")+"newData.db").exists() ? "File DB is exixst, connect to file " : "File NOT exists and I create file DB";
