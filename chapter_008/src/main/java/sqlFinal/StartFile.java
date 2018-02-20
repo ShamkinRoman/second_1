@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class StartFile {
 
     public static void main(String[] args) {
+        long time = System.currentTimeMillis();
 
         boolean flag = false;
 
@@ -58,24 +59,44 @@ public class StartFile {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            database=map.get("pathFile");
         }
 
-        String dataB = "jdbc:sqlite:" + database+"newData.db";
-//        String dataB="jdbc:sqlite:d://sqlite//newData.db";
+        String dataB = "jdbc:sqlite:" + database + "newData.db";
 
-        System.out.println(dataB);
+        String answer = new File(map.get("pathFile")+"newData.db").exists() ? "File DB is exixst, connect to file " : "File NOT exists and I create file DB";
+
+
+        System.out.println(answer);
+
+        System.out.println(String.format(" DriverManager = %s", dataB));
+        Connection con =null;
 
         try {
-            Connection con = DriverManager.getConnection(dataB);
-            System.out.println("Ectb connect");
+            con = DriverManager.getConnection(dataB);
+            System.out.println("Connect to DB successfully. --> Удалось подключиться к БД ");
         } catch (SQLException e) {
+            System.out.println("Error to make connection on DB");
+            System.out.println("Check you system on SQLite. --> Не обнаружена SQLite, проверьте ее наличие.");
             e.printStackTrace();
+
         }
 
-        CreateXml createXml = new CreateXml(dataB);
+        CreateXml createXml = new CreateXml(con,map);
 
 
         createXml.start();
+
+        ConvertXML convertXML = new ConvertXML(map);
+
+        convertXML.start();
+
+        CalcSummaXML calc = new CalcSummaXML(map);
+        calc.start();
+
+        System.out.println(String.format(" Full time execute program is %s seconds", (System.currentTimeMillis() - time) / 1000));
+
     }
 
 }

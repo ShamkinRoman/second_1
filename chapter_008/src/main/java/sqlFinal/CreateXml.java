@@ -3,31 +3,29 @@ package sqlFinal;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
-import sql2.WriteSQLCopy;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.util.HashMap;
 
 public class CreateXml {
 
-    private String con;
+    private String con1;
+    private Connection con;
+    private HashMap<String,String> map;
+    private final String saveFileName="1.xml";
 
-    public CreateXml(String con) {
+    public CreateXml(Connection con, HashMap<String,String> map) {
         this.con = con;
+        this.map=map;
     }
 
     public void start() {
 
         long time = System.currentTimeMillis();
 
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(con);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        WriteSQLCopy writeSQLCopy = new WriteSQLCopy(connection);
+        Writesqlcopy writeSQLCopy = new Writesqlcopy(con,map);
 
         writeSQLCopy.setOpenTable();
         writeSQLCopy.setCreateTable();
@@ -38,15 +36,13 @@ public class CreateXml {
 
         try {
 
-            rezult = connection.createStatement();
+            rezult = con.createStatement();
 
 
             Element company = new Element("entries");
             Document doc = new Document(company);
             doc.setRootElement(company);
 
-
-//                ResultSet rez = rezult.executeQuery("select numer from test as t where t.id between 1100001 and 1600000");
             ResultSet rez = rezult.executeQuery("select numer from test");
 
             while (rez.next()) {
@@ -69,7 +65,8 @@ public class CreateXml {
 
             XMLOutputter xmlOutput = new XMLOutputter();
             try {
-                xmlOutput.output(doc, new FileWriter("1.xml"));
+                xmlOutput.output(doc, new FileWriter(saveFileName));
+                map.put("saveFileName",saveFileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -78,6 +75,6 @@ public class CreateXml {
         }
         writeSQLCopy.setCloseTable();
 
-        System.out.println(String.format(" Time create -- 1.xlm -- file  is %s", (System.currentTimeMillis() - time) / 1000));
+        System.out.println(String.format(" Time create -- %s -- file  is %s seconds",saveFileName, (System.currentTimeMillis() - time) / 1000));
     }
 }
