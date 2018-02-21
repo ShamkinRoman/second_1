@@ -1,22 +1,23 @@
 package sqlFinal;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/*
+Start program for TASK # 20459
+ */
 public class StartFile {
 
 
-
     public static void main(String[] args) {
-         HashMap<String, String> map = new HashMap<>(2);
+
         long time = System.currentTimeMillis();
+        HashMap<String, String> map = new HashMap<>(2);
+
 
         boolean flag = false;
 
@@ -29,18 +30,15 @@ public class StartFile {
         }
 
 
-
         if (flag) {
-             new ArgsValid(args, map);
+            new ArgsValid(args, map);
 
         } else {
-             new ArgsValid(map);
+            new ArgsValid(map);
 
         }
 
         String database = null;
-
-        System.out.println(String.format("Путь равен %s", map.get("pathFile")));
 
         if (new File(map.get("pathFile")).exists()) {
             File conf = new File(map.get("pathFile"));
@@ -66,19 +64,19 @@ public class StartFile {
                 e.printStackTrace();
             }
         } else {
-            database=map.get("pathFile");
+            database = map.get("pathFile");
         }
 
-        map.put("pathFile",database);
+        map.put("pathFile", database);
         String dataB = "jdbc:sqlite:" + database + "newData.db";
 
-        String answer = new File(map.get("pathFile")+"newData.db").exists() ? "File DB is exixst, connect to file " : "File NOT exists and I create file DB";
+        String answer = new File(map.get("pathFile") + "newData.db").exists() ? "File DB is exixst, connect to file " : "File NOT exists and I create file DB";
 
 
         System.out.println(answer);
 
         System.out.println(String.format(" DriverManager = %s", dataB));
-        Connection con =null;
+        Connection con = null;
 
         try {
             con = DriverManager.getConnection(dataB);
@@ -86,11 +84,27 @@ public class StartFile {
         } catch (SQLException e) {
             System.out.println("Error to make connection on DB");
             System.out.println("Check you system on SQLite. --> Не обнаружена SQLite, проверьте ее наличие.");
+            System.out.println("Not detect folder for DB.  ---> Проверьте наличие директории указанной в config.sys");
+
+            PrintStream st = null;
+            try {
+                st = new PrintStream(new FileOutputStream("log.txt"));
+                System.out.println("Check file ==> log.txt <== ");
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }
+
+            System.setErr(st);
+
+            System.setOut(st);
+
             e.printStackTrace();
+            st.close();
+
 
         }
 
-        CreateXml createXml = new CreateXml(con,map);
+        CreateXml createXml = new CreateXml(con, map);
 
 
         createXml.start();

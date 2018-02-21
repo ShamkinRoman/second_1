@@ -6,6 +6,9 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
 
+/*
+Class Handler for parsing XML file.
+ */
 public class Handler extends DefaultHandler {
 
     private ArrayList<String> arrayList = new ArrayList<>();
@@ -43,12 +46,9 @@ public class Handler extends DefaultHandler {
 
             for (int i = 0; i < length; i++) {
                 fieldValue += ch[start + i];
-
             }
             arrayList.add(fieldValue);
-
         }
-
     }
 
     public ArrayList<String> getData() {

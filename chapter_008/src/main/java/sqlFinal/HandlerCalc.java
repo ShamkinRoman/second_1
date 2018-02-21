@@ -4,6 +4,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/*
+Class Handler for parsing XML file.
+ */
 public class HandlerCalc extends DefaultHandler {
 
     private String element;
@@ -11,12 +14,12 @@ public class HandlerCalc extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        System.out.println(String.format("Начал вычислять сумму."));
+        System.out.println(String.format("Start calculating summs."));
     }
 
     @Override
     public void endDocument() throws SAXException {
-        System.out.println(String.format("Закончил вычислять сумму."));
+        System.out.println(String.format("End calculating summ."));
     }
 
     @Override

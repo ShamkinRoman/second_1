@@ -8,10 +8,12 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/*
+Class for Parsing XML file.
+ */
 public class ParseSax {
 
-    private HashMap<String,String> map;
+    private HashMap<String, String> map;
 
     public ParseSax(HashMap<String, String> map) {
         this.map = map;
@@ -27,24 +29,24 @@ public class ParseSax {
 
         Handler handler = new Handler();
 
-        {
+
+        try {
+            saxParser = saxParserFactory.newSAXParser();
             try {
-                saxParser = saxParserFactory.newSAXParser();
-                try {
-                    saxParser.parse(map.get("saveFileName"), handler);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (SAXException e) {
+                saxParser.parse(map.get("saveFileName"), handler);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
         }
 
-        System.out.println(String.format("Количество элементов %s", handler.getData().size()));
 
-        System.out.println(String.format("%s секунд было затрачено на парсинг.", (System.currentTimeMillis() - time) / 1000));
+        System.out.println(String.format("number = %s", handler.getData().size()));
+
+        System.out.println(String.format("%s second for parsing.", (System.currentTimeMillis() - time) / 1000));
 
         return handler.getData();
     }

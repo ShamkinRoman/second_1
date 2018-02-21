@@ -8,7 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
-
+/*
+Class for create XML file from table SQLite.
+ */
 public class CreateXml {
 
 
@@ -19,19 +21,20 @@ public class CreateXml {
     public CreateXml(Connection con, HashMap<String, String> map) {
         this.con = con;
         this.map = map;
-//        System.out.println(String.format("Путь равен %s", map.get("numer")));
-        saveFileName = new String (map.get("pathFile") + "1.xml");
+        saveFileName = new String(map.get("pathFile") + "1.xml");
     }
 
     public void start() {
 
         long time = System.currentTimeMillis();
 
-        Writesqlcopy writeSQLCopy = new Writesqlcopy(con, map);
+        WriteSQLCopy writeSQLCopy = new WriteSQLCopy(con, map);
 
         writeSQLCopy.setOpenTable();
         writeSQLCopy.setCreateTable();
         writeSQLCopy.setInsertTable();
+
+        System.out.println(String.format(" %s seconds for create DB file and fill table TEST",(System.currentTimeMillis() - time) / 1000));
 
         Statement rezult = null;
 
@@ -77,6 +80,6 @@ public class CreateXml {
         }
         writeSQLCopy.setCloseTable();
 
-        System.out.println(String.format(" Time create -- %s -- file  is %s seconds", saveFileName, (System.currentTimeMillis() - time) / 1000));
+        System.out.println(String.format(" Create file -- %s --  time spend is  %s seconds", saveFileName, (System.currentTimeMillis() - time) / 1000));
     }
 }

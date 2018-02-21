@@ -1,14 +1,21 @@
-package sql2;
+package sqlFinal;
 
-import java.sql.*;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+/*
+Class for create DB and table in DB.
+ */
 public class WriteSQLCopy {
 
-
+    private HashMap<String, String> map;
     private Connection connection;
 
-    public WriteSQLCopy(Connection connection) {
+    public WriteSQLCopy(Connection connection, HashMap<String, String> map) {
         this.connection = connection;
+        this.map = map;
     }
 
     public void setCreateTable() {
@@ -61,9 +68,10 @@ public class WriteSQLCopy {
 
     private void insert() {
         PreparedStatement statement = null;
+        int length = Integer.parseInt(map.get("numer"));
 
         try {
-            for (int i = 1; i < 1_000_001; i++) {
+            for (int i = 1; i <= length; i++) {
 
 
                 statement = connection.prepareStatement("insert into TEST (numer) values (?)");

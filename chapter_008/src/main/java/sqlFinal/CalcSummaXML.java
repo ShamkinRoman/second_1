@@ -8,16 +8,18 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.HashMap;
 
+/*
+Class for calculating values in XML file
+ */
 public class CalcSummaXML {
 
-    private HashMap<String,String> map;
+    private HashMap<String, String> map;
 
     public CalcSummaXML(HashMap<String, String> map) {
         this.map = map;
     }
 
     public void start() {
-
 
         long time = System.currentTimeMillis();
 
@@ -41,9 +43,9 @@ public class CalcSummaXML {
                 e.printStackTrace();
             }
         }
-
-        System.out.println(handler.getSumma());
-
-        System.out.println(String.format("%s было потрачено на вычисление суммы.", (System.currentTimeMillis() - time) / 1000));
+        System.out.println("===============================");
+        System.out.println(String.format(" Summa elements is %s ",  handler.getSumma()));
+        System.out.println("===============================");
+        System.out.println(String.format("%s seconds for calculating summs.", (System.currentTimeMillis() - time) / 1000));
     }
 }
