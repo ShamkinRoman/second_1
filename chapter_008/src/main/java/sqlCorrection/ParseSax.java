@@ -1,4 +1,4 @@
-package sqlFinal;
+package sqlCorrection;
 
 import org.xml.sax.SAXException;
 
@@ -7,33 +7,26 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 /*
 Class for Parsing XML file.
  */
 public class ParseSax {
 
-    private HashMap<String, String> map;
+    private String fromFile;
 
-    public ParseSax(HashMap<String, String> map) {
-        this.map = map;
+    public void setFromFile(String fromFile) {
+        this.fromFile = fromFile;
     }
 
     public ArrayList<String> calc() {
-
-        long time = System.currentTimeMillis();
-
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-
         SAXParser saxParser;
-
         Handler handler = new Handler();
-
-
         try {
             saxParser = saxParserFactory.newSAXParser();
             try {
-                saxParser.parse(map.get("saveFileName"), handler);
+                saxParser.parse(fromFile, handler);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -42,13 +35,7 @@ public class ParseSax {
         } catch (SAXException e) {
             e.printStackTrace();
         }
-
-
-        System.out.println(String.format("number = %s", handler.getData().size()));
-
-        System.out.println(String.format("%s second for parsing.", (System.currentTimeMillis() - time) / 1000));
-
+        System.out.println(String.format("cardinality = %s", handler.getData().size()));
         return handler.getData();
     }
-
 }
