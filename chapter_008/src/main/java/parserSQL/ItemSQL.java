@@ -1,13 +1,15 @@
 package parserSQL;
 
-public class UrlNameTime {
+public class ItemSQL {
     private String url;
     private String name;
-    private String time;
+    private String autor;
+    private  String time;
 
-    public UrlNameTime(String url, String name, String time) {
+    public ItemSQL(String url, String name, String autor, String time) {
         this.url = url;
         this.name = name;
+        this.autor = autor;
         this.time = time;
     }
 
@@ -27,6 +29,14 @@ public class UrlNameTime {
         this.name = name;
     }
 
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
     public String getTime() {
         return time;
     }
@@ -37,9 +47,10 @@ public class UrlNameTime {
 
     @Override
     public String toString() {
-        return "UrlNameTime{" +
+        return "ItemSQL{" +
                 "url='" + url + '\'' +
                 ", name='" + name + '\'' +
+                ", autor='" + autor + '\'' +
                 ", time='" + time + '\'' +
                 '}';
     }
