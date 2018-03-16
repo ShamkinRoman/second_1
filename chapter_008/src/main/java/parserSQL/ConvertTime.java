@@ -10,18 +10,18 @@ import java.util.GregorianCalendar;
 
 public class ConvertTime {
     private SimpleDateFormat ft = new SimpleDateFormat("d MMM yy, HH:mm");
-    private ItemSQL item;
+    private String time;
 
-    public ConvertTime(ItemSQL item) {
-        this.item = item;
+    public ConvertTime(String string) {
+        this.time=string;
     }
 
     public Timestamp start() {
         Timestamp timestamp;
-            if (!item.getTime().contains("сегодня") && !item.getTime().contains("вчера")) {
-                timestamp = covertTime(item.getTime());
+            if (!time.contains("сегодня") && !time.contains("вчера")) {
+                timestamp = covertTime(time);
             } else {
-                timestamp = covertTime(convertYestodayToday(item.getTime()));
+                timestamp = covertTime(convertYestodayToday(time));
             }
             return timestamp;
     }

@@ -5,20 +5,31 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Instant;
+import java.util.*;
 
 public class SQLruParser {
     private List<ItemSQL> itemSQLList = new ArrayList<>();
-    private boolean lastRecordflag=true;
-    private Timestamp lastTime;
+    private boolean validDate=true;
+    private Timestamp lastTime=null;
+    private Timestamp year;
 
     public void start() {
 
+
+        setYear();
         MaxPageNumber maximumPage = new MaxPageNumber();
         String page = "http://www.sql.ru/forum/job-offers/";
+        if (lastTime==null) {
+            lastTime=year;
+            System.out.println(String.format("Block if == null  %s", lastTime.getTime()));
+        }
         for (int index = 1; index < 2; index++) {
-            parsePage(page, index);
+            if(validDate) {
+                parsePage(page, index);
+            } else {
+                break;
+            }
         }
     }
 
@@ -37,11 +48,18 @@ public class SQLruParser {
                         link = "Don't know link";
                     }
                     String timeElements = null;
+                    Timestamp timestamp= null;
                     try {
                         timeElements = trValue.child(5).text();
+                        ConvertTime convertTime = new ConvertTime(timeElements);
+                        timestamp = convertTime.start();
+//                        if (timestamp.getTime()<lastTime.getTime()){
+//                            validDate=false;
+//                            System.out.println(String.format("Block  timestamp.getTime()<lastTime.getTime() "));
+//                        }
 
                     } catch (IndexOutOfBoundsException tee) {
-                        timeElements = "Don't know time";
+                        System.out.println(tee);
                     }
                     String autorElement = null;
                     try {
@@ -51,7 +69,11 @@ public class SQLruParser {
                     }
                     String topicName = postValue.child(0).text();
                     if (topicName.toUpperCase().contains("JAVA") && !topicName.toUpperCase().contains("SCRIPT")) {
-                        itemSQLList.add(new ItemSQL(link, topicName, autorElement, timeElements));
+                        if (timestamp.getTime()>lastTime.getTime()) {
+                            itemSQLList.add(new ItemSQL(link, topicName, autorElement, timestamp));
+                        } else {
+                            validDate=false;
+                        }
                     }
                 });
             });
@@ -60,17 +82,24 @@ public class SQLruParser {
         }
     }
 
+    public void  setYear() {
+        Calendar calendar = new GregorianCalendar();
+        calendar.getTime();
+        calendar.set(Calendar.MONTH,0);
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+        calendar.set(Calendar.HOUR,0);
+        calendar.set(Calendar.MINUTE,0);
+        System.out.println(calendar);
+        Date date = calendar.getTime();
+        Instant instant = date.toInstant();
+        year = Timestamp.from(instant);
+        System.out.println(year+" ========");
+    }
+
     public List<ItemSQL> getItemSQLList() {
         return itemSQLList;
     }
-    public boolean checkLstTime(Timestamp oldValue, Timestamp newValue){
-
-        return (oldValue.getTime()<newValue.getTime());
-
-    }
-
     public void setLastTime(Timestamp lastTime) {
         this.lastTime = lastTime;
     }
 }
-

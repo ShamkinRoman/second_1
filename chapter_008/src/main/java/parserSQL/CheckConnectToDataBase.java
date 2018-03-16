@@ -23,6 +23,11 @@ public class CheckConnectToDataBase {
         }
 
         SQLruParser sqLruParser = new SQLruParser();
+        try {
+            sqLruParser.setLastTime(lastRecordTime());
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        }
         sqLruParser.start();
         List<ItemSQL> list = sqLruParser.getItemSQLList();
         list.forEach(value->{
@@ -30,6 +35,8 @@ public class CheckConnectToDataBase {
         });
 
         System.out.println(String.format(" SSS ==== %s", lastRecordTime()));
+
+
     }
 
     public boolean connectToPostgres(String checkValue) {
@@ -109,8 +116,7 @@ public class CheckConnectToDataBase {
             pst = fullCon.prepareStatement("insert into "+storage.getValue("tableName")+ " (name, autor, create_time, url) values (?, ?, ?, ?)");
             pst.setString(1, item.getName());
             pst.setString(2, item.getAutor());
-            ConvertTime convertTime = new ConvertTime(item);
-            pst.setTimestamp(3, convertTime.start());
+            pst.setTimestamp(3, item.getTime());
             pst.setString(4,item.getUrl());
             pst.executeUpdate();
             pst.close();

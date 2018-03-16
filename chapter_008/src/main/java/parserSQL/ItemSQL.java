@@ -1,12 +1,14 @@
 package parserSQL;
 
+import java.sql.Timestamp;
+
 public class ItemSQL {
     private String url;
     private String name;
     private String autor;
-    private  String time;
+    private Timestamp time;
 
-    public ItemSQL(String url, String name, String autor, String time) {
+    public ItemSQL(String url, String name, String autor, Timestamp time) {
         this.url = url;
         this.name = name;
         this.autor = autor;
@@ -37,11 +39,11 @@ public class ItemSQL {
         this.autor = autor;
     }
 
-    public String getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

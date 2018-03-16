@@ -23,7 +23,7 @@ public class ConTime {
         SQLruParser sqLruParser = new SQLruParser();
         sqLruParser.start();
         List<ItemSQL> items = sqLruParser.getItemSQLList();
-        String[] timeDate = items.get(0).getTime().split(", ");
+        String[] timeDate = items.get(0).getName().split(", ");
 
         for (int i = 0; i < 2; i++) {
             System.out.println(timeDate[i]);
