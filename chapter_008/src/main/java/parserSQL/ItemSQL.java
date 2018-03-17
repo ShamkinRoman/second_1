@@ -1,7 +1,9 @@
 package parserSQL;
 
 import java.sql.Timestamp;
-
+/*
+ * Class Item, which contain all fields for DataBase.
+ */
 public class ItemSQL {
     private String url;
     private String name;
