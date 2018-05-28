@@ -2,7 +2,9 @@ package httpServelet;
 
 import java.sql.Timestamp;
 
+
 public class TestConnect {
+
     public static void main(String[] args) {
         CheckConnectToDataBase s1 = new CheckConnectToDataBase();
         s1.init();
