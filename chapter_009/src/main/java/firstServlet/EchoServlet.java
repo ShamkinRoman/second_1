@@ -13,7 +13,10 @@ public class EchoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
-        writer.append("This my first servlet on JAVA. ");
+        writer.append("This my first servlet on JAVA. <p>");
+        writer.flush();
+        writer.append("This my  JAVA. ");
         writer.flush();
     }
 }
+
