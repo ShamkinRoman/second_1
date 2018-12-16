@@ -24,7 +24,7 @@ public class MemoryStore {
             pst.setString(1, user.getName());
             pst.setString(2, user.getLogin());
             pst.setString(3, user.getEmail());
-            pst.setTimestamp(4, user.getDateCreate());
+//            pst.setTimestamp(4, user.getDateCreate());
             pst.executeUpdate();
             pst.close();
             con.close();

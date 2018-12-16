@@ -1,21 +1,26 @@
-package httpServelet;
+package crudServlet;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 public class User {
-    private String id;
+    private Integer id;
     private String name;
     private String login;
     private String email;
-    private String dateCreate;
+    private String dataCreate;
 
-    public User(String id, String name, String login, String email, String dateCreate) {
+    public User(int id, String name, String login, String email) {
         this.id = id;
         this.name = name;
         this.login = login;
         this.email = email;
-        this.dateCreate = dateCreate;
+        this.dataCreate = new Date().toString();
+
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
@@ -30,8 +35,8 @@ public class User {
         return email;
     }
 
-    public String getDateCreate() {
-        return dateCreate;
+    public String getDataCreate() {
+        return dataCreate;
     }
 
     @Override
@@ -39,15 +44,15 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return id.equals(user.id) &&
+        return id == user.id &&
                 name.equals(user.name) &&
                 login.equals(user.login) &&
                 email.equals(user.email) &&
-                dateCreate.equals(user.dateCreate);
+                dataCreate.equals(user.dataCreate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, login, email, dateCreate);
+        return Objects.hash(id, name, login, email, dataCreate);
     }
 }
