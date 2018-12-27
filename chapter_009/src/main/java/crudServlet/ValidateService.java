@@ -8,6 +8,11 @@ public class ValidateService {
     private static final ValidateService instance = new ValidateService();
     private static final MemoryStore memory = new MemoryStore().getINSTANCE();
 
+
+    public static ValidateService getInstance() {
+        return instance;
+    }
+
     public boolean validateUser(User user) {
         boolean result = false;
         if (user.getId() != null && user.getDataCreate() != null && user.getLogin() != null && user.getName() != null && validateEmail(user)) {

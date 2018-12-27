@@ -55,4 +55,10 @@ public class User {
     public int hashCode() {
         return Objects.hash(id, name, login, email, dataCreate);
     }
+
+    @Override
+    public String toString() {
+        String result = String.format(" id = %s, name = %s, login = %s, email = %s,  dataCreate = %s .... <br><p>", getId(), getName(), getLogin(), getEmail(), getDataCreate());
+        return result;
+    }
 }
