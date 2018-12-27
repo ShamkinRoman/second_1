@@ -1,22 +1,27 @@
 package crudServlet;
-
 import java.util.Date;
 import java.util.Objects;
-
+/*
+Base class for User
+ */
 public class User {
+    /*
+    Some different variable for description class
+     */
     private Integer id;
     private String name;
     private String login;
     private String email;
     private String dataCreate;
-
+    /*
+    Default construct
+     */
     public User(int id, String name, String login, String email) {
         this.id = id;
         this.name = name;
         this.login = login;
         this.email = email;
         this.dataCreate = new Date().toString();
-
     }
 
     public Integer getId() {
@@ -58,7 +63,7 @@ public class User {
 
     @Override
     public String toString() {
-        String result = String.format(" id = %s, name = %s, login = %s, email = %s,  dataCreate = %s .... <br><p>", getId(), getName(), getLogin(), getEmail(), getDataCreate());
+        String result = String.format(" id = %s, name = %s, login = %s, email = %s,  dataCreate = %s ", getId(), getName(), getLogin(), getEmail(), getDataCreate());
         return result;
     }
 }

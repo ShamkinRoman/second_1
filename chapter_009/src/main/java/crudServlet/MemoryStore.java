@@ -2,7 +2,11 @@ package crudServlet;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
+/*
+Storage class. This is singleton and used  <CopyOnWriteArrayList>
+Class include some method for adding, updating, deleting and finding users in storage.
+There are methods including from interface STORE
+ */
 public class MemoryStore implements Store {
     private static final MemoryStore INSTANCE = new MemoryStore();
     private List<User> users = new CopyOnWriteArrayList<>();
@@ -14,7 +18,6 @@ public class MemoryStore implements Store {
     @Override
     public void add(User user) {
         users.add(user);
-
     }
 
     @Override

@@ -3,7 +3,11 @@ package crudServlet;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/*
+This is class singleton and used MemoryStore as storage.
+Also used methods for adding, updating, deleting and finding users in storage, but for used methods check validation not null data.
+Used pattern for check email.
+ */
 public class ValidateService {
     private static final ValidateService instance = new ValidateService();
     private static final MemoryStore memory = new MemoryStore().getINSTANCE();
@@ -18,7 +22,6 @@ public class ValidateService {
         if (user.getId() != null && user.getDataCreate() != null && user.getLogin() != null && user.getName() != null && validateEmail(user)) {
             result = true;
         }
-
         return result;
     }
 
@@ -38,7 +41,6 @@ public class ValidateService {
     }
 
     public boolean update(User user) {
-
         boolean result = false;
         if (validateUser(user)) {
             result = memory.update(user);
