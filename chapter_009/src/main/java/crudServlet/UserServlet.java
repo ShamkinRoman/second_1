@@ -19,7 +19,7 @@ For example deleting name=NameUser?login=LoginUser?email=Email@mail.com?action=d
 Method GET display contain storage.
  */
 public class UserServlet extends HttpServlet {
-    private static ValidateService validate = ValidateService.getInstance();
+    private static final ValidateService validate = ValidateService.getInstance();
     private Map<String, Function<HttpServletRequest, Boolean>> action = new HashMap<>();
     private volatile int id = 0;
 /*

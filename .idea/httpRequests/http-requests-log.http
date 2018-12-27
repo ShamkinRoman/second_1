@@ -1,0 +1,432 @@
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T060654.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T060644.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T115337.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T115336.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T115332.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104323.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104321.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104212.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104211.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104105.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104058.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T104047.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai&action=add&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T102336.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mail.ru&action=update&id=4
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T102201.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Andy&name=Andy&email=Andy@mail.ru&action=add&id=3
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T102117.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Andy&name=Andy&email=Andy@mail.ru&action=delete&id=3
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T102102.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Andy&name=Andy&email=Andy@mail.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T102021.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Mary&name=Mary&email=Mary@mail.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T101937.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Mary?name=Mary?email=Mary@we.ru?action=add
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T101713.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=Olya&name=Olya&email=Olya@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman&login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman?name=Roman?email=wwee@we.ru?action=add
+Accept: */*
+Cache-Control: no-cache
+
+?login=an?name=an?email=ee@we.ru?action=add
+
+<> 2018-12-27T101537.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman&login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman?name=Roman?email=wwee@we.ru?action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-27T101341.200.html
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman&login=roman?name=Roman?email=wwee@we.ru?action=add
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/item/user/?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-27T101203.404.html
+
+###
+
+POST http://localhost:8080/item/user/?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-27T101141.404.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111848.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111813.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111729.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111700.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111602.200.html
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111330.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111247.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T111045.200.html
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T110605.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T110555.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105820.200.html
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105758.200.html
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105708.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105702.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105642.200.html
+
+###
+
+GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105307.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105300.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105236.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T105111.200.html
+
+###
+
+POST http://localhost:8080/item/user
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T104713.200.html
+
+###
+
+GET http://localhost:8080/item/user
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/item/echo
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T104644.200.html
+
+###
+
+GET http://localhost:8080/item
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T104636.404.html
+
+###
+
+GET http://localhost:8080/echo
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-26T104609.404.html
+
+###
+
