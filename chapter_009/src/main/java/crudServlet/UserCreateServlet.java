@@ -34,9 +34,7 @@ public class UserCreateServlet extends UserServlet {
                 " Name: <input type='text' name = 'name'/>" +
                 " Login: <input type='text' name = 'login'/>"+
                 " e-mail: <input type='text' name = 'email'/>"+
-                "<input type='hidden' name = 'action' value = 'add'/>"+  //this for use extends class
-                "<input type = 'submit' value= 'create new user'>"+
-
+                "<input type = 'submit' name ='action' value= 'add'>"+
                 "</form>" +
                 sb +
                 "</body>" +

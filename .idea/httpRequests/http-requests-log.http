@@ -1,3 +1,35 @@
+POST http://localhost:8080/item/user?login=q&name=q&id=0&email=qw@mail.ru&action=delete
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-30T041431.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=q&name=q&id=0&email=qw@mail.ru&action=delete
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-30T041342.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=q&name=q&id=0&email=qw@mail.ru
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-30T041315.200.html
+
+###
+
+POST http://localhost:8080/resources?login=q&name=q&id=0&email=qw@mail.ru
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-30T041222.404.html
+
+###
+
 POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
 Accept: */*
 Cache-Control: no-cache
@@ -397,36 +429,6 @@ Accept: */*
 Cache-Control: no-cache
 
 <> 2018-12-26T104713.200.html
-
-###
-
-GET http://localhost:8080/item/user
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://localhost:8080/item/echo
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-26T104644.200.html
-
-###
-
-GET http://localhost:8080/item
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-26T104636.404.html
-
-###
-
-GET http://localhost:8080/echo
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-26T104609.404.html
 
 ###
 
