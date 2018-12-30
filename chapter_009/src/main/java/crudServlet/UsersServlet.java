@@ -7,13 +7,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+/*
+This is class is extending UserServlet.
+Class used methods UPDATE and DELETE in HTML form.
+It use name submit form as parameter (action) for parents class.
+ */
 public class UsersServlet extends UserServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
         StringBuilder sb = new StringBuilder();
-
         printWriter.append("<!DOCTYPE html>" +
                 "<html lang='en'>" +
                 "<head>" +
