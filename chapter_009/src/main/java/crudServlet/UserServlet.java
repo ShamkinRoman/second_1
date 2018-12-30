@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
 
 /*
@@ -94,5 +96,9 @@ In constructor may be includes some actions in last time.
             }
             return result;
         });
+    }
+
+    protected List<User> findAll(){
+        return validate.findAll();
     }
 }

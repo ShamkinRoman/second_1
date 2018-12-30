@@ -14,7 +14,19 @@
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>crudServlet.UserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserCreateServlet</servlet-name>
+        <servlet-class>crudServlet.UserCreateServlet</servlet-class>
+    </servlet>
 
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>UserCreateServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EchoServlet</servlet-name>
         <url-pattern>/echo</url-pattern>
