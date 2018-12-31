@@ -1,34 +1,33 @@
 package crudServlet;
 
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-/*
-Storage class. This is singleton and used  <CopyOnWriteArrayList>
-Class include some method for adding, updating, deleting and finding users in storage.
-There are methods including from interface STORE
- */
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class MemoryStore implements Store {
     private static final MemoryStore INSTANCE = new MemoryStore();
-    private List<User> users = new CopyOnWriteArrayList<>();
+    private Map<Integer, User> storage = new ConcurrentHashMap<>();
+    private volatile Integer id = 0;
 
-    public MemoryStore getINSTANCE() {
+    public MemoryStore getInstance(){
         return INSTANCE;
+    }
+
+    public Integer giveId(){
+        return id++;
     }
 
     @Override
     public void add(User user) {
-        users.add(user);
+        storage.put(user.getId(),user);
     }
 
     @Override
     public boolean update(User user) {
         boolean result = false;
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getId() == user.getId()) {
-                users.set(i, user);
-                result = true;
-                break;
-            }
+        if (storage.containsKey(user.getId())){
+            storage.put(user.getId(),user);
+            result = true;
         }
         return result;
     }
@@ -36,28 +35,26 @@ public class MemoryStore implements Store {
     @Override
     public boolean delete(User user) {
         boolean result = false;
-        User findUser = findById(user.getId());
-        if (users.contains(findUser)) {
-            users.remove(findUser);
-            result = true;
+        if (storage.get(user.getId()).equals(user)) {
+
+            storage.remove(user.getId());
+            result =true;
         }
         return result;
+    }
+
+    @Override
+    public Map<Integer, User> findAllInMap() {
+        return storage;
     }
 
     @Override
     public List<User> findAll() {
-        return users;
+        return null;
     }
 
     @Override
     public User findById(int id) {
-        User result = null;
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getId() == id) {
-                result = users.get(i);
-                break;
-            }
-        }
-        return result;
+        return null;
     }
 }

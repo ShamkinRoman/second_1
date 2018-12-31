@@ -12,7 +12,7 @@
 
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>crudServlet.UserServletV2</servlet-class>
+        <servlet-class>crudServlet.UserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserCreateServlet</servlet-name>

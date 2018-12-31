@@ -1,3 +1,51 @@
+POST http://localhost:8080/item/user?login=Pa&name=nick&id=0&email=p@mail.ru&action=update
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-31T060001.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Pavel&name=nick&id=0&email=p@mail.ru&action=update
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-31T055954.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Pavel&name=nick&id=0&email=pavel@mail.ru&action=update
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-31T055947.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Pavel&name=nick&id=0&email=pavel@mail.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-31T055935.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=Pavel&name=nick&id=0&email=nick@mail.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-31T055925.200.html
+
+###
+
+POST http://localhost:8080/item/user?login=nick&name=nick&id=0&email=nick@mail.ru&action=add
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-31T055916.200.html
+
+###
+
 POST http://localhost:8080/item/user?login=zxcd&name=nick&id=0&email=Ra@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
@@ -347,54 +395,6 @@ Accept: */*
 Cache-Control: no-cache
 
 <> 2018-12-31T012954.200.html
-
-###
-
-POST http://localhost:8080/item/user?login=NEWlogin&name=name&id=0&email=newEmail@mail.ru&action=add
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-31T012930.200.html
-
-###
-
-POST http://localhost:8080/item/user?login=log1&name=name&id=0&email=new1@mail.ru&action=add
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-31T012905.200.html
-
-###
-
-POST http://localhost:8080/item/user?login=log&name=name&id=0&email=new1@mail.ru&action=add
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-31T012857.200.html
-
-###
-
-POST http://localhost:8080/item/user?login=log&name=name&id=0&email=new1@mail.ru&action=add
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-31T012856.200.html
-
-###
-
-POST http://localhost:8080/item/user?login=log&name=name&id=0&email=new1@mail.ru&action=update
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-31T012054.200.html
-
-###
-
-POST http://localhost:8080/item/user?login=logNew1&name=name&id=0&email=new1@mail.ru&action=update
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-31T012021.200.html
 
 ###
 

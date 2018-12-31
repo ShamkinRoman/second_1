@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
 
 /*
@@ -23,7 +22,7 @@ Method GET display contain storage.
 public class UserServlet extends HttpServlet {
     private static final ValidateService validate = ValidateService.getInstance();
     private Map<String, Function<HttpServletRequest, Boolean>> action = new HashMap<>();
-    private volatile int id = 0;
+
 /*
 initializations main method for storage.
 In constructor may be includes some actions in last time.
@@ -34,20 +33,11 @@ In constructor may be includes some actions in last time.
         action.put("delete", delete());
     }
 
-    public Function<HttpServletRequest, Boolean> add() {
-        return (param -> {
-            String name = param.getParameter("name");
-            String login = param.getParameter("login");
-            String email = param.getParameter("email");
-            return validate.add(new User(this.id++, name, login, email));
-        });
-    }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
-        for (User user : validate.findAll()) {
+        for (User user : validate.findAllMap().values()) {
             printWriter.append(user + "<br>");
         }
         printWriter.flush();
@@ -59,6 +49,15 @@ In constructor may be includes some actions in last time.
         PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
         printWriter.append(doAction(req) ? "successful" : "negative");
         printWriter.flush();
+    }
+
+    public Function<HttpServletRequest, Boolean> add() {
+        return (param -> {
+            String name = param.getParameter("name");
+            String login = param.getParameter("login");
+            String email = param.getParameter("email");
+            return validate.add(new User(validate.giveId() , name, login, email));
+        });
     }
 
     public boolean doAction(HttpServletRequest request) {
@@ -101,4 +100,9 @@ In constructor may be includes some actions in last time.
     protected List<User> findAll(){
         return validate.findAll();
     }
+
+    protected Map<Integer, User> findAllMap(){
+        return validate.findAllMap();
+    }
+
 }

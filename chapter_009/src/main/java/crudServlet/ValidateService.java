@@ -11,7 +11,7 @@ Used pattern for check email.
  */
 public class ValidateService {
     private static final ValidateService instance = new ValidateService();
-    private static final MemoryStoreV2 memory = new MemoryStoreV2().getInstance();
+    private static final MemoryStore memory = new MemoryStore().getInstance();
 
 
     public static ValidateService getInstance() {
@@ -37,7 +37,6 @@ public class ValidateService {
         boolean result = false;
 
         for ( User userFind : memory.findAllInMap().values()) {
-
             if (userFind.equals(user)){
                 result = true;
                 break;
@@ -48,7 +47,6 @@ public class ValidateService {
 
     public boolean checkExistsEmail(User user) {
         boolean result = false;
-
         for (User userFind : memory.findAllInMap().values()) {
             if (userFind.getEmail().equals(user.getEmail())) {
                 result = true;
@@ -125,7 +123,6 @@ public class ValidateService {
     public Integer giveId(){
         return  memory.giveId();
     }
-
 
     public List<User> findAll() {
         return memory.findAll();

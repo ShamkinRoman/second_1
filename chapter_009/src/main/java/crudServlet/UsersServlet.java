@@ -25,19 +25,40 @@ public class UsersServlet extends UserServlet {
                 "<title>" + getClass().getName() + "</title> " +
                 "</head>" +
                 "<body>" +
-                "Что то написано :)  " + new Date().toString());
-        for (User user : super.findAll()){
-            sb.append("<form action'" + req.getContextPath() + "/' method = 'post'>"+
-                    " id: <input type='text' name = 'id' value = '" + user.getId()+ "'/>" +
-                    " Name: <input type='text' name = 'name' value = '" + user.getName()+ "'/>" +
-                    " Login: <input type='text' name = 'login' value = '" +user.getLogin()+ "' />"+
-                    " e-mail: <input type='text' name = 'email' value = '" +user.getEmail() + "'/>"+
-                    "<input type = 'submit' name ='action' value= 'update'>"+
-                    "<input type = 'submit' name ='action' value= 'delete'>"+
-                    "</form>");
-            sb.append("<br>");
+                "Something write :)  " + new Date().toString());
+        printWriter.append("<br>" +
+                "<table border='1'>"+
+                    "<tr> <th> id </th>" +
+                            "<th> name </th>"+
+                "<th> login </th>" +
+                            "<th> e-mail</th> " +
+                            "<th> dateCreate </th>" +
+                            "<th> update </th> " +
+                            "<th> delete </th> </tr>"
+                );
+        for (User user : super.findAllMap().values()) {
+            printWriter.append("<tr> <td> " + user.getId()+" </td>" +
+                    "<td> " + user.getName()+ " </td>" +
+                    "<td> " +user.getLogin()+ " </td>" +
+                    "<td>"+user.getEmail() +"</td> " +
+                    "<td> "+user.getDataCreate() +"dateCreate </td>" +
+                    "<td> <input type = 'submit' name ='action' value= 'update'></td> " +
+                    "<td> <input type = 'submit' name ='action' value= 'delete'> </td> </tr>");
         }
-        printWriter.append(sb);
+        printWriter.append("</table>");
+
+//        for (User user : super.findAllMap().values()){
+//            sb.append("<form action'" + req.getContextPath() + "/' method = 'post'>"+
+//                    " id: <input type='text' name = 'id' value = '" + user.getId()+ "'/>" +
+//                    " Name: <input type='text' name = 'name' value = '" + user.getName()+ "'/>" +
+//                    " Login: <input type='text' name = 'login' value = '" +user.getLogin()+ "' />"+
+//                    " e-mail: <input type='text' name = 'email' value = '" +user.getEmail() + "'/>"+
+//                    "<input type = 'submit' name ='action' value= 'update'>"+
+//                    "<input type = 'submit' name ='action' value= 'delete'>"+
+//                    "</form>");
+//            sb.append("<br>");
+//        }
+//        printWriter.append(sb);
         printWriter.append("</body>" +
                 "</html>");
         printWriter.flush();
