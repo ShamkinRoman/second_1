@@ -1,6 +1,7 @@
 package crudServlet;
 
 import java.util.List;
+import java.util.Map;
 
 /*
 This is interface for Storage class
@@ -16,5 +17,9 @@ public interface Store {
     List<User> findAll();
 
     User findById(int id);
+
+    default Map<Integer, User> findAllInMap(){
+        return null;
+    }
 
 }

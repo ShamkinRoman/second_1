@@ -1,434 +1,400 @@
-POST http://localhost:8080/item/user?login=q&name=q&id=0&email=qw@mail.ru&action=delete
+POST http://localhost:8080/item/user?login=zxcd&name=nick&id=0&email=Ra@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-30T041431.200.html
+<> 2018-12-31T053034.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=q&name=q&id=0&email=qw@mail.ru&action=delete
+POST http://localhost:8080/item/user?login=zxcd&name=nick&id=0&email=Rasd@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-30T041342.200.html
+<> 2018-12-31T053027.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=q&name=q&id=0&email=qw@mail.ru
+POST http://localhost:8080/item/user?login=Zas&name=nick&id=0&email=Rasd@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-30T041315.200.html
+<> 2018-12-31T053010.200.html
 
 ###
 
-POST http://localhost:8080/resources?login=q&name=q&id=0&email=qw@mail.ru
+POST http://localhost:8080/item/user?login=Zas&name=nick&id=3&email=Rasd@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-30T041222.404.html
+<> 2018-12-31T052951.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=nick&name=nick&id=44&email=Rasd@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T060654.200.html
+<> 2018-12-31T052921.500.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=nick&name=nick&id=3&email=Rasd@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T060644.200.html
+<> 2018-12-31T052907.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=Roman&name=nick&id=3&email=Rasd@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T115337.200.html
+<> 2018-12-31T052846.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=Roman&name=nick&id=3&email=nick@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T115336.200.html
+<> 2018-12-31T052823.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=Roman&name=nick&id=3&email=Roman@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T115332.200.html
+<> 2018-12-31T052750.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=nick1&name=nick&id=3&email=nick@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104323.200.html
+<> 2018-12-31T052735.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=nick&name=nick&id=3&email=nick1@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104321.200.html
+<> 2018-12-31T052723.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=nick&name=nick&id=3&email=nick@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104212.200.html
+<> 2018-12-31T052703.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=aaas&name=name&id=3&email=a@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104211.200.html
+<> 2018-12-31T025249.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=aaas&name=name&id=3&email=qq@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104105.200.html
+<> 2018-12-31T025237.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai.rt&action=add&id=4
+POST http://localhost:8080/item/user?login=aaas&name=name&id=3&email=a@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104058.200.html
+<> 2018-12-31T025215.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai&action=add&id=4
+POST http://localhost:8080/item/user?login=a&name=name&id=3&email=a@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T104047.200.html
+<> 2018-12-31T025145.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mai&action=add&id=4
+POST http://localhost:8080/item/user?login=arturq&name=name&id=3&email=artur@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T102336.200.html
+<> 2018-12-31T025124.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Update_Andy&name=Update_Andy&email=Update_Andy@mail.ru&action=update&id=4
+POST http://localhost:8080/item/user?login=arturq&name=name&id=2&email=artur@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T102201.200.html
+<> 2018-12-31T025058.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Andy&name=Andy&email=Andy@mail.ru&action=add&id=3
+POST http://localhost:8080/item/user?login=arturq&name=name&id=2&email=artur@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T102117.200.html
+<> 2018-12-31T025028.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Andy&name=Andy&email=Andy@mail.ru&action=delete&id=3
+POST http://localhost:8080/item/user?login=artur&name=name&id=2&email=artur@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T102102.200.html
+<> 2018-12-31T025020.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Andy&name=Andy&email=Andy@mail.ru&action=add
+POST http://localhost:8080/item/user?login=artur&name=name&id=2&email=artur@mail.ru&action=delete
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T102021.200.html
+<> 2018-12-31T025005.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Mary&name=Mary&email=Mary@mail.ru&action=add
+POST http://localhost:8080/item/user?login=artur&name=name&id=0&email=artur@mail.ru&action=delete
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T101937.200.html
+<> 2018-12-31T024955.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=Mary?name=Mary?email=Mary@we.ru?action=add
+POST http://localhost:8080/item/user?login=artur&name=name&id=0&email=artur@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T101713.200.html
+<> 2018-12-31T024928.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=Olya&name=Olya&email=Olya@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman&login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman?name=Roman?email=wwee@we.ru?action=add
+POST http://localhost:8080/item/user?login=artur&name=name&id=0&email=artur@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-?login=an?name=an?email=ee@we.ru?action=add
-
-<> 2018-12-27T101537.200.html
+<> 2018-12-31T024837.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman&login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman?name=Roman?email=wwee@we.ru?action=add
+POST http://localhost:8080/item/user?login=artur&name=name&id=0&email=artur@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-27T101341.200.html
+<> 2018-12-31T024826.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman&login=roman?name=Roman?email=wwee@we.ru?action=add
+POST http://localhost:8080/item/user?login=login&name=name&id=0&email=mail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
+
+<> 2018-12-31T024811.200.html
 
 ###
 
-GET http://localhost:8080/item/user/?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman
+POST http://localhost:8080/item/user?login=login&name=name&id=0&email=mail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-27T101203.404.html
+<> 2018-12-31T024809.200.html
 
 ###
 
-POST http://localhost:8080/item/user/?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1&name=Roman?email=wwee@we.ru?action=add?login=Roman
+POST http://localhost:8080/item/user?login=lo&name=n&id=0&email=ddfl@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-27T101141.404.html
+<> 2018-12-31T022950.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2&login=roman&name=Roman&email=wwee@we.ru&action=delete&id=1
+POST http://localhost:8080/item/user?login=lo&name=n&id=0&email=ill@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111848.200.html
+<> 2018-12-31T022926.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=update&id=2
+POST http://localhost:8080/item/user?login=lo&name=n&id=0&email=il@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111813.200.html
+<> 2018-12-31T022916.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add&login=oman&name=oman&email=we@we.ru&action=add
+POST http://localhost:8080/item/user?login=l&name=n&id=0&email=il@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111729.200.html
+<> 2018-12-31T022859.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=oman&name=oman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=l&name=n&id=0&email=il@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111700.200.html
+<> 2018-12-31T022840.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=log1&name=name1&id=0&email=mail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111602.200.html
+<> 2018-12-31T022817.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=log1&name=name1&id=0&email=mail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111330.200.html
+<> 2018-12-31T022816.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=log1&name=name1&id=0&email=mail@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111247.200.html
+<> 2018-12-31T021116.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=log&name=name1&id=0&email=mail@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T111045.200.html
+<> 2018-12-31T021105.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=log&name=name1&id=0&email=mail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
+
+<> 2018-12-31T021054.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=login&name=name1&id=0&email=mail1@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
+
+<> 2018-12-31T021040.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=RRRRRRRn&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=login&name=name&id=0&email=mail1@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T110605.200.html
+<> 2018-12-31T021025.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=login&name=name&id=0&email=mail1@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T110555.200.html
+<> 2018-12-31T020751.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add&login=RRRR&name=RRn&email=RRRe@we.ru&action=add
+POST http://localhost:8080/item/user?login=login&name=name&id=0&email=mail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105820.200.html
+<> 2018-12-31T020721.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add&login=RR&name=RRRRR&email=RRRe@we.ru&action=add
+POST http://localhost:8080/item/user?login=NEWlogin&name=name&id=0&email=new1Email@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105758.200.html
+<> 2018-12-31T020659.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add
+POST http://localhost:8080/item/user?login=NEWlogin&name=name&id=0&email=newEmail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105708.200.html
+<> 2018-12-31T020650.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=Olya&name=olya&email=olya@we.ru&action=add
+POST http://localhost:8080/item/user?login=NEWlogin&name=name&id=0&email=newEmail@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105702.200.html
+<> 2018-12-31T012954.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=NEWlogin&name=name&id=0&email=newEmail@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105642.200.html
+<> 2018-12-31T012930.200.html
 
 ###
 
-GET http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add
+POST http://localhost:8080/item/user?login=log1&name=name&id=0&email=new1@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105307.200.html
+<> 2018-12-31T012905.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add&login=olya&name=Olga&email=olya@we.ru&action=add
+POST http://localhost:8080/item/user?login=log&name=name&id=0&email=new1@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105300.200.html
+<> 2018-12-31T012857.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add&login=roman&name=Roman&email=wwee@we.ru&action=add
+POST http://localhost:8080/item/user?login=log&name=name&id=0&email=new1@mail.ru&action=add
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105236.200.html
+<> 2018-12-31T012856.200.html
 
 ###
 
-POST http://localhost:8080/item/user?login=roman?name=Roman?email=wwee@we.ru?action=add
+POST http://localhost:8080/item/user?login=log&name=name&id=0&email=new1@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T105111.200.html
+<> 2018-12-31T012054.200.html
 
 ###
 
-POST http://localhost:8080/item/user
+POST http://localhost:8080/item/user?login=logNew1&name=name&id=0&email=new1@mail.ru&action=update
 Accept: */*
 Cache-Control: no-cache
 
-<> 2018-12-26T104713.200.html
+<> 2018-12-31T012021.200.html
 
 ###
 

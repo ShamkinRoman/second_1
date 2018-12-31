@@ -49,16 +49,14 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return id == user.id &&
-                name.equals(user.name) &&
+        return  name.equals(user.name) &&
                 login.equals(user.login) &&
-                email.equals(user.email) &&
-                dataCreate.equals(user.dataCreate);
+                email.equals(user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, login, email, dataCreate);
+        return Objects.hash(name, login, email);
     }
 
     @Override
