@@ -106,8 +106,8 @@ public class ParallelSearch {
         list.add(".txt"); // задаем расширения.
         list.add(".cfg");
 
-        String path = "C://AMD//"; //Путь поиска.
-        String text = "EnableAnalyticTracking=false"; // Текст для поиска.
+        String path = "C:\\Program Files (x86)"; //Путь поиска.
+        String text = "f"; // Текст для поиска.
 
         ParallelSearch parallelSearch = new ParallelSearch(path, text, list);
 
