@@ -88,6 +88,7 @@ public class ValidateService {
     I have one side two identically logins or email, either user don't change login or email.
      */
 
+
     public boolean update(User user) {
         boolean result = false;
         Integer id = user.getId();
