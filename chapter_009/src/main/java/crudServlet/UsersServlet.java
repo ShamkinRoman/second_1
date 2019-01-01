@@ -39,14 +39,13 @@ public class UsersServlet extends UserServlet {
         );
         for (User user : super.findAllMap().values()) {
             sb.append("<form action'" + req.getContextPath() + "/' method = 'post'>" +
-                    "<tr> <td>  <input type='text' name = 'id' value = '" + user.getId() + "' readonly> </td>" +
+                    "<tr> <td>  <input type='text' name = 'id' value = '" + user.getId() + "'readonly> </td>" +
                     "<td> <input type='text' name = 'name' value = '" + user.getName() + "' readonly> </td>" +
                     "<td> <input type='text' name = 'login' value = '" + user.getLogin() + "' readonly> </td>" +
                     "<td><input type='text' name = 'email' value = '" + user.getEmail() + "' readonly></td> " +
                     "<td> <input type='text' name = 'dataCreate' value = '" + user.getDataCreate() + "' readonly></td>" +
-
-                    "<td> <button type = 'submit' name ='update" + user.getId() + "' <i>update</i> </button></td> " +
-                    "<td> <button type = 'submit' name ='delete" + user.getId() + "' <i>delete</i> </button></td> </tr>" +
+                    "<td> <input type = 'submit' name ='action' value = 'update'> </td> " +
+                    "<td> <input type = 'submit' name ='action' value = 'delete'></td> </tr>" +
                     " </form>");
         }
         sb.append("</table>" + "</body>" +
@@ -57,16 +56,11 @@ public class UsersServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        PrintWriter writer = new PrintWriter(resp.getOutputStream());
-        writer.append("This my post method. <br>");
-        Map<String, String[]> map = req.getParameterMap();
-        for (String[] strings : map.values()) {
-            for (String str : strings) {
-                writer.append(" ");
-                writer.append(str);
-            }
+        String choice = req.getParameter("action");
+        if (!choice.equals("update")){
+            super.doPost(req,resp);
+        } else {
+            resp.sendRedirect(req.getContextPath()+"/edit?id="+req.getParameter("id"));
         }
-        writer.flush();
     }
 }

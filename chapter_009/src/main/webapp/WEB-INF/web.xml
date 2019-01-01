@@ -22,10 +22,17 @@
         <servlet-name>UsersServlet</servlet-name>
         <servlet-class>crudServlet.UsersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <servlet-class>crudServlet.UserUpdateServlet</servlet-class>
+    </servlet>
 
 
 
-
+<servlet-mapping>
+    <servlet-name>UserUpdateServlet</servlet-name>
+    <url-pattern>/edit</url-pattern>
+</servlet-mapping>
     <servlet-mapping>
         <servlet-name>UsersServlet</servlet-name>
         <url-pattern>/list</url-pattern>
