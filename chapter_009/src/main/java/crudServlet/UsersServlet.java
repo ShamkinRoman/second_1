@@ -28,7 +28,9 @@ public class UsersServlet extends UserServlet {
                 "<title>" + getClass().getName() + "</title> " +
                 "</head>" +
                 "<body>" +
-                "Something write :)  " + new Date().toString());
+                "Something write :)  " + new Date().toString() + "  ");
+        sb.append("<form action='" + req.getContextPath() + "/create' method = 'get'> "+
+                "<button type='submit'> CreateUsers </button> </form>");
         sb.append("<br>" +
                 "<table border='1'>" +
                 "<tr> <th> id </th>" +

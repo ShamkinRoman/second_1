@@ -27,7 +27,9 @@ public class UserUpdateServlet extends UserServlet {
                 "<title>" + getClass().getName() + "</title> " +
                 "</head>" +
                 "<body>" +
-                " This is update form  " + new Date().toString());
+                " This is update form  " + new Date().toString() + "   ");
+        sb.append("<form action='" + req.getContextPath() + "/list' method = 'get'> "+
+                "<button type='submit'> ListUsers </button> </form>");
         sb.append("<br>" +
                 "<table border='1'>" +
                 "<tr> <th> id </th>" +

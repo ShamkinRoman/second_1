@@ -87,17 +87,15 @@ public class ValidateService {
     It my solve, because I have a problems with rename login or email.
     I have one side two identically logins or email, either user don't change login or email.
      */
-
-
     public boolean update(User user) {
         boolean result = false;
         Integer id = user.getId();
-        String name = memory.findAllInMap().get(id).getName();
-        String login = memory.findAllInMap().get(id).getLogin();
-        String email = memory.findAllInMap().get(id).getEmail();
+        User userEdit = memory.findAllInMap().get(id);
+        String name = userEdit.getName();
+        String login = userEdit.getLogin();
+        String email = userEdit.getEmail();
         User inspectUser = new User(id, name, login, email);
-        User userDelete = memory.findAllInMap().get(id);
-        memory.delete(userDelete);
+        memory.delete(userEdit);
         if (add(user)){
             memory.delete(user);
             memory.add(inspectUser);

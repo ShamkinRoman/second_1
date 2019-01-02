@@ -26,6 +26,8 @@ public class UserCreateServlet extends UserServlet {
                 "</head>" +
                 "<body>" +
                 "Something write :)  " + new Date().toString() +
+                        "<form action='" + req.getContextPath() + "/list' method = 'get'> "+
+                        "<button type='submit'> ListUsers </button> </form>"+
                 "<form action'" + req.getContextPath() + "/' method = 'post'>"+
                 " Name: <input type='text' name = 'name'/>" +
                 " Login: <input type='text' name = 'login'/>"+
