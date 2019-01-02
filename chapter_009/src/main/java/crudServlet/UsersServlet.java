@@ -14,11 +14,13 @@ Class used methods UPDATE and DELETE in HTML form.
 It use name submit form as parameter (action) for parents class.
  */
 public class UsersServlet extends UserServlet {
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
-        StringBuilder sb = new StringBuilder();
+    /**
+     * Method for building HTML page.
+     * @param sb stringBuilder which write page.
+     * @param req Request from client.
+     * @return result page in StringBuilder.
+     */
+    private StringBuilder buildPage(StringBuilder sb, HttpServletRequest req) {
         sb.append("<!DOCTYPE html>" +
                 "<html lang='en'>" +
                 "<head>" +
@@ -35,8 +37,7 @@ public class UsersServlet extends UserServlet {
                 "<th> e-mail</th> " +
                 "<th> dateCreate </th>" +
                 "<th> update </th> " +
-                "<th> delete </th> </tr>"
-        );
+                "<th> delete </th> </tr>");
         for (User user : super.findAllMap().values()) {
             sb.append("<form action'" + req.getContextPath() + "/' method = 'post'>" +
                     "<tr> <td>  <input type='text' name = 'id' value = '" + user.getId() + "'readonly> </td>" +
@@ -50,6 +51,14 @@ public class UsersServlet extends UserServlet {
         }
         sb.append("</table>" + "</body>" +
                 "</html>");
+        return sb;
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
+        StringBuilder sb = new StringBuilder();
+        sb = buildPage(sb, req);
         printWriter.append(sb);
         printWriter.flush();
     }
@@ -57,10 +66,11 @@ public class UsersServlet extends UserServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String choice = req.getParameter("action");
-        if (!choice.equals("update")){
-            super.doPost(req,resp);
+        if (!choice.equals("update")) {
+            super.doPost(req, resp);
+            doGet(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath()+"/edit?id="+req.getParameter("id"));
+            resp.sendRedirect(req.getContextPath() + "/edit?id=" + req.getParameter("id"));
         }
     }
 }

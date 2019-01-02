@@ -14,11 +14,11 @@ public class UserUpdateServlet extends UserServlet {
     /**
      * This is method for building HTML page by StringBuilder, if exists USER in STORAGE.
      *
-     * @param sb StringBuilder for record and transfuse HTML page with User data.
+     * @param sb  StringBuilder for record and transfuse HTML page with User data.
      * @param req Request which contain data for finding User in Storage.
      * @return resulting HTML page.
      */
-    public StringBuilder notEmpty(StringBuilder sb, HttpServletRequest req){
+    private StringBuilder notEmptyUserBuilPage(StringBuilder sb, HttpServletRequest req) {
         User userUpdate = super.findAllMap().get(Integer.parseInt(req.getParameter("id")));
         sb.append("<!DOCTYPE html>" +
                 "<html lang='en'>" +
@@ -39,7 +39,7 @@ public class UserUpdateServlet extends UserServlet {
                 "</tr>");
         sb.append("<form action'" + req.getContextPath() + "/' method = 'post'>" +
                 "<tr> <td>  <input type='text' name = 'id' value = '" + userUpdate.getId() + "'readonly> </td>" +
-                "<td> <input type='text' name = 'name' value = '" +  userUpdate.getName() + "' > </td>" +
+                "<td> <input type='text' name = 'name' value = '" + userUpdate.getName() + "' > </td>" +
                 "<td> <input type='text' name = 'login' value = '" + userUpdate.getLogin() + "' > </td>" +
                 "<td><input type='text' name = 'email' value = '" + userUpdate.getEmail() + "'></td> " +
                 "<td> <input type='text' name = 'dataCreate' value = '" + userUpdate.getDataCreate() + "' readonly></td>" +
@@ -52,23 +52,23 @@ public class UserUpdateServlet extends UserServlet {
     /**
      * This is method contain try - catch block, because user may be enter request without ID.
      *
-     * @param req Request from URL Client.
+     * @param req  Request from URL Client.
      * @param resp Response to Client.
      * @throws ServletException exception.
-     * @throws IOException exception.
+     * @throws IOException      exception.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         StringBuilder sb = new StringBuilder();
-        try{
+        try {
             User userUpdate = super.findAllMap().get(Integer.parseInt(req.getParameter("id")));
-            if (userUpdate!=null){
-            sb=notEmpty(sb, req);
+            if (userUpdate != null) {
+                sb = notEmptyUserBuilPage(sb, req);
             } else {
                 sb.append(" Not correct ID, user with this ID not found");
             }
-        } catch (NumberFormatException nfe){
+        } catch (NumberFormatException nfe) {
             sb.append(" You can enter ID");
         }
         writer.append(sb);
@@ -78,6 +78,6 @@ public class UserUpdateServlet extends UserServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
-        doGet(req,resp);
+        doGet(req, resp);
     }
 }
