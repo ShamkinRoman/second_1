@@ -16,7 +16,8 @@ It use name submit form as parameter (action) for parents class.
 public class UsersServlet extends UserServlet {
     /**
      * Method for building HTML page.
-     * @param sb stringBuilder which write page.
+     *
+     * @param sb  stringBuilder which write page.
      * @param req Request from client.
      * @return result page in StringBuilder.
      */
@@ -29,7 +30,7 @@ public class UsersServlet extends UserServlet {
                 "</head>" +
                 "<body>" +
                 "Something write :)  " + new Date().toString() + "  ");
-        sb.append("<form action='" + req.getContextPath() + "/create' method = 'get'> "+
+        sb.append("<form action='" + req.getContextPath() + "/create' method = 'get'> " +
                 "<button type='submit'> CreateUsers </button> </form>");
         sb.append("<br>" +
                 "<table border='1'>" +

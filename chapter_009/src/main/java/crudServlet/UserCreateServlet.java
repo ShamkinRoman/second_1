@@ -26,13 +26,13 @@ public class UserCreateServlet extends UserServlet {
                 "</head>" +
                 "<body>" +
                 "Something write :)  " + new Date().toString() +
-                        "<form action='" + req.getContextPath() + "/list' method = 'get'> "+
-                        "<button type='submit'> ListUsers </button> </form>"+
-                "<form action'" + req.getContextPath() + "/' method = 'post'>"+
+                "<form action='" + req.getContextPath() + "/list' method = 'get'> " +
+                "<button type='submit'> ListUsers </button> </form>" +
+                "<form action'" + req.getContextPath() + "/' method = 'post'>" +
                 " Name: <input type='text' name = 'name'/>" +
-                " Login: <input type='text' name = 'login'/>"+
-                " e-mail: <input type='text' name = 'email'/>"+
-                "<input type = 'submit' name ='action' value= 'add'>"+
+                " Login: <input type='text' name = 'login'/>" +
+                " e-mail: <input type='text' name = 'email'/>" +
+                "<input type = 'submit' name ='action' value= 'add'>" +
                 "</form>" +
                 "</body>" +
                 "</html>");
@@ -41,7 +41,10 @@ public class UserCreateServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-        doGet(req, resp);
+        if (super.doAction(req)) {
+            resp.sendRedirect(req.getContextPath() + "/list");
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/create");
+        }
     }
 }

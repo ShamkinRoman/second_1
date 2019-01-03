@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /*
 This is class singleton and used MemoryStore as storage.
 Also used methods for adding, updating, deleting and finding users in storage, but for used methods check validation not null data.
@@ -21,7 +22,7 @@ public class ValidateService {
     public boolean validateUser(User user) {
         boolean result = false;
         if (user.getId() != null && user.getDataCreate() != null && user.getLogin() != null && user.getName() != null &&
-                validateEmail(user) ) {
+                validateEmail(user)) {
             result = true;
         }
         return result;
@@ -36,8 +37,8 @@ public class ValidateService {
     public boolean checkUserExists(User user) {
         boolean result = false;
 
-        for ( User userFind : memory.findAllInMap().values()) {
-            if (userFind.equals(user)){
+        for (User userFind : memory.findAllInMap().values()) {
+            if (userFind.equals(user)) {
                 result = true;
                 break;
             }
@@ -50,7 +51,7 @@ public class ValidateService {
         for (User userFind : memory.findAllInMap().values()) {
             if (userFind.getEmail().equals(user.getEmail())) {
                 result = true;
-                    break;
+                break;
             }
         }
         return result;
@@ -61,7 +62,7 @@ public class ValidateService {
         for (User userFind : memory.findAllInMap().values()) {
             if (userFind.getLogin().equals(user.getLogin())) {
                 result = true;
-                    break;
+                break;
             }
         }
         return result;
@@ -76,6 +77,7 @@ public class ValidateService {
         }
         return result;
     }
+
     /*
     very big crutch (костыль).
     On start copy user from Collection in new exemplar.
@@ -96,11 +98,11 @@ public class ValidateService {
         String email = userEdit.getEmail();
         User inspectUser = new User(id, name, login, email);
         memory.delete(userEdit);
-        if (add(user)){
+        if (add(user)) {
             memory.delete(user);
             memory.add(inspectUser);
             memory.update(user);
-            result=true;
+            result = true;
         } else {
             memory.add(inspectUser);
         }
@@ -115,12 +117,12 @@ public class ValidateService {
         return result;
     }
 
-    public Map<Integer, User> findAllMap(){
+    public Map<Integer, User> findAllMap() {
         return memory.findAllInMap();
     }
 
-    public Integer giveId(){
-        return  memory.giveId();
+    public Integer giveId() {
+        return memory.giveId();
     }
 
     public List<User> findAll() {
