@@ -41,10 +41,12 @@ public class UserCreateServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (super.doAction(req)) {
-            resp.sendRedirect(req.getContextPath() + "/list");
-        } else {
-            resp.sendRedirect(req.getContextPath() + "/create");
-        }
+        String ss;
+        ss = String.format("%s/index.jsp", req.getContextPath());
+        super.doPost(req, resp);
+        System.out.println(ss);
+        System.out.println("Goto reDirect");
+        resp.sendRedirect("index.jsp");
+        System.out.println("After Redirect");
     }
 }
