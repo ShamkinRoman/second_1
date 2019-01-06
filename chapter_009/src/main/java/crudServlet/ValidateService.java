@@ -78,34 +78,39 @@ public class ValidateService {
         return result;
     }
 
-    /*
-    very big crutch (костыль).
-    On start copy user from Collection in new exemplar.
-    Delete coped user from Collection.
-    Create new user with new characteristic, if it create, then new LOGIN and EMAIL uniq.
-    Delete creating user.
-    Create new User with old characteristic.
-    Update user.
-    It my solve, because I have a problems with rename login or email.
-    I have one side two identically logins or email, either user don't change login or email.
+    /**
+     * Method for update user attributes.
+     *
+     * @param user User with old ID and new attributes.
+     * @return TRUE if updating successful, else FALSE.
      */
     public boolean update(User user) {
         boolean result = false;
-        Integer id = user.getId();
-        User userEdit = memory.findAllInMap().get(id);
-        String name = userEdit.getName();
-        String login = userEdit.getLogin();
-        String email = userEdit.getEmail();
-        User inspectUser = new User(id, name, login, email);
-        memory.delete(userEdit);
-        if (add(user)) {
-            memory.delete(user);
-            memory.add(inspectUser);
+        boolean flag1 = false;
+        boolean flag2 = false;
+        User chekedUser = memory.findAllInMap().get(user.getId());
+        /**
+         * if login not belongs to us, check for free login.
+         */
+        if (!user.getLogin().equals(chekedUser.getLogin())) {
+            flag1 = !checkExistsLogin(user);
+        } else {
+            flag1 = true;
+        }
+        /**
+         * if email not belongs to us, check for free email.
+         */
+        if (!user.getEmail().equals(chekedUser.getEmail())) {
+            flag2 = !checkExistsEmail(user);
+        } else {
+            flag2 = true;
+        }
+
+        if (flag1 && flag2) {
             memory.update(user);
             result = true;
-        } else {
-            memory.add(inspectUser);
         }
+
         return result;
     }
 
