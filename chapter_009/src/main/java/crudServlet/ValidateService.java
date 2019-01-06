@@ -86,27 +86,24 @@ public class ValidateService {
      */
     public boolean update(User user) {
         boolean result = false;
-        boolean flag1 = false;
-        boolean flag2 = false;
+        boolean flag1 = true;
+        boolean flag2 = true;
+        boolean flag3 = validateUser(user);
         User chekedUser = memory.findAllInMap().get(user.getId());
         /**
          * if login not belongs to us, check for free login.
          */
         if (!user.getLogin().equals(chekedUser.getLogin())) {
             flag1 = !checkExistsLogin(user);
-        } else {
-            flag1 = true;
         }
         /**
          * if email not belongs to us, check for free email.
          */
         if (!user.getEmail().equals(chekedUser.getEmail())) {
             flag2 = !checkExistsEmail(user);
-        } else {
-            flag2 = true;
         }
 
-        if (flag1 && flag2) {
+        if (flag1 && flag2 && flag3) {
             memory.update(user);
             result = true;
         }

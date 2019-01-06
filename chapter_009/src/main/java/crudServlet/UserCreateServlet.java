@@ -41,12 +41,7 @@ public class UserCreateServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String ss;
-        ss = String.format("%s/index.jsp", req.getContextPath());
         super.doPost(req, resp);
-        System.out.println(ss);
-        System.out.println("Goto reDirect");
-        resp.sendRedirect("index.jsp");
-        System.out.println("After Redirect");
+        resp.sendRedirect(String.format("%s/", req.getContextPath()));
     }
 }

@@ -45,17 +45,8 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("text/html");
-//        PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
         String result = doAction(req) ? "successful" : "negative";
-//        printWriter.append(doAction(req) ? "successful" : "negative");
-//        printWriter.append(result);
-//        printWriter.flush();
-//        System.out.println("In Servlet before Send redirect");
-//        resp.sendRedirect("index.jsp");
-//        System.out.println("In Servlet AFTER Send redirect");
-
-        resp.sendRedirect("index.jsp");
+        resp.sendRedirect(String.format("%s/", req.getContextPath()));
 
     }
 
