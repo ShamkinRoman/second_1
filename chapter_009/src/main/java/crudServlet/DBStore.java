@@ -8,19 +8,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Class for storage User attributes. (examples class User storage this.).
+ * You must correction String URL for you database.
+ * You also can be correction tableName for comfortable create table and use it later.
+ */
 public class DBStore implements Store {
     private static final BasicDataSource SOURCE = new BasicDataSource();
     private static final DBStore INSTANCE = new DBStore();
     private Map<Integer, User> storage = new ConcurrentHashMap<>();
-    private boolean flagCreateTable = false;
     private final String tableName = "jspTable";
-    private final String dataBaseName = "jspDataBase";
+    private final String url = "jdbc:postgresql://localhost:5432/crud";
+    private final String userName = "postgres";
+    private final String passwors = "";
 
     public Integer giveId() {
         Integer result = -99;
         Statement st;
         String request = String.format("select max(id) from %s;", tableName);
-
         try {
             Connection con = SOURCE.getConnection();
             st = con.createStatement();
@@ -34,8 +39,6 @@ public class DBStore implements Store {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
         return ++result;
     }
 
@@ -44,55 +47,20 @@ public class DBStore implements Store {
     }
 
     public DBStore() {
-        String userName = "postgres";
-        String passwors = "";
-        String url = "jdbc:postgresql://localhost:5432/crud";
         SOURCE.setDriverClassName("org.postgresql.Driver");
-        SOURCE.setUrl(url);
-        SOURCE.setUsername(userName);
-        SOURCE.setPassword(passwors);
+        SOURCE.setUrl(this.url);
+        SOURCE.setUsername(this.userName);
+        SOURCE.setPassword(this.passwors);
         SOURCE.setMinIdle(3);
         SOURCE.setMaxIdle(5);
         SOURCE.setMaxOpenPreparedStatements(100);
-    }
-
-
-    public void createDataBase() {
-        try {
-            boolean dataBase = false;
-            Connection con = SOURCE.getConnection();
-            String request = String.format("create database %s;", dataBaseName);
-            String existsDatabase = String.format("select from pg_database where datname='%s';", dataBaseName);
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(existsDatabase);
-            if (rs.next()) {
-                System.out.println("++++++++++++++");
-                System.out.println( dataBase = rs.getInt(1) == 1 ? true : false );
-                System.out.println("++++++++++++++");
-
-            }
-
-            if (!dataBase) {
-                String createDatabase = String.format("create database %s;", dataBaseName);
-                st.executeUpdate(createDatabase);
-                SOURCE.setUrl(String.format("jdbc:postgresql://localhost:5432/%s;", dataBaseName));
-                createTable(tableName);
-            } else {
-                SOURCE.setUrl(String.format("jdbc:postgresql://localhost:5432/%s;", dataBaseName));
-            }
-            rs.close();
-            st.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        createTable(this.tableName);
     }
 
     public void createTable(String tableName) {
         PreparedStatement pst;
         try {
             Connection connection = SOURCE.getConnection();
-            flagCreateTable = true;
             pst = connection.prepareStatement("create table " +
                     tableName +
                     " (id serial primary key, idUser integer, name character varying (300), login character varying(300), email character varying(300),  dataCreate character varying(300));");
@@ -108,8 +76,6 @@ public class DBStore implements Store {
     public void add(User user) {
         PreparedStatement pst;
         String request = String.format("insert into %s (idUser, name, login, email, dataCreate) values (?, ?, ?, ?, ?);", tableName);
-
-
         try {
             Connection con = SOURCE.getConnection();
             pst = con.prepareStatement(request);
@@ -131,7 +97,6 @@ public class DBStore implements Store {
         boolean result = false;
         Statement st;
         String requst = String.format("update %s SET name='%s', login='%s', email='%s' where idUser=%s;", tableName, user.getName(), user.getLogin(), user.getEmail(), user.getId());
-
         try {
             Connection con = SOURCE.getConnection();
             st = con.createStatement();
@@ -165,7 +130,6 @@ public class DBStore implements Store {
 
     @Override
     public List<User> findAll() {
-
         return null;
     }
 
@@ -182,7 +146,7 @@ public class DBStore implements Store {
             Connection con = SOURCE.getConnection();
             st = con.createStatement();
             ResultSet rs = st.executeQuery(request);
-            storage.clear();
+            storage.clear(); // for adequate work.
             while (rs.next()) {
                 Integer idUser = rs.getInt("idUser");
                 String name = rs.getString("name");
@@ -193,7 +157,6 @@ public class DBStore implements Store {
             rs.close();
             st.close();
             con.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
