@@ -12,7 +12,7 @@ Used pattern for check email.
  */
 public class ValidateService {
     private static final ValidateService instance = new ValidateService();
-//   private static final MemoryStore memory = new MemoryStore().getInstance();
+    //   private static final MemoryStore memory = new MemoryStore().getInstance();
     private static final DBStore memory = new DBStore().getINSTANCE();
 
     public static ValidateService getInstance() {
@@ -131,7 +131,7 @@ public class ValidateService {
         return memory.findAll();
     }
 
-    public void close () {
+    public void close() {
         try {
             memory.close();
         } catch (Exception e) {
