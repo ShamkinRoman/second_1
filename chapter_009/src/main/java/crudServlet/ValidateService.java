@@ -130,4 +130,12 @@ public class ValidateService {
     public List<User> findAll() {
         return memory.findAll();
     }
+
+    public void close () {
+        try {
+            memory.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

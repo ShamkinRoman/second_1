@@ -76,4 +76,9 @@ public class UsersServlet extends UserServlet {
             resp.sendRedirect(req.getContextPath() + "/edit?id=" + req.getParameter("id"));
         }
     }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+    }
 }

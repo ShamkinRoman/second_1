@@ -43,4 +43,9 @@ public class UserCreateServlet extends UserServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
     }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+    }
 }

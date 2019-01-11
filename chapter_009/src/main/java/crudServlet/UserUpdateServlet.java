@@ -82,4 +82,9 @@ public class UserUpdateServlet extends UserServlet {
         super.doPost(req, resp);
         resp.sendRedirect(String.format("%s/", req.getContextPath()));
     }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+    }
 }

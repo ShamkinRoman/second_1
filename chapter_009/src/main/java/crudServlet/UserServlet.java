@@ -104,4 +104,8 @@ public class UserServlet extends HttpServlet {
         return validate.findAllMap();
     }
 
+    @Override
+    public void destroy() {
+        validate.close();
+    }
 }
