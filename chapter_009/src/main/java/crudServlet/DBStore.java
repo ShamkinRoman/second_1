@@ -16,11 +16,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DBStore implements Store, AutoCloseable {
     private static final BasicDataSource SOURCE = new BasicDataSource();
     private static final DBStore INSTANCE = new DBStore();
-    //    private Map<Integer, User> storage = new ConcurrentHashMap<>();
-    private final String tableName = "jspTable";
-    private final String url = "jdbc:postgresql://localhost:5432/crud";
-    private final String userName = "postgres";
-    private final String passwors = "";
+    private Map<String, String> setting;
+    private final String tableName;
 
     public Integer giveId() {
         Integer result = -99;
@@ -47,10 +44,12 @@ public class DBStore implements Store, AutoCloseable {
     }
 
     public DBStore() {
+        this.setting = new DataSetup().getMap();
+        this.tableName = setting.get("jspTable");
         SOURCE.setDriverClassName("org.postgresql.Driver");
-        SOURCE.setUrl(this.url);
-        SOURCE.setUsername(this.userName);
-        SOURCE.setPassword(this.passwors);
+        SOURCE.setUrl(setting.get("fullPathJSP"));
+        SOURCE.setUsername(setting.get("user"));
+        SOURCE.setPassword(setting.get("password"));
         SOURCE.setMinIdle(3);
         SOURCE.setMaxIdle(5);
         SOURCE.setMaxOpenPreparedStatements(100);
@@ -62,9 +61,6 @@ public class DBStore implements Store, AutoCloseable {
         try (Connection connection = SOURCE.getConnection()) {
             String request = String.format("create table if not exists %s (id serial primary key, name character varying (300), " +
                     "login character varying(300), email character varying(300),  dataCreate character varying(300));", tableName);
-//            pst = connection.prepareStatement("create table if not exists  " +
-//                    tableName +
-//                    " (id serial primary key, idUser integer, name character varying (300), login character varying(300), email character varying(300),  dataCreate character varying(300));");
             pst = connection.prepareStatement(request);
             pst.execute();
             pst.close();
