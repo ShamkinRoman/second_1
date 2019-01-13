@@ -8,7 +8,7 @@ This is interface for Storage class
  */
 public interface Store {
 
-    void add(User user);
+    boolean add(User user);
 
     boolean update(User user);
 

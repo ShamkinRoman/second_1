@@ -24,6 +24,13 @@ public class User {
         this.dataCreate = new Date().toString();
     }
 
+    public User(String name, String login, String email) {
+        this.name = name;
+        this.login = login;
+        this.email = email;
+        this.dataCreate = new Date().toString();
+    }
+
     public Integer getId() {
         return id;
     }

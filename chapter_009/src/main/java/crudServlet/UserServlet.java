@@ -55,7 +55,7 @@ public class UserServlet extends HttpServlet {
             String name = param.getParameter("name");
             String login = param.getParameter("login");
             String email = param.getParameter("email");
-            return validate.add(new User(validate.giveId(), name, login, email));
+            return validate.add(new User(name, login, email));
         });
     }
 

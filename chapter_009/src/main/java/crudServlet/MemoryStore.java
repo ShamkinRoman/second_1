@@ -18,8 +18,9 @@ public class MemoryStore implements Store {
     }
 
     @Override
-    public void add(User user) {
-        storage.put(user.getId(),user);
+    public boolean add(User user) {
+        storage.put(giveId(),user);
+        return true;
     }
 
     @Override

@@ -60,7 +60,7 @@ public class DBStore implements Store, AutoCloseable {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
             String request = String.format("create table if not exists %s (id serial primary key, name character varying (300), " +
-                    "login character varying(300), email character varying(300),  dataCreate character varying(300));", tableName);
+                    "login character varying(300), email character varying(300),  dataCreate character varying(300), UNIQUE(login), UNIQUE(email));", tableName);
             pst = connection.prepareStatement(request);
             pst.execute();
             pst.close();
@@ -70,7 +70,8 @@ public class DBStore implements Store, AutoCloseable {
     }
 
     @Override
-    public void add(User user) {
+    public boolean add(User user) {
+        boolean result = false;
         PreparedStatement pst;
         String request = String.format("insert into %s (name, login, email, dataCreate) values (?, ?, ?, ?);", tableName);
         try (Connection con = SOURCE.getConnection()) {
@@ -81,9 +82,16 @@ public class DBStore implements Store, AutoCloseable {
             pst.setString(4, user.getDataCreate());
             pst.executeUpdate();
             pst.close();
+            result = true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            if (e.getErrorCode() == 0) {
+                System.out.println(String.format("++++++++++ block add user ++++++++++++++"));
+                System.out.println(String.format("++User must have uniq login and e-mail++"));
+                System.out.println(user.toString());
+                System.out.println(String.format("++++++++++++++++++++++++++++++++++++++++"));
+            } else e.printStackTrace();
         }
+        return result;
     }
 
     @Override
@@ -106,7 +114,12 @@ public class DBStore implements Store, AutoCloseable {
             st.close();
             result = true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            if (e.getErrorCode() == 0) {
+                System.out.println(String.format("++++++++++ block makeRequest +++++++++++"));
+                System.out.println(String.format("++User must have uniq login and e-mail++"));
+                System.out.println(request);
+                System.out.println(String.format("++++++++++++++++++++++++++++++++++++++++"));
+            } else e.printStackTrace();
         }
         return result;
     }
