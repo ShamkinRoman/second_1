@@ -17,26 +17,7 @@ public class UserCreateServlet extends UserServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
-        printWriter.append("<!DOCTYPE html>" +
-                "<html lang='en'>" +
-                "<head>" +
-                "<meta charset='UTF-8'>" +
-                "<title>" + getClass().getName() + "</title> " +
-                "</head>" +
-                "<body>" +
-                "Something write :)  " + new Date().toString() +
-                "<form action='" + req.getContextPath() + "/list' method = 'get'> " +
-                "<button type='submit'> ListUsers </button> </form>" +
-                "<form action'" + req.getContextPath() + "/' method = 'post'>" +
-                " Name: <input type='text' name = 'name'/>" +
-                " Login: <input type='text' name = 'login'/>" +
-                " e-mail: <input type='text' name = 'email'/>" +
-                "<input type = 'submit' name ='action' value= 'add'>" +
-                "</form>" +
-                "</body>" +
-                "</html>");
-        printWriter.flush();
+        req.getRequestDispatcher("/WEB-INF/views/UserCreate.jsp").forward(req, resp);
     }
 
     @Override
