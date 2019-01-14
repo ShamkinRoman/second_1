@@ -12,6 +12,7 @@
     <title>UserEdit</title>
 </head>
 <body>
+This is JSP page, when you can edit User !
 <table border="1">
     <tr>
         <td> id</td>
@@ -22,7 +23,7 @@
     </tr>
     <c:forEach items="${users}" var="user">
         <tr>
-            <form action="${pageContext.servletContext.contextPath}/" method="post">
+            <form action="${pageContext.servletContext.contextPath}/edit" method="post">
                 <td><input type='text' name='id' value="<c:out value="${user.id}"></c:out>" readonly></td>
                 <td><input type='text' name='name' value="<c:out value="${user.name}"></c:out>"></td>
                 <td><input type='text' name='login' value="<c:out value="${user.login}"></c:out>"></td>

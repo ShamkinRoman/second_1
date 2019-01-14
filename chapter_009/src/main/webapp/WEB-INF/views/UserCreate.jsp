@@ -12,7 +12,7 @@
 </head>
 <body>
 This is JSP page, when you can create NEW User !
-<form action="${pageContext.servletContext.contextPath}/" method="post">
+<form action="${pageContext.servletContext.contextPath}/create" method="post">
     name: <input type="text" name="name" value="name"> <br>
     login: <input type="text" name="login" value="login"> <br>
     email: <input type="text" name="email" value="email"> <br>
