@@ -35,12 +35,8 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        PrintWriter printWriter = new PrintWriter(resp.getOutputStream());
-        for (User user : validate.findAllMap().values()) {
-            printWriter.append(user + "<br>");
-        }
-        printWriter.flush();
+        req.setAttribute("users", validate.findAllMap().values());
+        req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp);
     }
 
     @Override
