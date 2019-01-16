@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -31,12 +32,17 @@ public class UserServlet extends HttpServlet {
         action.put("add", add());
         action.put("update", update());
         action.put("delete", delete());
+        action.put("exit", exit());
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("users", validate.findAllMap().values());
-        req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp);
+
+                req.setAttribute("users", validate.findAllMap().values());
+                req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp);
+
+
+
     }
 
     @Override
@@ -44,6 +50,19 @@ public class UserServlet extends HttpServlet {
         String result = doAction(req) ? "successful" : "negative";
         resp.sendRedirect(String.format("%s/", req.getContextPath()));
 
+    }
+
+    public Function<HttpServletRequest, Boolean> exit() {
+        return (param -> {
+            Boolean result = false;
+            try {
+                param.getSession().invalidate();
+                result = true;
+            } catch (NullPointerException npe){
+                npe.getStackTrace();
+            }
+            return result;
+        });
     }
 
     public Function<HttpServletRequest, Boolean> add() {

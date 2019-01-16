@@ -15,6 +15,10 @@
 This is JSP page!
 
 <form action="${pageContext.servletContext.contextPath}/" method="post">
+    <input type="submit" name="action" value="exit" style="color: red">
+</form>
+
+<form action="${pageContext.servletContext.contextPath}/" method="post">
     name: <input type="text" name="name" value="name"> <br>
     login: <input type="text" name="login" value="login"> <br>
     email: <input type="text" name="email" value="email"> <br>
