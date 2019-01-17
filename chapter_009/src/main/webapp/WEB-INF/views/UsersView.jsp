@@ -23,6 +23,12 @@ This is JSP page!
         name: <input type="text" name="name" value="name"> <br>
         login: <input type="text" name="login" value="login"> <br>
         email: <input type="text" name="email" value="email"> <br>
+        role:
+        <select name="role">
+            <option value="admin">admin</option>
+            <option value="user">user</option>
+            <option value="guest">guest</option>
+        </select><br>
         <input type="submit" name="action" value="add"> <br>
     </form>
     <br>

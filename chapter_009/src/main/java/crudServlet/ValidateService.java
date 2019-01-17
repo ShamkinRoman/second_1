@@ -58,6 +58,10 @@ public class ValidateService {
         return memory.findAll();
     }
 
+    public boolean isCheckPass(String login, String password) {
+        return memory.isCheckPass(login, password);
+    }
+
     public void close() {
         try {
             memory.close();

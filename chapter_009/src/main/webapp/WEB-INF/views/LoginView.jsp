@@ -19,12 +19,12 @@ This is JSP page for LoginView.<br>
     </div>
 </c:if>
 <form action="${pageContext.servletContext.contextPath}/signin" method="post">
-    You role is:
-    <select name="role">
-        <option value="admin">admin</option>
-        <option value="user">user</option>
-        <option value="guest">guest</option>
-    </select><br>
+    <%--You role is:--%>
+    <%--<select name="role">--%>
+        <%--<option value="admin">admin</option>--%>
+        <%--<option value="user">user</option>--%>
+        <%--<option value="guest">guest</option>--%>
+    <%--</select><br>--%>
     Login: <input type="text" name="login"><br>
     Password: <input type="password" name="password"><br>
     <input type="submit"><br>

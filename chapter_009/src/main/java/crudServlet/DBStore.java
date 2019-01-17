@@ -4,6 +4,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 
 import java.sql.*;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,26 +19,7 @@ public class DBStore implements Store, AutoCloseable {
     private static final DBStore INSTANCE = new DBStore();
     private Map<String, String> setting;
     private final String tableName;
-
-    public Integer giveId() {
-        Integer result = -99;
-        Statement st;
-        String request = String.format("select max(id) from %s;", tableName);
-        try {
-            Connection con = SOURCE.getConnection();
-            st = con.createStatement();
-            ResultSet rs = st.executeQuery(request);
-            if (rs.next()) {
-                result = rs.getInt(1);
-            }
-            rs.close();
-            st.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return ++result;
-    }
+    private final String passTable = "rolePassword";
 
     public DBStore getINSTANCE() {
         return INSTANCE;
@@ -54,7 +36,22 @@ public class DBStore implements Store, AutoCloseable {
         SOURCE.setMaxIdle(5);
         SOURCE.setMaxOpenPreparedStatements(100);
         createTable(this.tableName);
+        createPasswordRoleTable("rolePassword");
     }
+
+    public void createPasswordRoleTable(String tablePassword) {
+        PreparedStatement pst;
+        try (Connection connection = SOURCE.getConnection()) {
+            String request = String.format("create table if not exists %s (id serial primary key, login character varying (300), foreign key(login) references %s(login), " +
+                    "password character varying(255), role character varying(80));", tablePassword, this.tableName);
+            pst = connection.prepareStatement(request);
+            pst.execute();
+            pst.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void createTable(String tableName) {
         PreparedStatement pst;
@@ -94,6 +91,32 @@ public class DBStore implements Store, AutoCloseable {
         return result;
     }
 
+
+    public boolean addPasswordRole(User user, String password, String role) {
+        boolean result = false;
+        PreparedStatement pst;
+        if (add(user)) { // in this condition call function ADD and adding user in storage.
+            String req = String.format("insert into %s (login, password) values (?, ?);", passTable);
+            try (Connection con = SOURCE.getConnection()) {
+                pst = con.prepareStatement(req);
+                pst.setString(1, user.getLogin());
+                pst.setString(2, password);
+                pst.setString(3, role);
+                pst.executeUpdate();
+                pst.close();
+                result = true;
+            } catch (SQLException e) {
+                if (e.getErrorCode() == 0) {
+                    System.out.println(String.format("++++++++++ block add user and password++++++++++++++"));
+                    System.out.println(String.format("++User must have uniq login and e-mail++++++++++++++"));
+                    System.out.println(user.toString());
+                    System.out.println(String.format("++++++++++++++++++++++++++++++++++++++++++++++++++++"));
+                } else e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
     @Override
     public boolean update(User user) {
         String request = String.format("update %s SET name='%s', login='%s', email='%s' where id=%s;", tableName, user.getName(), user.getLogin(), user.getEmail(), user.getId());
@@ -122,6 +145,23 @@ public class DBStore implements Store, AutoCloseable {
             } else e.printStackTrace();
         }
         return result;
+    }
+
+    public boolean isCheckPass(String login, String password) {
+        boolean pass = false;
+        try (Connection con = SOURCE.getConnection()) {
+            String request = String.format("select * from %s where login = '%s';", passTable, login);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(request);
+            if (rs.next()) {
+                if (rs.getString("password").equals(password)) {
+                    pass = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pass;
     }
 
     @Override
