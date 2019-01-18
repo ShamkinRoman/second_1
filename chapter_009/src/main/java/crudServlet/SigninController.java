@@ -11,11 +11,13 @@ import java.util.Map;
 
 public class SigninController extends HttpServlet {
     private Map<String, Integer> roles = new HashMap<>();
+    private static final ValidateService validate = ValidateService.getInstance();
 
-    private void fillMap(){
+    private void fillMap() {
         roles.put("admin", 1);
         roles.put("user", 2);
         roles.put("guest", 3);
+        roles.put("99", 99);
     }
 
     @Override
@@ -34,17 +36,18 @@ public class SigninController extends HttpServlet {
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (login.equals("lolo") && password.equals("pass")) {
+        if (roles.get(validate.isCheckPass(login, password)) < 80) {
             HttpSession session = req.getSession();
-            synchronized (session){
-                session.setAttribute("access",roles.get(req.getParameter("role")));
+            synchronized (session) {
+                session.setAttribute("access", roles.get(validate.isCheckPass(login, password)));
+                session.setAttribute("role", validate.isCheckPass(login, password));
+                session.setAttribute("login", login);
                 System.out.println(session.getAttribute("access"));
-                session.setAttribute("login", "LOLO");
             }
             resp.sendRedirect(String.format("%s/", req.getContextPath()));
         } else {
-            req.setAttribute("error","Wrong authorization");
-            doGet(req,resp);
+            req.setAttribute("error", "Wrong authorization");
+            doGet(req, resp);
         }
     }
 }

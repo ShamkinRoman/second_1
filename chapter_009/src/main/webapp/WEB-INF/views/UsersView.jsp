@@ -12,7 +12,8 @@
     <title>IndexJSP</title>
 </head>
 <body>
-This is JSP page!
+This is JSP page! <br>
+You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and you role is <b><c:out value="${sessionScope.get('role')}"></c:out>.</b><br>
 
 <form action="${pageContext.servletContext.contextPath}/" method="post">
     <input type="submit" name="action" value="exit" style="color: red">
@@ -23,13 +24,14 @@ This is JSP page!
         name: <input type="text" name="name" value="name"> <br>
         login: <input type="text" name="login" value="login"> <br>
         email: <input type="text" name="email" value="email"> <br>
+        password: <input type="text" name="password" value=""> <br>
         role:
         <select name="role">
             <option value="admin">admin</option>
             <option value="user">user</option>
             <option value="guest">guest</option>
         </select><br>
-        <input type="submit" name="action" value="add"> <br>
+        <input type="submit" name="action" value="addPasswordRole"> <br>
     </form>
     <br>
 </c:if>

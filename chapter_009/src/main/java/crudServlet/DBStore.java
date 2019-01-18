@@ -96,7 +96,7 @@ public class DBStore implements Store, AutoCloseable {
         boolean result = false;
         PreparedStatement pst;
         if (add(user)) { // in this condition call function ADD and adding user in storage.
-            String req = String.format("insert into %s (login, password) values (?, ?);", passTable);
+            String req = String.format("insert into %s (login, password, role) values (?, ?, ?);", passTable);
             try (Connection con = SOURCE.getConnection()) {
                 pst = con.prepareStatement(req);
                 pst.setString(1, user.getLogin());
@@ -147,21 +147,21 @@ public class DBStore implements Store, AutoCloseable {
         return result;
     }
 
-    public boolean isCheckPass(String login, String password) {
-        boolean pass = false;
+    public String isCheckPass(String login, String password) {
+        String result = "99";
         try (Connection con = SOURCE.getConnection()) {
             String request = String.format("select * from %s where login = '%s';", passTable, login);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(request);
             if (rs.next()) {
                 if (rs.getString("password").equals(password)) {
-                    pass = true;
+                    result = rs.getString("role");
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return pass;
+        return result;
     }
 
     @Override

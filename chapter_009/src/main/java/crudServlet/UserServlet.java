@@ -33,6 +33,7 @@ public class UserServlet extends HttpServlet {
         action.put("update", update());
         action.put("delete", delete());
         action.put("exit", exit());
+        action.put("addPasswordRole", addPasswordRole());
     }
 
     @Override
@@ -73,6 +74,20 @@ public class UserServlet extends HttpServlet {
             return validate.add(new User(name, login, email));
         });
     }
+
+    public Function<HttpServletRequest, Boolean> addPasswordRole() {
+        return (param -> {
+            String name = param.getParameter("name");
+            String login = param.getParameter("login");
+            String email = param.getParameter("email");
+            String password = param.getParameter("password");
+            String role = param.getParameter("role");
+            return validate.addPasswordRole(new User(name, login, email), password, role);
+        });
+    }
+
+
+
 
     public boolean doAction(HttpServletRequest request) {
         Function<HttpServletRequest, Boolean> function = action.get(request.getParameter("action"));

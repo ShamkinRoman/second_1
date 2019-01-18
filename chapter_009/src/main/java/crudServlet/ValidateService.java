@@ -58,7 +58,11 @@ public class ValidateService {
         return memory.findAll();
     }
 
-    public boolean isCheckPass(String login, String password) {
+    public  boolean addPasswordRole(User user, String password, String role){
+
+        return  memory.addPasswordRole(user, password, role);
+    }
+    public String isCheckPass(String login, String password) {
         return memory.isCheckPass(login, password);
     }
 
