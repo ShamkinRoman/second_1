@@ -42,7 +42,8 @@ public class DBStore implements Store, AutoCloseable {
     public void createPasswordRoleTable(String tablePassword) {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
-            String request = String.format("create table if not exists %s (id serial primary key, login character varying (300), foreign key(login) references %s(login), " +
+            String request = String.format("create table if not exists %s (id serial primary key, login character varying (300), " +
+                    "foreign key(login) references %s(login) on delete cascade, UNIQUE(login), " +
                     "password character varying(255), role character varying(80));", tablePassword, this.tableName);
             pst = connection.prepareStatement(request);
             pst.execute();

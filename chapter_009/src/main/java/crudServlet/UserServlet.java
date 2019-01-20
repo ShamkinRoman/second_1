@@ -29,11 +29,9 @@ public class UserServlet extends HttpServlet {
     In constructor may be includes some actions in last time.
      */
     public UserServlet() {
-        action.put("add", add());
         action.put("update", update());
         action.put("delete", delete());
         action.put("exit", exit());
-        action.put("addPasswordRole", addPasswordRole());
     }
 
     @Override
@@ -66,25 +64,7 @@ public class UserServlet extends HttpServlet {
         });
     }
 
-    public Function<HttpServletRequest, Boolean> add() {
-        return (param -> {
-            String name = param.getParameter("name");
-            String login = param.getParameter("login");
-            String email = param.getParameter("email");
-            return validate.add(new User(name, login, email));
-        });
-    }
 
-    public Function<HttpServletRequest, Boolean> addPasswordRole() {
-        return (param -> {
-            String name = param.getParameter("name");
-            String login = param.getParameter("login");
-            String email = param.getParameter("email");
-            String password = param.getParameter("password");
-            String role = param.getParameter("role");
-            return validate.addPasswordRole(new User(name, login, email), password, role);
-        });
-    }
 
 
 
