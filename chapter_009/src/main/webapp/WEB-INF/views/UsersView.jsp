@@ -20,9 +20,16 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <input type="submit" name="action" value="exit" style="color: red">
 </form>
 
-<c:if test="${sessionScope.get('addWrongRole')!='not'}">
-    Attention !!! 
-    <c:out value="${sessionScope.get('addWrongRole')}"><br></c:out>
+<c:if test="${sessionScope.get('addWrongRole')!='not' && sessionScope.get('addWrongRole')!= null} ">
+    Attention !!!
+    <c:out value="${sessionScope.get('addWrongRole')}"></c:out>
+    <br>
+</c:if>
+
+<c:if test="${sessionScope.get('notUpdate')!='not' && sessionScope.get('notUpdate')!= null} ">
+    Attention !!!
+    <c:out value="${sessionScope.get('notUpdate')}"></c:out>
+    <br>
 </c:if>
 
 
@@ -57,7 +64,7 @@ List users
     </tr>
     <c:forEach items="${users}" var="user">
         <tr>
-            <form action="${pageContext.servletContext.contextPath}/" method="post">
+            <form action="${pageContext.servletContext.contextPath}/list" method="post">
                 <td><input type='text' name='id' value="<c:out value="${user.id}"></c:out>" readonly></td>
                 <td><input type='text' name='name' value="<c:out value="${user.name}"></c:out>"></td>
                 <td><input type='text' name='login' value="<c:out value="${user.login}"></c:out>"></td>

@@ -42,6 +42,7 @@ public class SigninController extends HttpServlet {
                 session.setAttribute("access", roles.get(validate.isCheckPass(login, password)));
                 session.setAttribute("role", validate.isCheckPass(login, password));
                 session.setAttribute("login", login);
+                session.setAttribute("addWrongRole", " not");
                 System.out.println(session.getAttribute("access"));
             }
             resp.sendRedirect(String.format("%s/", req.getContextPath()));

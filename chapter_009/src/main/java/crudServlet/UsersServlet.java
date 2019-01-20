@@ -3,9 +3,11 @@ package crudServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /*
@@ -14,6 +16,19 @@ Class used methods UPDATE and DELETE in HTML form.
 It use name submit form as parameter (action) for parents class.
  */
 public class UsersServlet extends UserServlet {
+    private static final ValidateService validate = ValidateService.getInstance();
+    private Map<String, Integer> roles = new HashMap<>();
+    private void fillMap() {
+        roles.put("admin", 1);
+        roles.put("user", 2);
+        roles.put("guest", 3);
+        roles.put("99", 99);
+    }
+
+    public UsersServlet() {
+        fillMap();
+    }
+
     /**
      * Method for building HTML page.
      *
@@ -68,14 +83,23 @@ public class UsersServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String choice = req.getParameter("action");
-        if (!choice.equals("update")) {
-            super.doPost(req, resp);
-            doGet(req, resp);
-        } else {
-            resp.sendRedirect(req.getContextPath() + "/edit?id=" + req.getParameter("id"));
+//        String choice = req.getParameter("action");
+//        if (!choice.equals("update")) {
+//            super.doPost(req, resp);
+//            doGet(req, resp);
+//        } else {
+        System.out.println(String.format("Method POST in USERSSSS"));
+            HttpSession session = req.getSession();
+            if ( roles.get(validate.getRole(req.getParameter("login"))) >= (int) session.getAttribute("access")) {
+                System.out.println(String.format(" In block if and role is %s",  req.getParameter("login")));
+                session.setAttribute("notUpdate", "not");
+                super.doPost(req,resp);
+
+            } else {
+                session.setAttribute("notUpdate", "You are not change this user!");
+            }
         }
-    }
+
 
     @Override
     public void destroy() {

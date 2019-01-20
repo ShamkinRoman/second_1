@@ -43,7 +43,7 @@ public class DBStore implements Store, AutoCloseable {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
             String request = String.format("create table if not exists %s (id serial primary key, login character varying (300), " +
-                    "foreign key(login) references %s(login) on delete cascade, UNIQUE(login), " +
+                    "foreign key(login) references %s(login) on delete cascade on update cascade, UNIQUE(login), " +
                     "password character varying(255), role character varying(80));", tablePassword, this.tableName);
             pst = connection.prepareStatement(request);
             pst.execute();
@@ -165,6 +165,22 @@ public class DBStore implements Store, AutoCloseable {
         return result;
     }
 
+    public String getRole(String login) {
+        String result = "99";
+        try (Connection con = SOURCE.getConnection()) {
+            String request = String.format("select * from %s where login = '%s';", passTable, login);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(request);
+            if (rs.next()) {
+                result = rs.getString("role");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
     @Override
     public List<User> findAll() {
         return null;
@@ -197,6 +213,7 @@ public class DBStore implements Store, AutoCloseable {
         }
         return storage;
     }
+
 
     @Override
     public void close() throws Exception {
