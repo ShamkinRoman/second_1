@@ -32,7 +32,16 @@ public class UserCreateServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String result = doAction(req) ? "successful" : "negative";
+        HttpSession session = req.getSession();
+        int access = (int) session.getAttribute("access");
+        System.out.println((int) super.getRolesFromMap().get(req.getParameter("role")) >= access);
+        if ((int) super.getRolesFromMap().get(req.getParameter("role")) >= access) {
+            String result = doAction(req) ? "successful" : "negative";
+            session.setAttribute("addNot", 1);
+        } else {
+           session.setAttribute("addNot", "You can't add this role");
+        }
+        System.out.println(session.getAttribute("addNot"));
         resp.sendRedirect(String.format("%s/", req.getContextPath()));
     }
 
@@ -53,9 +62,6 @@ public class UserCreateServlet extends UserServlet {
             int access = (int) session.getAttribute("access");
             if ((int) super.getRolesFromMap().get(role) >= access) {
                 result = validate.addPasswordRole(new User(name, login, email), password, role);
-                session.setAttribute("addWrongRole", "not");
-            } else {
-                session.setAttribute("addWrongRole", "You can't add this role");
             }
             return result;
         });

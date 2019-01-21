@@ -20,9 +20,8 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <input type="submit" name="action" value="exit" style="color: red">
 </form>
 
-<c:if test="${sessionScope.get('addWrongRole')!='not' && sessionScope.get('addWrongRole')!= null} ">
-    Attention !!!
-    <c:out value="${sessionScope.get('addWrongRole')}"></c:out>
+<c:if test="${sessionScope.get('addNot') == 1}">
+    Attention !!! Alarm !!!!
     <br>
 </c:if>
 
