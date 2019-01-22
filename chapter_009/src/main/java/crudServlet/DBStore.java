@@ -19,7 +19,7 @@ public class DBStore implements Store, AutoCloseable {
     private static final DBStore INSTANCE = new DBStore();
     private Map<String, String> setting;
     private final String tableName;
-    private final String passTable = "rolePassword";
+    private final String passTable;
 
     public DBStore getINSTANCE() {
         return INSTANCE;
@@ -28,6 +28,7 @@ public class DBStore implements Store, AutoCloseable {
     public DBStore() {
         this.setting = new DataSetup().getMap();
         this.tableName = setting.get("jspTable");
+        this.passTable = setting.get("passTable");
         SOURCE.setDriverClassName("org.postgresql.Driver");
         SOURCE.setUrl(setting.get("fullPathJSP"));
         SOURCE.setUsername(setting.get("user"));
@@ -52,7 +53,6 @@ public class DBStore implements Store, AutoCloseable {
             e.printStackTrace();
         }
     }
-
 
     public void createTable(String tableName) {
         PreparedStatement pst;
@@ -180,13 +180,14 @@ public class DBStore implements Store, AutoCloseable {
         }
         return result;
     }
+
     public String getRolebyId(String id) {
         String result = "99";
         try (Connection con = SOURCE.getConnection()) {
-            String login = String.format("select * from %s where id = %s;", tableName, id );
+            String login = String.format("select * from %s where id = %s;", tableName, id);
             Statement st = con.createStatement();
             ResultSet rs;
-            rs= st.executeQuery(login);
+            rs = st.executeQuery(login);
             if (rs.next()) {
                 result = rs.getString("login");
             }
@@ -234,7 +235,6 @@ public class DBStore implements Store, AutoCloseable {
         }
         return storage;
     }
-
 
     @Override
     public void close() throws Exception {

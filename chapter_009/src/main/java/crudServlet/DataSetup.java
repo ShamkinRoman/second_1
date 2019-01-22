@@ -37,6 +37,7 @@ public class DataSetup {
         map.put("password", properties.getProperty("password"));
         map.put("fullPathJSP", properties.getProperty("fullPathJSP"));
         map.put("jspTable", properties.getProperty("jspTable"));
+        map.put("passTable", properties.getProperty("passwordTable"));
     }
 
     public HashMap<String, String> getMap() {

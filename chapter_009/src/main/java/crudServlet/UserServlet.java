@@ -23,7 +23,13 @@ Method GET display contain storage.
 public class UserServlet extends HttpServlet {
     private static final ValidateService validate = ValidateService.getInstance();
     private Map<String, Function<HttpServletRequest, Boolean>> action = new HashMap<>();
-
+    private Map<String, Integer> roles = new HashMap<>();
+    private void fillMapByRoles() {
+        roles.put("admin", 1);
+        roles.put("user", 2);
+        roles.put("guest", 3);
+        roles.put("99", 99);
+    }
     /*
     initializations main method for storage.
     In constructor may be includes some actions in last time.
@@ -32,6 +38,7 @@ public class UserServlet extends HttpServlet {
         action.put("update", update());
         action.put("delete", delete());
         action.put("exit", exit());
+        fillMapByRoles();
     }
 
     @Override
@@ -45,7 +52,6 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String result = doAction(req) ? "successful" : "negative";
         resp.sendRedirect(String.format("%s/", req.getContextPath()));
-
     }
 
     public Function<HttpServletRequest, Boolean> exit() {
@@ -64,6 +70,15 @@ public class UserServlet extends HttpServlet {
     public boolean doAction(HttpServletRequest request) {
         Function<HttpServletRequest, Boolean> function = action.get(request.getParameter("action"));
         return function != null ? function.apply(request) : false;
+    }
+
+    public Function<HttpServletRequest, Boolean> add() {
+        return (param -> {
+            String name = param.getParameter("name");
+            String login = param.getParameter("login");
+            String email = param.getParameter("email");
+            return validate.add(new User(name, login, email));
+        });
     }
 
     public Function<HttpServletRequest, Boolean> update() {
@@ -96,6 +111,10 @@ public class UserServlet extends HttpServlet {
             }
             return result;
         });
+    }
+
+    public Map getRolesFromMap(){
+        return this.roles;
     }
 
     protected List<User> findAll() {

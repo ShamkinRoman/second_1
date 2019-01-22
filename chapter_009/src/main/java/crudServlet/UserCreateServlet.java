@@ -20,18 +20,9 @@ It use name submit form as parameter (action)  for parents class.
 public class UserCreateServlet extends UserServlet {
     private static final ValidateService validate = ValidateService.getInstance();
     private Map<String, Function<HttpServletRequest, Boolean>> action = new HashMap<>();
-    private Map<String, Integer> roles = new HashMap<>();
-    private void fillMap() {
-        roles.put("admin", 1);
-        roles.put("user", 2);
-        roles.put("guest", 3);
-        roles.put("99", 99);
-    }
 
     public UserCreateServlet() {
-        this.action.put("add", add());
         this.action.put("addPasswordRole", addPasswordRole());
-        fillMap();
     }
 
     @Override
@@ -50,17 +41,6 @@ public class UserCreateServlet extends UserServlet {
         return function != null ? function.apply(request) : false;
     }
 
-
-
-    public Function<HttpServletRequest, Boolean> add() {
-        return (param -> {
-            String name = param.getParameter("name");
-            String login = param.getParameter("login");
-            String email = param.getParameter("email");
-            return validate.add(new User(name, login, email));
-        });
-    }
-
     public Function<HttpServletRequest, Boolean> addPasswordRole() {
         return (param -> {
             boolean result = false;
@@ -71,11 +51,11 @@ public class UserCreateServlet extends UserServlet {
             String role = param.getParameter("role");
             HttpSession session = param.getSession();
             int access = (int) session.getAttribute("access");
-            if  (roles.get(role) >= access) {
+            if ((int) super.getRolesFromMap().get(role) >= access) {
                 result = validate.addPasswordRole(new User(name, login, email), password, role);
-                session.setAttribute("addWrongRole", " not");
+                session.setAttribute("addWrongRole", "not");
             } else {
-                session.setAttribute("addWrongRole", " You can't add this role");
+                session.setAttribute("addWrongRole", "You can't add this role");
             }
             return result;
         });
