@@ -88,10 +88,11 @@ public class UsersServlet extends UserServlet {
 //            super.doPost(req, resp);
 //            doGet(req, resp);
 //        } else {
-        System.out.println(String.format("Method POST in USERSSSS"));
+        System.out.println(String.format("Method POST in USERSservlet"));
             HttpSession session = req.getSession();
-            if ( roles.get(validate.getRole(req.getParameter("login"))) >= (int) session.getAttribute("access")) {
-                System.out.println(String.format(" In block if and role is %s",  req.getParameter("login")));
+            if ( roles.get(validate.getRoleByLogin(req.getParameter("login"))) >= (int) session.getAttribute("access")) {
+                System.out.println(String.format(" In block if and login is %s",  req.getParameter("login")));
+//                System.out.println(String.format(" In block if and role is %s",  req.getParameter("id")));
                 session.setAttribute("notUpdate", "not");
                 super.doPost(req,resp);
 

@@ -37,11 +37,8 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-                req.setAttribute("users", validate.findAllMap().values());
-                req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp);
-
-
-
+        req.setAttribute("users", validate.findAllMap().values());
+        req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp);
     }
 
     @Override
@@ -57,17 +54,12 @@ public class UserServlet extends HttpServlet {
             try {
                 param.getSession().invalidate();
                 result = true;
-            } catch (NullPointerException npe){
+            } catch (NullPointerException npe) {
                 npe.getStackTrace();
             }
             return result;
         });
     }
-
-
-
-
-
 
     public boolean doAction(HttpServletRequest request) {
         Function<HttpServletRequest, Boolean> function = action.get(request.getParameter("action"));

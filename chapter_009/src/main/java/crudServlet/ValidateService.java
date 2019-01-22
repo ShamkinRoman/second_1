@@ -65,8 +65,11 @@ public class ValidateService {
     public String isCheckPass(String login, String password) {
         return memory.isCheckPass(login, password);
     }
-    public  String getRole(String login) {
-        return memory.getRole(login);
+    public  String getRoleByLogin(String login) {
+        return memory.getRolebyLogin(login);
+    }
+    public  String getRoleById(String id) {
+        return memory.getRolebyId(id);
     }
 
     public void close() {

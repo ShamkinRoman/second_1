@@ -29,6 +29,7 @@ This is JSP page, when you can edit User !
                 <td><input type='text' name='login' value="<c:out value="${user.login}"></c:out>"></td>
                 <td><input type='text' name='email' value="<c:out value="${user.email}"></c:out>"></td>
                 <td><input type="submit" name="action" value="update"></td>
+                <%--<c:param name="loginOld" value="<c:out value='${user.login}'></c:out>"></c:param>--%>
             </form>
         </tr>
     </c:forEach>

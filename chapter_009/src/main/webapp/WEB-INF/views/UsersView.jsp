@@ -12,7 +12,7 @@
     <title>IndexJSP</title>
 </head>
 <body>
-This is JSP page! <br>
+This is UsersView JSP page! <br>
 You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and you role is <b><c:out
         value="${sessionScope.get('role')}"></c:out>.</b><br>
 
@@ -64,7 +64,7 @@ List users
     </tr>
     <c:forEach items="${users}" var="user">
         <tr>
-            <form action="${pageContext.servletContext.contextPath}/list" method="post">
+            <form action="${pageContext.servletContext.contextPath}/edit" method="post">
                 <td><input type='text' name='id' value="<c:out value="${user.id}"></c:out>" readonly></td>
                 <td><input type='text' name='name' value="<c:out value="${user.name}"></c:out>"></td>
                 <td><input type='text' name='login' value="<c:out value="${user.login}"></c:out>"></td>

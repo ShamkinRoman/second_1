@@ -143,6 +143,7 @@ public class DBStore implements Store, AutoCloseable {
                 System.out.println(String.format("++User must have uniq login and e-mail++"));
                 System.out.println(request);
                 System.out.println(String.format("++++++++++++++++++++++++++++++++++++++++"));
+                e.printStackTrace();
             } else e.printStackTrace();
         }
         return result;
@@ -165,12 +166,32 @@ public class DBStore implements Store, AutoCloseable {
         return result;
     }
 
-    public String getRole(String login) {
+    public String getRolebyLogin(String login) {
         String result = "99";
         try (Connection con = SOURCE.getConnection()) {
             String request = String.format("select * from %s where login = '%s';", passTable, login);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(request);
+            if (rs.next()) {
+                result = rs.getString("role");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String getRolebyId(String id) {
+        String result = "99";
+        try (Connection con = SOURCE.getConnection()) {
+            String login = String.format("select * from %s where id = %s;", tableName, id );
+            Statement st = con.createStatement();
+            ResultSet rs;
+            rs= st.executeQuery(login);
+            if (rs.next()) {
+                result = rs.getString("login");
+            }
+            String request = String.format("select * from %s where login = '%s';", passTable, result);
+            rs = st.executeQuery(request);
             if (rs.next()) {
                 result = rs.getString("role");
             }
