@@ -43,7 +43,8 @@ public class SigninController extends HttpServlet {
                 session.setAttribute("role", validate.isCheckPass(login, password));
                 session.setAttribute("login", login);
                 session.setAttribute("addWrongRole", " not");
-                session.setAttribute("addNot", 1);
+                session.setAttribute("addNot", " ");
+                session.setAttribute("updateNot", " ");
                 System.out.println(session.getAttribute("access"));
             }
             resp.sendRedirect(String.format("%s/", req.getContextPath()));

@@ -37,7 +37,7 @@ public class UserCreateServlet extends UserServlet {
         System.out.println((int) super.getRolesFromMap().get(req.getParameter("role")) >= access);
         if ((int) super.getRolesFromMap().get(req.getParameter("role")) >= access) {
             String result = doAction(req) ? "successful" : "negative";
-            session.setAttribute("addNot", 1);
+//            session.setAttribute("addNot", " ");
         } else {
            session.setAttribute("addNot", "You can't add this role");
         }

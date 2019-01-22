@@ -83,24 +83,17 @@ public class UsersServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String choice = req.getParameter("action");
-//        if (!choice.equals("update")) {
-//            super.doPost(req, resp);
-//            doGet(req, resp);
-//        } else {
+
         System.out.println(String.format("Method POST in USERSservlet"));
             HttpSession session = req.getSession();
             if ( roles.get(validate.getRoleByLogin(req.getParameter("login"))) >= (int) session.getAttribute("access")) {
                 System.out.println(String.format(" In block if and login is %s",  req.getParameter("login")));
-//                System.out.println(String.format(" In block if and role is %s",  req.getParameter("id")));
                 session.setAttribute("notUpdate", "not");
                 super.doPost(req,resp);
-
             } else {
                 session.setAttribute("notUpdate", "You are not change this user!");
             }
         }
-
 
     @Override
     public void destroy() {

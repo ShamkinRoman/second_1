@@ -183,6 +183,7 @@ public class DBStore implements Store, AutoCloseable {
 
     public String getRolebyId(String id) {
         String result = "99";
+        String requu= String.format("Select p.id, p.login, pos.password, pos.role from unu p left outer join rolepassword pos on pos.login = p.login where p.id=%;", Integer.parseInt(id));
         try (Connection con = SOURCE.getConnection()) {
             String login = String.format("select * from %s where id = %s;", tableName, id);
             Statement st = con.createStatement();

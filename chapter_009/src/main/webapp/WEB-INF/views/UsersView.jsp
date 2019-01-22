@@ -20,12 +20,12 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <input type="submit" name="action" value="exit" style="color: red">
 </form>
 
-<c:if test="${sessionScope.get('addNot') == 1}">
+<c:if test="${sessionScope.get('addNot') == ' '}">
     Attention !!! Alarm !!!!
     <br>
 </c:if>
 
-<c:if test="${sessionScope.get('notUpdate')!='not' && sessionScope.get('notUpdate')!= null} ">
+<c:if test="${sessionScope.get('notUpdate')!= ' '} ">
     Attention !!!
     <c:out value="${sessionScope.get('notUpdate')}"></c:out>
     <br>

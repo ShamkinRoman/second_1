@@ -38,6 +38,7 @@ public class UserUpdateServlet extends UserServlet {
         if ((int) session.getAttribute("access") <= (int) super.getRolesFromMap().get(validate.getRoleById(req.getParameter("id")))) {
             super.doPost(req, resp);
         } else {
+            session.setAttribute("updateNot", "You can't edit this user!");
             resp.sendRedirect(String.format("%s/", req.getContextPath()));
         }
     }
