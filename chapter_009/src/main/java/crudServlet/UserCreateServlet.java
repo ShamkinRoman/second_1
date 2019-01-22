@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -34,10 +32,9 @@ public class UserCreateServlet extends UserServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         int access = (int) session.getAttribute("access");
-        System.out.println((int) super.getRolesFromMap().get(req.getParameter("role")) >= access);
         if ((int) super.getRolesFromMap().get(req.getParameter("role")) >= access) {
             String result = doAction(req) ? "successful" : "negative";
-//            session.setAttribute("addNot", " ");
+            session.setAttribute("addNot", "");
         } else {
            session.setAttribute("addNot", "You can't add this role");
         }
@@ -52,18 +49,13 @@ public class UserCreateServlet extends UserServlet {
 
     public Function<HttpServletRequest, Boolean> addPasswordRole() {
         return (param -> {
-            boolean result = false;
             String name = param.getParameter("name");
             String login = param.getParameter("login");
             String email = param.getParameter("email");
             String password = param.getParameter("password");
             String role = param.getParameter("role");
-            HttpSession session = param.getSession();
-            int access = (int) session.getAttribute("access");
-            if ((int) super.getRolesFromMap().get(role) >= access) {
-                result = validate.addPasswordRole(new User(name, login, email), password, role);
-            }
-            return result;
+            boolean  result = validate.addPasswordRole(new User(name, login, email), password, role);
+                        return result;
         });
     }
 

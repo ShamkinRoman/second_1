@@ -20,17 +20,21 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <input type="submit" name="action" value="exit" style="color: red">
 </form>
 
-<c:if test="${sessionScope.get('addNot') == ' '}">
-    Attention !!! Alarm !!!!
-    <br>
-</c:if>
-
-<c:if test="${sessionScope.get('notUpdate')!= ' '} ">
+<c:if test="${sessionScope.get('addNot') != ''}">
     Attention !!!
-    <c:out value="${sessionScope.get('notUpdate')}"></c:out>
+<div style="color: red">
+    <c:out value="${sessionScope.get('addNot')}"></c:out>
+</div>
     <br>
 </c:if>
 
+<c:if test="${sessionScope.get('updateNot')!= ''}">
+    Attention !!!
+<div style="color: red">
+    <c:out value="${sessionScope.get('updateNot')}"></c:out>
+</div>
+    <br>
+</c:if>
 
 <c:if test="${sessionScope.get('access')<3}">
     <form action="${pageContext.servletContext.contextPath}/create" method="post">

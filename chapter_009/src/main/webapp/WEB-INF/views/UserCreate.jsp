@@ -16,7 +16,13 @@ This is JSP page, when you can create NEW User !
     name: <input type="text" name="name" value="name"> <br>
     login: <input type="text" name="login" value="login"> <br>
     email: <input type="text" name="email" value="email"> <br>
-    <input type="submit" name="action" value="add"> <br>
+    role:
+    <select name="role">
+        <option value="admin">admin</option>
+        <option value="user">user</option>
+        <option value="guest">guest</option>
+    </select><br>
+    <input type="submit" name="action" value="addPasswordRole"> <br>
 </form>
 <br>
 </body>

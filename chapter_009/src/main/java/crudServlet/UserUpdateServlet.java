@@ -35,7 +35,9 @@ public class UserUpdateServlet extends UserServlet {
         System.out.println(String.format(" id is, %s", req.getParameter("id")));
         System.out.println(String.format(" role by id is, %s", validate.getRoleById(req.getParameter("id"))));
         HttpSession session = req.getSession();
+        System.out.println((int) session.getAttribute("access") <= (int) super.getRolesFromMap().get(validate.getRoleById(req.getParameter("id"))));
         if ((int) session.getAttribute("access") <= (int) super.getRolesFromMap().get(validate.getRoleById(req.getParameter("id")))) {
+            session.setAttribute("updateNot", "");
             super.doPost(req, resp);
         } else {
             session.setAttribute("updateNot", "You can't edit this user!");
