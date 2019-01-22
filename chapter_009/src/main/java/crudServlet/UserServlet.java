@@ -12,13 +12,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-/*
-This is Servlet class. It used two methods doGet and doPost.
-In URL method POST doing add, update, delete.
-For example adding name=NameUser?login=LoginUser?email=Email@mail.com?action=add
-For example updating name=NameUser?login=LoginUser?email=Email@mail.com?action=update?id=1
-For example deleting name=NameUser?login=LoginUser?email=Email@mail.com?action=delete?id=1
-Method GET display contain storage.
+/**
+ *
+*This is Servlet class. It used two methods doGet and doPost.
+*In URL method POST doing add, update, delete.
+*For example adding name=NameUser?login=LoginUser?email=Email@mail.com?action=add
+*For example updating name=NameUser?login=LoginUser?email=Email@mail.com?action=update?id=1
+*For example deleting name=NameUser?login=LoginUser?email=Email@mail.com?action=delete?id=1
+*Method GET display contain storage.
  */
 public class UserServlet extends HttpServlet {
     private static final ValidateService validate = ValidateService.getInstance();
@@ -30,9 +31,9 @@ public class UserServlet extends HttpServlet {
         roles.put("guest", 3);
         roles.put("99", 99);
     }
-    /*
-    initializations main method for storage.
-    In constructor may be includes some actions in last time.
+    /**
+    *initializations main method for storage.
+    *In constructor may be includes some actions in last time.
      */
     public UserServlet() {
         action.put("update", update());
@@ -43,7 +44,6 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.setAttribute("users", validate.findAllMap().values());
         req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp);
     }

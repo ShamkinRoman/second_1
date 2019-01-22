@@ -5,12 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
-
 /**
  * This is Servlet for Update user in STORAGE.
  */
@@ -31,11 +25,7 @@ public class UserUpdateServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(String.format("Servlet Update"));
-        System.out.println(String.format(" id is, %s", req.getParameter("id")));
-        System.out.println(String.format(" role by id is, %s", validate.getRoleById(req.getParameter("id"))));
         HttpSession session = req.getSession();
-        System.out.println((int) session.getAttribute("access") <= (int) super.getRolesFromMap().get(validate.getRoleById(req.getParameter("id"))));
         if ((int) session.getAttribute("access") <= (int) super.getRolesFromMap().get(validate.getRoleById(req.getParameter("id")))) {
             session.setAttribute("updateNot", "");
             super.doPost(req, resp);

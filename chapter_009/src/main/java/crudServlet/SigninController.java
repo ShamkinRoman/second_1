@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Servlet Controller.
+ * Exist authorization.
+ * Use MAP for access(numeric).
+ */
 public class SigninController extends HttpServlet {
     private Map<String, Integer> roles = new HashMap<>();
     private static final ValidateService validate = ValidateService.getInstance();

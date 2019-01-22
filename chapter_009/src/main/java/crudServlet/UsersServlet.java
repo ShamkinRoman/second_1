@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
-This is class is extending UserServlet.
-Class used methods UPDATE and DELETE in HTML form.
-It use name submit form as parameter (action) for parents class.
+/**
+*This is class is extending UserServlet.
+*Class used methods UPDATE and DELETE in HTML form.
+*It use name submit form as parameter (action) for parents class.
  */
 public class UsersServlet extends UserServlet {
     private static final ValidateService validate = ValidateService.getInstance();
@@ -83,16 +83,7 @@ public class UsersServlet extends UserServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        System.out.println(String.format("Method POST in USERSservlet"));
-            HttpSession session = req.getSession();
-            if ( roles.get(validate.getRoleByLogin(req.getParameter("login"))) >= (int) session.getAttribute("access")) {
-                System.out.println(String.format(" In block if and login is %s",  req.getParameter("login")));
-                session.setAttribute("notUpdate", "not");
-                super.doPost(req,resp);
-            } else {
-                session.setAttribute("notUpdate", "You are not change this user!");
-            }
+        resp.sendRedirect(String.format("%s/", req.getContextPath()));
         }
 
     @Override
