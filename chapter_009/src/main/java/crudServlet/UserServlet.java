@@ -36,6 +36,7 @@ public class UserServlet extends HttpServlet {
     *In constructor may be includes some actions in last time.
      */
     public UserServlet() {
+        action.put("add", add());
         action.put("update", update());
         action.put("delete", delete());
         action.put("exit", exit());
