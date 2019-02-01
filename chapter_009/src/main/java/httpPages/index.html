@@ -7,55 +7,82 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+            var result = false;
+            if (!result) {
+                alert("ddd");
+
+            }
+            var name = document.getElementById("other1").value;
+            if (name == '') {
+                alert("Opapa");
+            }
+            alert(name);
+            var surname = {va: document.getElementById("surname").value};
+            alert(surname.va);
+
+            return result;
+        }
+    </script>
 </head>
 <body>
 <div class="container-fluid">
     <h1>My not First Bootstrap Page. :)</h1>
     <p>Profile.</p>
 </div>
-
-<form class="form-inline" action="/">
+<label>Other:</label>
+<input type="text" name="other" id="other1"><br>
+<form>
     <div class="form-group">
-        <label for="name">Name: </label>
-        <input type=text class="form-control" id="name">
-    </div> <br>
+        <label>Name: </label>
+        <input type=text class="form-control" id="name" name="name">
+    </div>
+    <br>
     <div class="form-group">
         <label for="surname">Surname:</label>
         <input type=text class="form-control" id="surname">
-    </div><br>
+    </div>
+    <br>
     <div class="sex">
         <label>Sex:</label>
         <select name="sex" class="form-control" id="sex">
             <option value="male">male</option>
             <option value="female">female</option>
         </select><br>
-        </div>
+    </div>
     </div>
     <div class="form-group">
         <label for="email">Email address:</label>
         <input type="email" class="form-control" id="email">
-    </div><br>
+    </div>
+    <br>
     <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd">
-    </div><br>
+    </div>
+    <br>
     <div class="checkbox">
         <label><input type="checkbox"> Remember me</label>
-    </div><br>
+    </div>
+    <br>
     <div class="text-area">
         <label> Description:</label>
         <textarea></textarea>
-    </div><br>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form> <br>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-default" onclick="return validate();">Submit</button>
+
+</form>
+<br>
 
 <table class="table" width=600px>
     <thead>
     <tr>
-        <th >Firstname</th>
-        <th >Surname</th>
-        <th >Email</th>
-        <th >Sex</th>
+        <th>Firstname</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Sex</th>
     </tr>
     </thead>
     <tbody>
