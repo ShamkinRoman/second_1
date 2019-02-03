@@ -31,16 +31,54 @@
                 result = false;
             }
 
-            return result;
+            return false;
         }
     </script>
+    <script>
+        function addRow() {
+            var name = $('#name').val();
+            var surname = $('#surname').val();
+            var email = $('#email').val();
+            var sex = $('#sex').val();
+
+            $('#table tr:last').after('<tr><td>' + name + '</td><td> ' + surname + '</td><td>' + email + '</td><td>' + sex + '</td> </tr>');
+
+            // // Находим нужную таблицу
+            // var tbody = document.getElementById('table').getElementsByTagName('tbody')[0];
+            //
+            // // Создаем строку таблицы и добавляем ее
+            // var row = document.createElement("TR");
+            // tbody.appendChild(row);
+            //
+            // // Создаем ячейки в вышесозданной строке
+            // // и добавляем тх
+            // var td1 = document.createElement("TD");
+            // var td2 = document.createElement("TD");
+            // var td3 = document.createElement("TD");
+            // var td4 = document.createElement("TD");
+            //
+            // row.appendChild(td1);
+            // row.appendChild(td2);
+            // row.appendChild(td3);
+            // row.appendChild(td4);
+            //
+            // // Наполняем ячейки
+            // td1.innerHTML = name;
+            // td2.innerHTML = surname;
+            // td3.innerHTML = email;
+            // td4.innerHTML = sex;
+
+        }
+    </script>
+
 </head>
 <body>
 <div class="container-fluid">
     <h1>My not First Bootstrap Page. :)</h1>
     <p>Profile.</p>
 </div>
-<form class="form-inline">
+<!--// Какая-то замута с параметрами у формы. Если не указывать, то строка появляется в таблице и тут же исчезает.-->
+<form class="form-inline" method="post" onsubmit="addRow();return false;">
     <div class="form-group">
         <label>Name: </label>
         <input type=text class="form-control" id="name" name="name">
@@ -79,11 +117,12 @@
     </div>
     <br>
     <button type="submit" class="btn btn-default" onclick="return validate();">Submit</button>
+    <button type="submit" class="btn btn-default">addRow</button>
 
 </form>
 <br>
 
-<table class="table" width=600px>
+<table class="table" width=600px id="table">
     <thead>
     <tr>
         <th>Firstname</th>
