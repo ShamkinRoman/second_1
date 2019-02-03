@@ -31,17 +31,19 @@
                 result = false;
             }
 
-            return false;
+            return result;
         }
     </script>
     <script>
         function addRow() {
-            var name = $('#name').val();
-            var surname = $('#surname').val();
-            var email = $('#email').val();
-            var sex = $('#sex').val();
+            if (validate()) {
+                var name = $('#name').val();
+                var surname = $('#surname').val();
+                var email = $('#email').val();
+                var sex = $('#sex').val();
 
-            $('#table tr:last').after('<tr><td>' + name + '</td><td> ' + surname + '</td><td>' + email + '</td><td>' + sex + '</td> </tr>');
+                $('#table tr:last').after('<tr><td>' + name + '</td><td> ' + surname + '</td><td>' + email + '</td><td>' + sex + '</td> </tr>');
+            }
 
             // // Находим нужную таблицу
             // var tbody = document.getElementById('table').getElementsByTagName('tbody')[0];
@@ -116,7 +118,7 @@
         <textarea></textarea>
     </div>
     <br>
-    <button type="submit" class="btn btn-default" onclick="return validate();">Submit</button>
+    <button type="button" class="btn btn-default" onclick="validate();">Submit</button>
     <button type="submit" class="btn btn-default">addRow</button>
 
 </form>
