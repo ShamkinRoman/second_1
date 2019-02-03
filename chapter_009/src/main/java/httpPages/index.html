@@ -9,18 +9,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         function validate() {
-            var result = false;
-            if (!result) {
-                alert("ddd");
-
+            var result = true;
+            var name = {va: document.getElementById("name").value};
+            if (name.va == '') {
+                alert("Enter you name");
+                result = false;
             }
-            var name = document.getElementById("other1").value;
-            if (name == '') {
-                alert("Opapa");
-            }
-            alert(name);
             var surname = {va: document.getElementById("surname").value};
-            alert(surname.va);
+            if (surname.va == '') {
+                alert("Enter you surname");
+                result = false;
+            }
+            var email = {va: document.getElementById("email").value};
+            if (email.va == '') {
+                alert("Enter you email");
+                result = false;
+            }
+            var pwd = {va: document.getElementById("pwd").value};
+            if (pwd.va == '') {
+                alert("Enter you password");
+                result = false;
+            }
 
             return result;
         }
@@ -31,9 +40,7 @@
     <h1>My not First Bootstrap Page. :)</h1>
     <p>Profile.</p>
 </div>
-<label>Other:</label>
-<input type="text" name="other" id="other1"><br>
-<form>
+<form class="form-inline">
     <div class="form-group">
         <label>Name: </label>
         <input type=text class="form-control" id="name" name="name">
