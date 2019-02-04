@@ -8,6 +8,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+        function addUser() {
+            if (validate()) {
+                var name = $('#name').val();
+                var surname = $('#surname').val();
+                var email = $('#email').val();
+                var sex = $('#sex').val();
+
+                var resp = {"name": name, "surname": surname, "email": email, "sex": sex};
+                $.ajax({
+                    type: "POST",
+                    url: "json",
+                    data: JSON.stringify(resp),
+                    dataType: "json",
+                    success: function (data) {
+                        alert("User added");
+                        var str="";
+                        $.each(data, function (key, value) {
+                            srt+='<td>'+ value+''</td>';
+
+                        });
+                        $('#table tbody tr:last').after('<tr>'+str+'</tr>');
+                    }
+                });
+                $('#name,#surname,#sex,#email').val("");
+            }
+          return validate();
+        }
+
         function validate() {
             var result = true;
             var name = {va: document.getElementById("name").value};
@@ -30,7 +58,6 @@
                 alert("Enter you password");
                 result = false;
             }
-
             return result;
         }
     </script>
@@ -120,8 +147,8 @@
     <br>
     <button type="button" class="btn btn-default" onclick="validate();">Submit</button>
     <button type="submit" class="btn btn-default">addRow</button>
-
 </form>
+<button type="button" class="btn btn-default" onclick="addUser()">addUser</button>
 <br>
 
 <table class="table" width=600px id="table">
