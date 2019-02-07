@@ -10,7 +10,7 @@
     <script>
         function addTableRowFromJSON() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:8080/chapter_009_war_exploded/json', false); // страницу указывать только в таком виде?
+            xhr.open('GET', './json', false); // страницу указывать только в таком виде?
             xhr.send();
             if (xhr.status != 200) {
                 // обработать ошибку
@@ -19,11 +19,12 @@
             }
             var obj = xhr.responseText;
             var job = JSON.parse(obj);
-            var x = 0;
+            var myElement = document.querySelectorAll("tr.addingRow"); // Массив строк с элементами класса addingRow.
+            var x = myElement.length; // Количество уже добавленных элементов.
             //через for не работает совсем, поэтому такой костыль.
             while (true) {
                 if (job[x] != null) {
-                    $('#table tr:last').after('<tr><td>' + job[x].name + '</td><td> ' + job[x].surname + '</td><td>' + job[x].email + '</td><td>' + job[x].sex + '</td> </tr>');
+                    $('#table tr:last').after('<tr class="addingRow" id=' + x + '><td>' + job[x].name + '</td><td> ' + job[x].surname + '</td><td>' + job[x].email + '</td><td>' + job[x].sex + '</td> </tr>');
                 } else {
                     break;
                 }
@@ -40,7 +41,7 @@
                 var resp = {"name": name, "surname": surname, "email": email, "sex": sex};
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:8080/chapter_009_war_exploded/json",  //Можно ли сделать автоматом подбор страницы?
+                    url: "./json",  //Можно ли сделать автоматом подбор страницы?
                     data: JSON.stringify(resp),
                     dataType: "json",
                 });
