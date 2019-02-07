@@ -38,17 +38,6 @@
         <servlet-class>httpPages.JsonController</servlet-class>
     </servlet>
 
-    <servlet>
-        <servlet-name>JsonHTMLController</servlet-name>
-        <servlet-class>httpPages.JsonHTMLServlet</servlet-class>
-    </servlet>
-
-
-    <servlet-mapping>
-        <servlet-name>JsonHTMLController</servlet-name>
-        <url-pattern>/startJson</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>JsonController</servlet-name>
         <url-pattern>/json</url-pattern>
