@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        function jsonret() {
+        function addTableRowFromJSON() {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://localhost:8080/chapter_009_war_exploded/json', false);
             xhr.send();
@@ -24,71 +24,29 @@
             var x = 0;
             while (true) {
                 if (job[x] != null) {
-                    // alert(job[x].name);
                     $('#table tr:last').after('<tr><td>' + job[x].name + '</td><td> ' + job[x].surname + '</td><td>' + job[x].email + '</td><td>' + job[x].sex + '</td> </tr>');
-
                 } else {
                     break;
                 }
                 x++;
             }
-
-
         }
 
-        function fromJ() {
-            $.ajax({
-                type: "GET",
-                url: "http://localhost:8080/chapter_009_war_exploded/json",
-                dataType: "json",
-                complete: function (data) {
-                    console.log(JSON.parse(data.response()));
-                }
-                // success: function (response) {
-                //     var len = response.length;
-                //     for (var i=0; i<len;i++){
-                //         var username = response[i].name;
-                //         var usersurname = response[i].surname;
-                //         var useremail = response[i].email;
-                //         var usersex = response[i].sex;
-                //         alert(username,useremail);
-                //         $('#table tr:last').after('<tr><td>' + name + '</td><td> ' + surname + '</td><td>' + email + '</td><td>' + sex + '</td> </tr>');
-
-                // }
-
-                // }
-
-            });
-
-        }
-
-        function forr() {
-            var arr = ["Яблоко", "Апельсин", "Груша"];
-
-            arr.forEach(function (item, i, arr) {
-                alert(i + ": " + item + " (массив:" + arr + ")");
-            });
-
-        }
-
-        function addUser() {
-            var name = $('#name').val();
-            var surname = $('#surname').val();
-            var email = $('#email').val();
-            var sex = $('#sex').val();
-            var resp = {"name": name, "surname": surname, "email": email, "sex": sex};
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:8080/chapter_009_war_exploded/json",
-                data: JSON.stringify(resp),
-                dataType: "json",
-                success: function (data) {
-                    alert("User added");
-                }
-            });
-            $('#name,#surname,#sex,#email').val("");
-
-            // return validate();
+        function addUserToJSON() {
+            if (validate()) {
+                var name = $('#name').val();
+                var surname = $('#surname').val();
+                var email = $('#email').val();
+                var sex = $('#sex').val();
+                var resp = {"name": name, "surname": surname, "email": email, "sex": sex};
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8080/chapter_009_war_exploded/json",
+                    data: JSON.stringify(resp),
+                    dataType: "json",
+                });
+                $('#name,#surname,#sex,#email').val("");
+            }
         }
 
         function validate() {
@@ -154,15 +112,12 @@
 
         }
     </script>
-
 </head>
 <body>
 <div class="container-fluid">
     <h1>My not First Bootstrap Page. :)</h1>
     <p>Profile.</p>
 </div>
-<!--// Какая-то замута с параметрами у формы. Если не указывать, то строка появляется в таблице и тут же исчезает.-->
-<!--<form class="form-inline" action="http://localhost:8080/chapter_009_war_exploded/json" method="post" >-->
 <form class="form-inline">
     <div class="form-group">
         <label>Name: </label>
@@ -201,13 +156,10 @@
         <textarea></textarea>
     </div>
     <br>
-    <button type="button" class="btn btn-default" onclick="jsonret()">getJson</button>
-    <button type="button" class="btn btn-default" onclick="addUser()">addUser</button>
-    <button type="button" class="btn btn-default" onclick="forr()">nnn</button>
+    <button type="button" class="btn btn-default" onclick="addTableRowFromJSON()">getJson</button>
+    <button type="button" class="btn btn-default" onclick="addUserToJSON()">addUserToJSON</button>
 </form>
-
 <br>
-
 <table class="table" width=600px id="table">
     <thead>
     <tr>
