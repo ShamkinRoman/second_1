@@ -13,7 +13,7 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
-        if (req.getRequestURI().contains("/sign")) {
+        if (req.getRequestURI().contains("/sign") || req.getRequestURI().contains("/start.html") || req.getRequestURI().contains("/json") ) {
             filterChain.doFilter(request, response);
         } else {
             HttpSession session = req.getSession();
