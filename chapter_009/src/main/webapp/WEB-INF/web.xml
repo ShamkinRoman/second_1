@@ -38,6 +38,16 @@
         <servlet-class>httpPages.JsonController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>JsonHTMLController</servlet-name>
+        <servlet-class>httpPages.JsonHTMLServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>JsonHTMLController</servlet-name>
+        <url-pattern>/startJson</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>JsonController</servlet-name>
@@ -70,6 +80,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/uu</url-pattern>
     </servlet-mapping>
 </web-app>
