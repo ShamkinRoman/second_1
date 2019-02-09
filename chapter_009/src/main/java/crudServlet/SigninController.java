@@ -52,7 +52,7 @@ public class SigninController extends HttpServlet {
                 session.setAttribute("updateNot", "");
                 System.out.println(session.getAttribute("access"));
             }
-            resp.sendRedirect(String.format("%s/", req.getContextPath()));
+            resp.sendRedirect(String.format("%s/uu", req.getContextPath()));
         } else {
             req.setAttribute("error", "Wrong authorization");
             doGet(req, resp);

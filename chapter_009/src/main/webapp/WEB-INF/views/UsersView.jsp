@@ -10,6 +10,28 @@
 <html>
 <head>
     <title>IndexJSP</title>
+    <script>
+        function chosenCountry(country){
+            var listTown1 = ["Moscow", "SPG", "Tagil"];
+            var listTown2 = ["Mins", "Gomel", "Brest"];
+            var listTown3 = ["Kiev", "Lvov", "Lugansk"];
+            return country == 1 ? listTown1 : country == 2 ? listTown2 : listTown3;
+        }
+        function ololo() {
+            alert("Waaaaaaaaggggghhh");
+             var town = chosenCountry(2);
+            var opt = document.getElementById("country");
+            var addOpt = document.createElement("option");
+            addOpt.text=town[2];
+            addOpt.setAttribute("value","newEll");
+            opt.appendChild(addOpt);
+            var myElement = document.querySelectorAll("option.country");
+            alert(myElement.length);
+            myElement[0].innerHTML="Yeee";
+
+            // $('#country option:last').after('<option value="notChoose" class="country">Choose country</option>');
+        }
+    </script>
 </head>
 <body>
 This is UsersView JSP page! <br>
@@ -52,8 +74,12 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     </form>
     <br>
 </c:if>
-
-List users
+<br>
+<select name="countryName" id="country" class="coutryAdd">
+    <option value="notChoose" class="country">Choose country</option>
+    <option value="notChoose" class="country">Choose country</option>
+</select>
+<br>List users
 <table border="1">
     <tr>
         <td> id</td>
@@ -80,5 +106,7 @@ List users
         </tr>
     </c:forEach>
 </table>
+
+<button type="button" onclick="ololo()">Waaagh</button>
 </body>
 </html>
