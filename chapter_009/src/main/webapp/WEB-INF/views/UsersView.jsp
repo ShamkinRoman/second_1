@@ -24,7 +24,6 @@
             var elementForDelete = document.querySelectorAll("option.town");
             var addOpt;
             var opt = document.getElementById("town");
-            // var elem = document.getElementsByClassName("town");
             var j;
             for (j = 0; j < elementForDelete.length; j++) {
                 elementForDelete[j].parentNode.removeChild(elementForDelete[j]);
@@ -40,18 +39,11 @@
         }
 
         function ololo() {
-            // alert("Waaaaaaaaggggghhh");
-            // var elem=document.getElementById("town1");
-            // elem.parentNode.removeChild(elem);
             var myElement = document.querySelectorAll("option.town");
             alert(myElement.length);
             for (var t = 0; t < myElement.length; t++) {
                 myElement[t].parentNode.removeChild(myElement[t]);
             }
-
-            // for(var t=0;t<myElement.length; t++){
-            //     myElement[t].parentNode.removeChild(myElement[t]);
-            // }
         }
     </script>
 </head>
