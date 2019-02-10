@@ -10,10 +10,14 @@
 <html>
 <head>
     <title>IndexJSP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         function chosenCountry(country) {
             var listTown0 = ["Choose first country"];
-            var listTown1 = ["Moscow", "SPG", "Tagil"];
+            var listTown1 = ["Moscow", "SPB", "Tagil"];
             var listTown2 = ["Minsk", "Gomel", "Brest"];
             var listTown3 = ["Kiev", "Lvov", "Lugansk"];
             return country == 1 ? listTown1 : country == 2 ? listTown2 : country==3 ? listTown3 : listTown0;
@@ -38,13 +42,37 @@
             }
         }
 
-        function ololo() {
-            var myElement = document.querySelectorAll("option.town");
-            alert(myElement.length);
-            for (var t = 0; t < myElement.length; t++) {
-                myElement[t].parentNode.removeChild(myElement[t]);
-            }
+        function cleanForm() {
+            document.getElementById("createName").setAttribute("value","");
+            document.getElementById("createLogin").setAttribute("value","");
+            document.getElementById("createEmail").setAttribute("value","");
         }
+
+        function validate() {
+            var result = true;
+            var name = {va: document.getElementById("createName").value};
+            if (name.va == '') {
+                alert("Enter name");
+                result = false;
+            }
+            var surname = {va: document.getElementById("createLogin").value};
+            if (surname.va == '') {
+                alert("Enter login");
+                result = false;
+            }
+            var email = {va: document.getElementById("createEmail").value};
+            if (email.va == '') {
+                alert("Enter email");
+                result = false;
+            }
+            var pwd = {va: document.getElementById("createPassword").value};
+            if (pwd.va == '') {
+                alert("Enter password");
+                result = false;
+            }
+            return result;
+        }
+
     </script>
 </head>
 <body>
@@ -74,17 +102,18 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
 
 <c:if test="${sessionScope.get('access')<3}">
     <form action="${pageContext.servletContext.contextPath}/create" method="post">
-        name: <input type="text" name="name" value="name"> <br>
-        login: <input type="text" name="login" value="login"> <br>
-        email: <input type="text" name="email" value="email"> <br>
-        password: <input type="text" name="password" value=""> <br>
+        <div class="form-group">
+            <label>name: </label> <input type="text" name="name" value="name" id = "createName"> </div>
+        <div class="form-group"> <label>login: </label><input type="text" name="login" value="login" id = "createLogin"></div>
+        <div class="form-group"> <label>email: </label><input type="email" name="email" value="email" id = "createEmail"> </div>
+        <div class="form-group"> <label>password: </label><input type="password" name="password" value="" id="createPassword"> </div>
         role:
         <select name="role">
             <option value="admin">admin</option>
             <option value="user">user</option>
             <option value="guest">guest</option>
         </select><br>
-        <input type="submit" name="action" value="addPasswordRole"> <br>
+        <input type="submit" name="action" value="addPasswordRole" onclick="return validate();"> <br>
     </form>
     <br>
 </c:if>
@@ -95,10 +124,10 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <option value="2" class="country">Belarus</option>
     <option value="3" class="country">Ukraine</option>
 </select>
-<select name="townName" id="town" class="townAdd">
+<select name="townName" id="town" class="townAdd" onchange="cleanForm()">
     <option value="notChoose" class="town"> First choose country</option>
 </select>
-<br>List users
+<br><br>List users
 <table border="1">
     <tr>
         <td> id</td>
@@ -125,7 +154,5 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
         </tr>
     </c:forEach>
 </table>
-
-<button type="button" onclick="ololo()">Waaagh</button>
 </body>
 </html>

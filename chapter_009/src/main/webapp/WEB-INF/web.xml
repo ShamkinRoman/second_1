@@ -69,6 +69,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/uu</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

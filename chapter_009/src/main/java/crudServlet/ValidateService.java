@@ -22,7 +22,7 @@ public class ValidateService implements Validate {
 
     public boolean validateUser(User user) {
         boolean result = false;
-        if (user.getLogin() != null && user.getName() != null && validateEmail(user)) {
+        if (user.getLogin() != null && !user.getLogin().equals("") && user.getName() != null && !user.getName().equals("") && validateEmail(user)) {
             result = true;
         }
         return result;
