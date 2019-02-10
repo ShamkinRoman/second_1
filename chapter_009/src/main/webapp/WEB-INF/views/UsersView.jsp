@@ -11,25 +11,47 @@
 <head>
     <title>IndexJSP</title>
     <script>
-        function chosenCountry(country){
+        function chosenCountry(country) {
+            var listTown0 = ["Choose first country"];
             var listTown1 = ["Moscow", "SPG", "Tagil"];
-            var listTown2 = ["Mins", "Gomel", "Brest"];
+            var listTown2 = ["Minsk", "Gomel", "Brest"];
             var listTown3 = ["Kiev", "Lvov", "Lugansk"];
-            return country == 1 ? listTown1 : country == 2 ? listTown2 : listTown3;
+            return country == 1 ? listTown1 : country == 2 ? listTown2 : country==3 ? listTown3 : listTown0;
         }
-        function ololo() {
-            alert("Waaaaaaaaggggghhh");
-             var town = chosenCountry(2);
-            var opt = document.getElementById("country");
-            var addOpt = document.createElement("option");
-            addOpt.text=town[2];
-            addOpt.setAttribute("value","newEll");
-            opt.appendChild(addOpt);
-            var myElement = document.querySelectorAll("option.country");
-            alert(myElement.length);
-            myElement[0].innerHTML="Yeee";
 
-            // $('#country option:last').after('<option value="notChoose" class="country">Choose country</option>');
+        function addTown(country) {
+            var town = chosenCountry(country);
+            var elementForDelete = document.querySelectorAll("option.town");
+            var addOpt;
+            var opt = document.getElementById("town");
+            // var elem = document.getElementsByClassName("town");
+            var j;
+            for (j = 0; j < elementForDelete.length; j++) {
+                elementForDelete[j].parentNode.removeChild(elementForDelete[j]);
+            }
+            for (j = 0; j < town.length; j++) {
+                addOpt = document.createElement("option");
+                addOpt.text = town[j];
+                addOpt.setAttribute("value", j);
+                addOpt.setAttribute("id", "town" + j);
+                addOpt.setAttribute("class", "town");
+                opt.appendChild(addOpt);
+            }
+        }
+
+        function ololo() {
+            // alert("Waaaaaaaaggggghhh");
+            // var elem=document.getElementById("town1");
+            // elem.parentNode.removeChild(elem);
+            var myElement = document.querySelectorAll("option.town");
+            alert(myElement.length);
+            for (var t = 0; t < myElement.length; t++) {
+                myElement[t].parentNode.removeChild(myElement[t]);
+            }
+
+            // for(var t=0;t<myElement.length; t++){
+            //     myElement[t].parentNode.removeChild(myElement[t]);
+            // }
         }
     </script>
 </head>
@@ -44,17 +66,17 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
 
 <c:if test="${sessionScope.get('addNot') != ''}">
     Attention !!!
-<div style="color: red">
-    <c:out value="${sessionScope.get('addNot')}"></c:out>
-</div>
+    <div style="color: red">
+        <c:out value="${sessionScope.get('addNot')}"></c:out>
+    </div>
     <br>
 </c:if>
 
 <c:if test="${sessionScope.get('updateNot')!= ''}">
     Attention !!!
-<div style="color: red">
-    <c:out value="${sessionScope.get('updateNot')}"></c:out>
-</div>
+    <div style="color: red">
+        <c:out value="${sessionScope.get('updateNot')}"></c:out>
+    </div>
     <br>
 </c:if>
 
@@ -75,9 +97,14 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <br>
 </c:if>
 <br>
-<select name="countryName" id="country" class="coutryAdd">
-    <option value="notChoose" class="country">Choose country</option>
-    <option value="notChoose" class="country">Choose country</option>
+<select name="countryName" id="country" class="coutryAdd" onchange="addTown(value)">
+    <option value="0" class="country">Choose country</option>
+    <option value="1" class="country">Russia</option>
+    <option value="2" class="country">Belarus</option>
+    <option value="3" class="country">Ukraine</option>
+</select>
+<select name="townName" id="town" class="townAdd">
+    <option value="notChoose" class="town"> First choose country</option>
 </select>
 <br>List users
 <table border="1">
