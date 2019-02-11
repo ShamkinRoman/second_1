@@ -8,7 +8,7 @@ import java.util.Properties;
 
 /**
  * This is class for storage settings to connect DataBase for ex.#103403.
- * And use in DBStore class.
+ * And use in CinemaDBStore class.
  */
 public class DataSetup {
     private HashMap<String, String> map = new HashMap();
@@ -39,6 +39,8 @@ public class DataSetup {
         map.put("fullPathJSP", properties.getProperty("fullPathJSP"));
         map.put("jspTable", properties.getProperty("jspTable"));
         map.put("passTable", properties.getProperty("passwordTable"));
+        map.put("account", properties.getProperty("account"));
+        map.put("halls", properties.getProperty("halls"));
     }
 
     public HashMap<String, String> getMap() {
