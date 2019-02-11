@@ -15,27 +15,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        function chosenCountry(country) {
-            var listTown0 = ["Choose first country"];
-            var listTown1 = ["Moscow", "SPB", "Tagil"];
-            var listTown2 = ["Minsk", "Gomel", "Brest"];
-            var listTown3 = ["Kiev", "Lvov", "Lugansk"];
-            return country == 1 ? listTown1 : country == 2 ? listTown2 : country==3 ? listTown3 : listTown0;
+        function countryFromAjax() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "./json?value=country", false);
+            xhttp.send();
+            var addOpt;
+            var opt = document.getElementById("country");
+            var obj = JSON.parse(xhttp.responseText);
+            for (var j = 0; j < obj.length; j++) {
+                addOpt = document.createElement("option");
+                addOpt.text = obj[j];
+                addOpt.setAttribute("value", obj[j]);
+                addOpt.setAttribute("id", "country" + j);
+                addOpt.setAttribute("class", "country");
+                opt.appendChild(addOpt);
+            }
         }
 
-        function addTown(country) {
-            var town = chosenCountry(country);
+        function addTownFromAjax(country) {
             var elementForDelete = document.querySelectorAll("option.town");
-            var addOpt;
-            var opt = document.getElementById("town");
-            var j;
             for (j = 0; j < elementForDelete.length; j++) {
                 elementForDelete[j].parentNode.removeChild(elementForDelete[j]);
             }
-            for (j = 0; j < town.length; j++) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "./json?value=" + country, false);
+            xhttp.send();
+            var addOpt;
+            var opt = document.getElementById("town");
+            var obj = JSON.parse(xhttp.responseText);
+            for (var j = 0; j < obj.length; j++) {
                 addOpt = document.createElement("option");
-                addOpt.text = town[j];
-                addOpt.setAttribute("value", j);
+                addOpt.text = obj[j];
+                addOpt.setAttribute("value", obj[j]);
                 addOpt.setAttribute("id", "town" + j);
                 addOpt.setAttribute("class", "town");
                 opt.appendChild(addOpt);
@@ -43,9 +54,9 @@
         }
 
         function cleanForm() {
-            document.getElementById("createName").setAttribute("value","");
-            document.getElementById("createLogin").setAttribute("value","");
-            document.getElementById("createEmail").setAttribute("value","");
+            document.getElementById("createName").setAttribute("value", "");
+            document.getElementById("createLogin").setAttribute("value", "");
+            document.getElementById("createEmail").setAttribute("value", "");
         }
 
         function validate() {
@@ -73,9 +84,10 @@
             return result;
         }
 
+
     </script>
 </head>
-<body>
+<body onload="countryFromAjax()">
 This is UsersView JSP page! <br>
 You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and you role is <b><c:out
         value="${sessionScope.get('role')}"></c:out>.</b><br>
@@ -103,10 +115,13 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
 <c:if test="${sessionScope.get('access')<3}">
     <form action="${pageContext.servletContext.contextPath}/create" method="post">
         <div class="form-group">
-            <label>name: </label> <input type="text" name="name" value="name" id = "createName"> </div>
-        <div class="form-group"> <label>login: </label><input type="text" name="login" value="login" id = "createLogin"></div>
-        <div class="form-group"> <label>email: </label><input type="email" name="email" value="email" id = "createEmail"> </div>
-        <div class="form-group"> <label>password: </label><input type="password" name="password" value="" id="createPassword"> </div>
+            <label>name: </label> <input type="text" name="name" value="name" id="createName"></div>
+        <div class="form-group"><label>login: </label><input type="text" name="login" value="login" id="createLogin">
+        </div>
+        <div class="form-group"><label>email: </label><input type="email" name="email" value="email" id="createEmail">
+        </div>
+        <div class="form-group"><label>password: </label><input type="password" name="password" value=""
+                                                                id="createPassword"></div>
         role:
         <select name="role">
             <option value="admin">admin</option>
@@ -118,11 +133,8 @@ You enter as <b><c:out value="${sessionScope.get('login')} "></c:out></b> and yo
     <br>
 </c:if>
 <br>
-<select name="countryName" id="country" class="coutryAdd" onchange="addTown(value)">
-    <option value="0" class="country">Choose country</option>
-    <option value="1" class="country">Russia</option>
-    <option value="2" class="country">Belarus</option>
-    <option value="3" class="country">Ukraine</option>
+<select name="countryName" id="country" class="coutryAdd" onchange="addTownFromAjax(value)">
+    <option value="chooseCountry" class="country">Choose country</option>
 </select>
 <select name="townName" id="town" class="townAdd" onchange="cleanForm()">
     <option value="notChoose" class="town"> First choose country</option>
