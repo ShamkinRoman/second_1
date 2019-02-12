@@ -34,20 +34,20 @@
                 document.getElementById("th" + i).innerText = i.toString();
                 for (var j = 1; j <= place; j++) {
                     addTD = document.createElement("td");
-                    addTD.setAttribute("id", "td" + i + j);
+                    addTD.setAttribute("id", "td,row" + i + ",column" + j);
                     trAddchild.appendChild(addTD);
-                    tdAddChild = document.getElementById("td" + i + j);
+                    tdAddChild = document.getElementById("td,row" + i + ",column" + j);
                     addInput = document.createElement("input")
-                    addInput.setAttribute("id", "place" + i + j);
+                    addInput.setAttribute("id", "place,row" + i + ",column" + j);
                     addInput.setAttribute("type", "radio");
                     addInput.setAttribute("name", "place");
-                    addInput.setAttribute("value", i.toString() + j.toString());
+                    addInput.setAttribute("value", "row" + i.toString() + ",column" + j.toString());
                     tdAddChild.appendChild(addInput);
                     labelForRadio = document.createElement("label");
-                    labelForRadio.setAttribute("id", "label" + i + j);
-                    labelForRadio.setAttribute("for", "place" + i + j);
+                    labelForRadio.setAttribute("id", "label,row" + i.toString() + ",column" + j.toString());
+                    labelForRadio.setAttribute("for", "place,row" + i + ",column" + j);
                     tdAddChild.appendChild(labelForRadio);
-                    document.getElementById("label" + i + j).innerText = " Ряд " + i + ", Место " + j;
+                    document.getElementById("label,row" + i.toString() + ",column" + j.toString()).innerText = " Ряд " + i + ", Место " + j;
                 }
             }
         }
@@ -60,6 +60,16 @@
                 headTH.setAttribute("id", "headTH" + i);
                 theadTR.appendChild(headTH);
                 document.getElementById("headTH" + i).innerText = i.toString();
+            }
+        }
+
+        function reHref() {
+            var choose=$('input[name=place]:checked').val();
+            if (choose != null && choose != '') {
+                sessionStorage.setItem("place", choose);
+                window.location.href = './payment.html';
+            } else {
+                alert("You must selected place");
             }
         }
     </script>
@@ -94,7 +104,7 @@
         </table>
     </div>
     <div class="row float-right">
-        <button type="button" class="btn btn-success">Оплатить</button>
+        <button type="button" class="btn btn-success" onclick="reHref()">Оплатить</button>
     </div>
 </div>
 </body>

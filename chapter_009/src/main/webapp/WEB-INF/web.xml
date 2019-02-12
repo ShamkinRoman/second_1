@@ -38,6 +38,16 @@
         <servlet-class>httpPages.JsonController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Cinema</servlet-name>
+        <servlet-class>cinemaServlet.HallServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>Cinema</servlet-name>
+        <url-pattern>/cinema</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>JsonController</servlet-name>
         <url-pattern>/json</url-pattern>
@@ -69,6 +79,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/uuu</url-pattern>
     </servlet-mapping>
 </web-app>

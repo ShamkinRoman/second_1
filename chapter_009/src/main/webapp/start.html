@@ -41,7 +41,7 @@
                 var resp = {"name": name, "surname": surname, "email": email, "sex": sex};
                 $.ajax({
                     type: "POST",
-                    url: "./json",  //Можно ли сделать автоматом подбор страницы?
+                    url: "./json",
                     data: JSON.stringify(resp),
                     dataType: "json",
                 });
@@ -110,6 +110,9 @@
             // td3.innerHTML = email;
             // td4.innerHTML = sex;
 
+        }
+        function fff() {
+            alert(sessionStorage.getItem("place"));
         }
     </script>
 </head>
@@ -184,5 +187,6 @@
     </tr>
     </tbody>
 </table>
+<button type="button" onclick="fff()">Waaaggghhhh</button>
 </body>
 </html>

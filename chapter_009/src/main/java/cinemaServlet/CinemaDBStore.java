@@ -44,7 +44,7 @@ public class CinemaDBStore implements AutoCloseable {
     public void createTableHalls(String halls) {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
-            String request = String.format("create table if not exists %s (id serial primary key, place character varying (4), UNIQUE(place), " +
+            String request = String.format("create table if not exists %s (id serial primary key, place character varying (20), UNIQUE(place), " +
                     "name character varying (300), foreign key(name) references %s(name) on delete cascade on update cascade);", halls, this.account);
             pst = connection.prepareStatement(request);
             pst.execute();
@@ -82,14 +82,14 @@ public class CinemaDBStore implements AutoCloseable {
         }
     }
 
-    public boolean addPlace(Buyer buyer, String place) {
+    public boolean addPlace(Buyer buyer) {
         boolean result = false;
         PreparedStatement pst;
         addBueyr(buyer);
             String req = String.format("insert into %s (place, name) values (?, ?);", this.halls);
             try (Connection con = SOURCE.getConnection()) {
                 pst = con.prepareStatement(req);
-                pst.setString(1, place);
+                pst.setString(1, buyer.getPlace());
                 pst.setString(2, buyer.getName());
                 pst.executeUpdate();
                 pst.close();
