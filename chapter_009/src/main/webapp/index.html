@@ -11,9 +11,9 @@
 
     <title>Hello, world!</title>
     <script>
-        function fillPlace() {
-            var row = 3;
-            var place = 3;
+        function fillPlace(rowIn, placeIn) {
+            var row = rowIn;
+            var place = placeIn;
             var tbodyAdd = document.getElementById("tbody1");
             var trAddchild;
             var addTR;
@@ -22,6 +22,7 @@
             var addInput;
             var tdAddChild;
             var labelForRadio;
+            fillHeadTable(place);
             for (var i = 1; i <= row; i++) {
                 addTR = document.createElement("tr");
                 addTR.setAttribute("id", "tr" + i);
@@ -50,10 +51,21 @@
                 }
             }
         }
+
+        function fillHeadTable(place) {
+            var theadTR = document.getElementById("theadTR");
+            var headTH;
+            for (var i = 1; i <= place; i++) {
+                headTH = document.createElement("th");
+                headTH.setAttribute("id", "headTH" + i);
+                theadTR.appendChild(headTH);
+                document.getElementById("headTH" + i).innerText = i.toString();
+            }
+        }
     </script>
 
 </head>
-<body onload="fillPlace()">
+<body onload="fillPlace(6,5)">
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -73,11 +85,11 @@
         </h4>
         <table class="table table-bordered">
             <thead>
-            <tr>
+            <tr id="theadTR">
                 <th style="width: 120px;">Ряд / Место</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
+                <!--<th>1</th>-->
+                <!--<th>2</th>-->
+                <!--<th>3</th>-->
             </tr>
             </thead>
             <tbody id="tbody1">

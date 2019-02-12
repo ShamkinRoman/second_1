@@ -44,7 +44,7 @@ public class CinemaDBStore implements AutoCloseable {
     public void createTableHalls(String halls) {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
-            String request = String.format("create table if not exists %s (id serial primary key, place character varying (2), UNIQUE(place), " +
+            String request = String.format("create table if not exists %s (id serial primary key, place character varying (4), UNIQUE(place), " +
                     "name character varying (300), foreign key(name) references %s(name) on delete cascade on update cascade);", halls, this.account);
             pst = connection.prepareStatement(request);
             pst.execute();
