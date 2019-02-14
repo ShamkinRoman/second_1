@@ -1,7 +1,7 @@
 package cinemaServlet;
 
 import com.google.gson.Gson;
-import httpPages.Person;
+
 import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -15,18 +15,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+
 
 public class HallServlet extends HttpServlet {
     private static final CinemaValidateService cinema = new CinemaValidateService().getInstance();
-    private final Map<Integer, Person> map = new ConcurrentHashMap<>();
-    private final List<Buyer> list = new CopyOnWriteArrayList<>();
     private final Map<String, List<String>> forAjax = new ConcurrentHashMap<>();
 
+
     private void fillAjax() {
+
         List<String> size = Arrays.asList("3", "3");
         forAjax.put("sizeTable", size);
-
+        forAjax.put("getBusyPlace", cinema.getBusyPlace());
     }
 
     public HallServlet() {
@@ -40,7 +40,9 @@ public class HallServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         ObjectMapper om = new ObjectMapper();
         String parameter = req.getParameter("value");
-        System.out.println(parameter);
+        if (parameter.equals("getBusyPlace")) {
+            forAjax.replace("getBusyPlace", cinema.getBusyPlace());
+        }
         writer.append(om.writeValueAsString(forAjax.get(parameter)));
         writer.flush();
     }
@@ -58,13 +60,11 @@ public class HallServlet extends HttpServlet {
                 sb.append(s);
             }
             Buyer buyer = gson.fromJson(sb.toString(), Buyer.class);
-            list.add(buyer);
-            list.forEach(System.out::println); //для контроля.
+            System.out.println(sb.toString());
+            cinema.addPlace(buyer);
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
 }

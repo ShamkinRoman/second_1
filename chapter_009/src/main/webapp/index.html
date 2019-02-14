@@ -50,6 +50,7 @@
                     document.getElementById("label,row" + i.toString() + ",column" + j.toString()).innerText = " Ряд " + i + ", Место " + j;
                 }
             }
+            getBusyPlace();
         }
 
         function fillHeadTable(place) {
@@ -64,13 +65,27 @@
         }
 
         function reHref() {
-            var choose=$('input[name=place]:checked').val();
+            var choose = $('input[name=place]:checked').val();
             if (choose != null && choose != '') {
                 sessionStorage.setItem("place", choose);
                 window.location.href = './payment.html';
             } else {
                 alert("You must selected place");
             }
+        }
+
+        function getBusyPlace() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', './cinema?value=getBusyPlace', false);
+            xhr.send();
+            var obj = JSON.parse(xhr.responseText);
+            obj.forEach(function (item, i, obj) {
+                document.getElementById("td,"+item).setAttribute("bgcolor", "red");
+                // alert(item);
+            });
+
+
+
         }
     </script>
 
@@ -107,5 +122,6 @@
         <button type="button" class="btn btn-success" onclick="reHref()">Оплатить</button>
     </div>
 </div>
+<button type="button" onclick="getBusyPlace()">Waaaaaahhh</button>
 </body>
 </html>

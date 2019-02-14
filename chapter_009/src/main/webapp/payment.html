@@ -27,13 +27,6 @@
             var respToJson = JSON.stringify(resp);
             xhr.open("POST", "./cinema", false);
             xhr.send(respToJson);
-
-            // $.ajax({
-            //     type: "POST",
-            //     url: "./cinema",
-            //     data: JSON.stringify(resp),
-            //     dataType: "json",
-            // });
             sessionStorage.setItem("place", null);
             window.location.href = './index.html';
         }

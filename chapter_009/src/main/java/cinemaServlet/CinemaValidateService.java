@@ -22,8 +22,8 @@ public class CinemaValidateService implements AutoCloseable {
         return instance;
     }
 
-   public boolean addPlace(Buyer buyer, String place){
-        return memory.addPlace(buyer, place);
+   public boolean addPlace(Buyer buyer){
+        return memory.addPlace(buyer);
    }
 
    public boolean deletePlace(String place){

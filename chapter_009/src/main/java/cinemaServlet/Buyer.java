@@ -28,12 +28,14 @@ public class Buyer {
         return place;
     }
 
-    @Override
-    public String toString() {
-        return "Buyer{" +
-                "place='" + place + '\'' +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+    public String toJson() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\"place\":");
+        sb.append("\"" + place + "\",");
+        sb.append("\"name\":");
+        sb.append("\"" + name + "\",");
+        sb.append("\"phone\":");
+        sb.append("\"" + phone + "\"}");
+        return sb.toString();
     }
 }
