@@ -4,13 +4,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta http-equiv="Refresh" content="15">
+    //автоматическое обновление страцы через 15 секунд.
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Hello, world!</title>
     <script>
+        //Заполняем страницу с местами в зале.
         function fillPlace(rowIn, placeIn) {
             var row = rowIn;
             var place = placeIn;
@@ -53,6 +55,7 @@
             getBusyPlace();
         }
 
+        //заполняем заголовок таблицы. (верхний ряд).
         function fillHeadTable(place) {
             var theadTR = document.getElementById("theadTR");
             var headTH;
@@ -64,28 +67,43 @@
             }
         }
 
+        //Передаем запрос на страницу оплаты.
         function reHref() {
-            var choose = $('input[name=place]:checked').val();
-            if (choose != null && choose != '') {
-                sessionStorage.setItem("place", choose);
+            if (validateBusy()) {
+                var choose = $('input[name=place]:checked').val();
+                sessionStorage.setItem("place", choose); //Используем хранилище для передачи места на другую страницу.
                 window.location.href = './payment.html';
-            } else {
-                alert("You must selected place");
             }
         }
 
+        //Получаем список занятых мест.
         function getBusyPlace() {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', './cinema?value=getBusyPlace', false);
             xhr.send();
             var obj = JSON.parse(xhr.responseText);
             obj.forEach(function (item, i, obj) {
-                document.getElementById("td,"+item).setAttribute("bgcolor", "red");
-                // alert(item);
+                document.getElementById("td," + item).setAttribute("bgcolor", "red");
             });
+        }
 
-
-
+        //Валидация выбора. Выбрали не занятое место или вообще произвели выбор.
+        function validateBusy() {
+            var result = false;
+            var choose = $('input[name=place]:checked').val();
+            if (choose != null) {
+                var str = choose.valueOf();
+                var color = document.getElementById("td," + str).getAttribute("bgcolor");
+                if (color != "red") {
+                    alert("well ok");
+                    result = true;
+                } else {
+                    alert("This is place busy!");
+                }
+            } else {
+                alert("Choose place please")
+            }
+            return result;
         }
     </script>
 
@@ -122,6 +140,5 @@
         <button type="button" class="btn btn-success" onclick="reHref()">Оплатить</button>
     </div>
 </div>
-<button type="button" onclick="getBusyPlace()">Waaaaaahhh</button>
 </body>
 </html>

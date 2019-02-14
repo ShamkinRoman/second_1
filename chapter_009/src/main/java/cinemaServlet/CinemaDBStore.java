@@ -44,6 +44,7 @@ public class CinemaDBStore implements AutoCloseable {
     public void createTableHalls(String halls) {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
+            connection.setAutoCommit(false);
             String request = String.format("create table if not exists %s (id serial primary key, place character varying (20), UNIQUE(place), " +
                     "name character varying (300), foreign key(name) references %s(name) on delete cascade on update cascade);", halls, this.account);
             pst = connection.prepareStatement(request);
@@ -72,11 +73,13 @@ public class CinemaDBStore implements AutoCloseable {
         PreparedStatement pst;
         String request = String.format("insert into %s (name, phone) values (?, ?);", this.account);
         try (Connection con = SOURCE.getConnection()) {
+            con.setAutoCommit(false);
             pst = con.prepareStatement(request);
             pst.setString(1, buyer.getName());
             pst.setString(2, buyer.getPhone());
             pst.executeUpdate();
             pst.close();
+            con.commit();
         } catch (SQLException e) {
             SQLError(e, buyer);
         }
@@ -86,21 +89,23 @@ public class CinemaDBStore implements AutoCloseable {
         boolean result = false;
         PreparedStatement pst;
         addBueyr(buyer);
-            String req = String.format("insert into %s (place, name) values (?, ?);", this.halls);
-            try (Connection con = SOURCE.getConnection()) {
-                pst = con.prepareStatement(req);
-                pst.setString(1, buyer.getPlace());
-                pst.setString(2, buyer.getName());
-                pst.executeUpdate();
-                pst.close();
-                result = true;
-            } catch (SQLException e) {
-                SQLError(e, buyer);
-            }
+        String req = String.format("insert into %s (place, name) values (?, ?);", this.halls);
+        try (Connection con = SOURCE.getConnection()) {
+            con.setAutoCommit(false);
+            pst = con.prepareStatement(req);
+            pst.setString(1, buyer.getPlace());
+            pst.setString(2, buyer.getName());
+            pst.executeUpdate();
+            pst.close();
+            con.commit();
+            result = true;
+        } catch (SQLException e) {
+            SQLError(e, buyer);
+        }
         return result;
     }
 
-    private void SQLError(SQLException e, Buyer buyer){
+    private void SQLError(SQLException e, Buyer buyer) {
         if (e.getErrorCode() == 0) {
             System.out.println(String.format("++++++++++ block add user and password++++++++++++++"));
             System.out.println(String.format("++User must have uniq login and e-mail++++++++++++++"));
@@ -117,9 +122,11 @@ public class CinemaDBStore implements AutoCloseable {
     private boolean makeRequest(String request) {
         boolean result = false;
         try (Connection con = SOURCE.getConnection()) {
+            con.setAutoCommit(false);
             Statement st = con.createStatement();
             st.executeUpdate(request);
             st.close();
+            con.commit();
             result = true;
         } catch (SQLException e) {
             if (e.getErrorCode() == 0) {
@@ -135,14 +142,16 @@ public class CinemaDBStore implements AutoCloseable {
 
     public List<String> getbusyPlace() {
         List<String> list = new ArrayList<>();
-        String requestPlace= String.format("Select place from %s;", this.halls);
+        String requestPlace = String.format("Select place from %s;", this.halls);
         try (Connection con = SOURCE.getConnection()) {
+            con.setAutoCommit(false);
             Statement st = con.createStatement();
             ResultSet rs;
             rs = st.executeQuery(requestPlace);
             while (rs.next()) {
                 list.add(rs.getString("place"));
             }
+            con.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

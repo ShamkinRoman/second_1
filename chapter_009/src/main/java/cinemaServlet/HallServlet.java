@@ -21,7 +21,6 @@ public class HallServlet extends HttpServlet {
     private static final CinemaValidateService cinema = new CinemaValidateService().getInstance();
     private final Map<String, List<String>> forAjax = new ConcurrentHashMap<>();
 
-
     private void fillAjax() {
 
         List<String> size = Arrays.asList("3", "3");
@@ -66,5 +65,10 @@ public class HallServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void destroy() {
+        cinema.close();
     }
 }

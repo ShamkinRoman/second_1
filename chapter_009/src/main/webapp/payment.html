@@ -11,6 +11,7 @@
 
     <title>Hello, world!</title>
     <script>
+        //Заполнения заголовка с выбором ряда и места.
         function fillTextPlace() {
             var str = sessionStorage.getItem("place").split(',');
             var row = str[0].substring(3);
@@ -19,16 +20,27 @@
 
         }
 
+        // Передача оплаты на JSON.
         function pay() {
-            var username = $('#username').val();
             var phone = $('#phone').val();
-            var resp = {"place": sessionStorage.getItem("place"), "name": username, "phone": phone};
-            var xhr = new XMLHttpRequest();
-            var respToJson = JSON.stringify(resp);
-            xhr.open("POST", "./cinema", false);
-            xhr.send(respToJson);
-            sessionStorage.setItem("place", null);
-            window.location.href = './index.html';
+            if (isNumeric(phone)) {
+                var username = $('#username').val();
+                var resp = {"place": sessionStorage.getItem("place"), "name": username, "phone": phone};
+                var xhr = new XMLHttpRequest();
+                var respToJson = JSON.stringify(resp);
+                xhr.open("POST", "./cinema", false);
+                xhr.send(respToJson);
+                sessionStorage.setItem("place", null);
+                window.location.href = './index.html';
+            }
+        }
+
+        function isNumeric(n) {
+            var result = !isNaN(parseFloat(n)) && isFinite(n);
+            if (!result) {
+                alert("Enter correct phone.")
+            }
+            return result;
         }
     </script>
 </head>
