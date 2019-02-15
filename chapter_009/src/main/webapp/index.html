@@ -84,6 +84,7 @@
             var obj = JSON.parse(xhr.responseText);
             obj.forEach(function (item, i, obj) {
                 document.getElementById("td," + item).setAttribute("bgcolor", "red");
+                document.getElementById("place," + item).style.display = "none";
             });
         }
 
