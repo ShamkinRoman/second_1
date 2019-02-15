@@ -107,11 +107,11 @@ public class CinemaDBStore implements AutoCloseable {
                 pst.setString(2, buyer.getName());
                 pst.executeUpdate();
                 pst.close();
+                st.executeUpdate(commit);
                 result = true;
             } else {
                 st.executeUpdate("ROLLBACK;");
             }
-            st.executeUpdate(commit);  // Нужно ли здесь это прописывать или после 108 строки ?
             st.close();
             con.commit();
         } catch (SQLException e) {
