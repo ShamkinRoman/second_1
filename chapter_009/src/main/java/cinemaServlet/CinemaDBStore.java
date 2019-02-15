@@ -112,6 +112,7 @@ public class CinemaDBStore implements AutoCloseable {
             } else {
                 st.executeUpdate("ROLLBACK;");
             }
+            rst.close();
             st.close();
             con.commit();
         } catch (SQLException e) {
