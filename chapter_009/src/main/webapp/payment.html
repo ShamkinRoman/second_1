@@ -30,6 +30,14 @@
                 var respToJson = JSON.stringify(resp);
                 xhr.open("POST", "./cinema", false);
                 xhr.send(respToJson);
+                xhr.open("GET", "./cinema?value=goodAdd", false);
+                xhr.send();
+                var resultBuyer = JSON.parse(xhr.responseText);
+                if (resultBuyer[0] == "true") {
+                    alert("Ok, you buy place");
+                } else {
+                    alert("Sorry, you can't buy this place.")
+                }
                 sessionStorage.setItem("place", null);
                 window.location.href = './index.html';
             }

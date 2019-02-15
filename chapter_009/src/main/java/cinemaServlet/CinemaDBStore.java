@@ -11,8 +11,8 @@ import java.util.Map;
 
 
 /**
- * Class for storage User attributes. (examples class User storage this.).
- * You must correction String URL for you database.
+ * Class for storage place and user.
+ * <p>
  * You also can be correction account for comfortable create table and use it later.
  */
 public class CinemaDBStore implements AutoCloseable {
@@ -44,7 +44,6 @@ public class CinemaDBStore implements AutoCloseable {
     public void createTableHalls(String halls) {
         PreparedStatement pst;
         try (Connection connection = SOURCE.getConnection()) {
-            connection.setAutoCommit(false);
             String request = String.format("create table if not exists %s (id serial primary key, place character varying (20), UNIQUE(place), " +
                     "name character varying (300), foreign key(name) references %s(name) on delete cascade on update cascade);", halls, this.account);
             pst = connection.prepareStatement(request);
@@ -73,13 +72,11 @@ public class CinemaDBStore implements AutoCloseable {
         PreparedStatement pst;
         String request = String.format("insert into %s (name, phone) values (?, ?);", this.account);
         try (Connection con = SOURCE.getConnection()) {
-            con.setAutoCommit(false);
             pst = con.prepareStatement(request);
             pst.setString(1, buyer.getName());
             pst.setString(2, buyer.getPhone());
             pst.executeUpdate();
             pst.close();
-            con.commit();
         } catch (SQLException e) {
             SQLError(e, buyer);
         }
@@ -88,17 +85,35 @@ public class CinemaDBStore implements AutoCloseable {
     public boolean addPlace(Buyer buyer) {
         boolean result = false;
         PreparedStatement pst;
+        Statement st;
+        ResultSet rst;
+        int i = 99;
         addBueyr(buyer);
-        String req = String.format("insert into %s (place, name) values (?, ?);", this.halls);
+        String addPlaceString = String.format("insert into %s (place, name) values (?, ?);", this.halls);
+        String freePlace = String.format("select count(*) place from %s where place = '%s';", this.halls, buyer.getPlace());
+        String isolationTransaction = "BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;";
+        String commit = "commit;";
         try (Connection con = SOURCE.getConnection()) {
             con.setAutoCommit(false);
-            pst = con.prepareStatement(req);
-            pst.setString(1, buyer.getPlace());
-            pst.setString(2, buyer.getName());
-            pst.executeUpdate();
-            pst.close();
+            st = con.createStatement();
+            st.executeUpdate(isolationTransaction);
+            rst = st.executeQuery(freePlace);
+            if (rst.next()) {
+                i = Integer.parseInt(rst.getString("place"));
+            }
+            if (i == 0) {
+                pst = con.prepareStatement(addPlaceString);
+                pst.setString(1, buyer.getPlace());
+                pst.setString(2, buyer.getName());
+                pst.executeUpdate();
+                pst.close();
+                result = true;
+            } else {
+                st.executeUpdate("ROLLBACK;");
+            }
+            st.executeUpdate(commit);  // Нужно ли здесь это прописывать или после 108 строки ?
+            st.close();
             con.commit();
-            result = true;
         } catch (SQLException e) {
             SQLError(e, buyer);
         }

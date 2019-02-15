@@ -24,7 +24,9 @@ public class HallServlet extends HttpServlet {
     private void fillAjax() {
 
         List<String> size = Arrays.asList("3", "3");
+        List<String> goodAdd = Arrays.asList("false");
         forAjax.put("sizeTable", size);
+        forAjax.put("goodAdd", goodAdd);
         forAjax.put("getBusyPlace", cinema.getBusyPlace());
     }
 
@@ -51,6 +53,7 @@ public class HallServlet extends HttpServlet {
         resp.setContentType("text/json");
         resp.setCharacterEncoding("UTF-8");
         String s;
+        boolean addGood;
         Gson gson = new Gson();
         StringBuilder sb = new StringBuilder();
         try {
@@ -60,11 +63,13 @@ public class HallServlet extends HttpServlet {
             }
             Buyer buyer = gson.fromJson(sb.toString(), Buyer.class);
             System.out.println(sb.toString());
-            cinema.addPlace(buyer);
             reader.close();
+            addGood = cinema.addPlace(buyer);
+            forAjax.replace("goodAdd", Arrays.asList(String.valueOf(addGood)));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
