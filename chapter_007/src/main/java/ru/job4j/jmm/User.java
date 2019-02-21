@@ -16,7 +16,7 @@ public class User {
      * @param number начальное значение.
      */
     public User(Integer number) {
-        this.number = new Integer(number);
+        this.number = number;
     }
 
     /**
