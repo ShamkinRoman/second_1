@@ -3,18 +3,17 @@ package inputOut.arhiveProject;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.File;
 
-public class Example {
+public class ParseCommandLine {
     @Option(names = {"-d", "--directory"}, paramLabel = "directory", description = "directory")
-    public File directory;
+    public String directory = System.getProperty("java.io.tmpdir");
 
     @Option(names = {"-e", "--exclude"}, paramLabel = "exclude", description = "exclude")
     public boolean exclude = false;
-    @Parameters(arity = "1..*", paramLabel = "FILE", description = "File(s) to exclude")
-    public File[] inputFiles;
+    @Parameters(arity = "0..*", paramLabel = "FILE", description = "File(s) to exclude")
+    public String[] blackFiles = new String[]{"",""};
 
     @Option(names = {"-o", "--output"}, paramLabel = "ARCHIVE", description = "the archive file")
-    public File archive;
+    public String archive = "pack.zip";
 
 }
