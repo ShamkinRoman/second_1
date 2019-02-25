@@ -83,6 +83,7 @@ public class Archive {
             }
             /*Закрываем запись в архиве*/
             out.closeEntry();
+            System.out.println("name: " + entryName+ "------ OK");
         }
     }
 
@@ -102,10 +103,9 @@ public class Archive {
                 /*либо она пустая либо нет*/
                 if (isEmptyDirectory(object)) {
                     /*Если пустая, то нужно просто создать запись в архиве*/
-                    System.out.print("name: " + entryName);
                     out.putNextEntry(new ZipEntry(entryName + "/"));
                     out.closeEntry();
-                    System.out.println(" ------ OK");
+                    System.out.println("name: " + entryName+ "------ OK");
                 } else {
                     /*если папка не пустая, то мы вызываемся рекурсивно на этой папке*/
                     arhive(object, out);
@@ -115,9 +115,7 @@ public class Archive {
                   Если рассматриваемый объект это файл, то нужно его заархивировать.
                   Для этого мы используем функцию toArchiveTheFile
                 */
-                System.out.print("name: " + entryName);
                 toArchiveTheFile(object, out, entryName);
-                System.out.println(" ------ OK");
             }
         }
     }
