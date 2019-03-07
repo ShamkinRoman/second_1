@@ -26,6 +26,10 @@ public class Client {
                 while (true){
                     System.out.println("Введите сообщение для отправки");
                     string = bufferedReader.readLine();
+                    if (string.equals("stop")) {
+                        socket.close();
+                        break;
+                    }
                     out.writeUTF(string);
                     ((DataOutputStream) out).flush();
                     string = in.readUTF();
