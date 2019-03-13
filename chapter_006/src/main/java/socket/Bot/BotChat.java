@@ -15,7 +15,12 @@ public class BotChat {
         String you; //строка для задаваемых вопросов.
         String[] dividedLine = new String[4];  //Хранилище для подстрок.
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
+            BufferedReader reader = null;
+            try {
+                reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             while (true) {
                 try {
                     stringFromFile = reader.readLine();
